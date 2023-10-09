@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 
-//Script to spawn cars at given spawner Waypoint in defined intervals
+//Script to spawn cars in defined intervals
 public class SpawnCar : MonoBehaviour
 {
 
@@ -12,12 +14,25 @@ public class SpawnCar : MonoBehaviour
     public float spawnCountdown = 2;
 
     //Variable to define in seconds the current time of the countdown
-    public float currentTime;
+    private float currentTime;
 
+    //Array containing all car PreFabs
+    private GameObject[] cars;
+
+    //Function to randomly spawn cars
+    void spawnCar() {
+
+        //Create a new GameObject consisting of a randomly chosen car in Resources/PreFabs/Cars folder
+        GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)]);
+
+    }
     void Start()
     {
-        //
+        //Initialize currentTime as spawnCountdown
         currentTime = spawnCountdown;
+
+        //Load all cars of Cars folder
+        cars = Resources.LoadAll<GameObject>("PreFabs/Cars");
     }
 
     // Update is called once per frame
@@ -32,6 +47,11 @@ public class SpawnCar : MonoBehaviour
         else 
         {
             //...start of action after timer stopped
+
+            //Randomly spawn car
+            spawnCar();
+
+            //Reset Timer
             currentTime = spawnCountdown;
         }
     }
