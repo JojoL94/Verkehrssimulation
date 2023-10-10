@@ -20,7 +20,6 @@ public class Waypoint : MonoBehaviour
         //Draw a black line to connected previous Waypoints
         Gizmos.color = Color.black;
 
-        Debug.Log(previousWaypoints.Count);
         if (previousWaypoints.Count > 0) {
             for (int i = 0; i < previousWaypoints.Count; i++)
             {
