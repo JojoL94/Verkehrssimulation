@@ -19,32 +19,23 @@ public class MoveCar : MonoBehaviour
     {
         //Move to nextWaypoint
         transform.position = Vector3.MoveTowards(transform.position, nextWaypoint.transform.position, speed * Time.deltaTime);
+        transform.LookAt(nextWaypoint.transform);
 
         //If nextWaypoint was reached...
-        if (Vector3.Distance(transform.position, nextWaypoint.transform.position) < 0.1) 
+        if (Vector3.Distance(transform.position, nextWaypoint.transform.position) < 0.01) 
         {
+            //Generate index of randomly chosen successor Waypoint
+            int randomWaypoint = Random.Range(0, nextWaypoint.GetComponent<Waypoint>().nextWaypoints.Count);
 
-            //...check if multiple destination Waypoint has multiple successors
-            if (nextWaypoint.GetComponent<Waypoint>().nextWaypoints.Count > 1)
+            //...check if Waypoint has successor, if not: Despawn car
+            if (nextWaypoint.GetComponent<Waypoint>().nextWaypoints[0] == null)
             {
-                //If destination has multiple successors change current destination to a random successor
-                nextWaypoint = nextWaypoint.GetComponent<Waypoint>().nextWaypoints[Random.Range(0, nextWaypoint.GetComponent<Waypoint>().nextWaypoints.Count)];
-                transform.LookAt(nextWaypoint.transform);
+                Destroy(this.gameObject);
             }
-            //If destination Waypoint has one or less Waypoints...
-            else
+            else 
             {
-                //...Check if Waypoint was defined, if not: Despawn car
-                if (nextWaypoint.GetComponent<Waypoint>().nextWaypoints[0] == null)
-                {
-                    Destroy(this.gameObject);
-                }
-                //If Waypoint is defined, new Destination is the single successor
-                else 
-                {
-                    nextWaypoint = nextWaypoint.GetComponent<Waypoint>().nextWaypoints[0];
-                    transform.LookAt(nextWaypoint.transform);
-                }
+                //Otherwise, change current destination to a random successor
+                nextWaypoint = nextWaypoint.GetComponent<Waypoint>().nextWaypoints[randomWaypoint];
             }
         }
     }
