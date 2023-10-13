@@ -35,10 +35,7 @@ public class SpawnCar : MonoBehaviour
         //Create a new GameObject consisting of a randomly chosen car in Resources/PreFabs/Cars folder
         GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)]);
 
-        //Add MoveCar Script to cars, so they can start driving
-        car.AddComponent<MoveCar>();
-
-        //Fill MoveCar Script
+        //Fill MoveCar Script with first Waypoint
         car.GetComponent<MoveCar>().nextWaypoint = spawnPoint.GetComponent<Waypoint>().nextWaypoints[0];
 
         //Add car to carCollection

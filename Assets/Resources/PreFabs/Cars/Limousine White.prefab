@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5266960007882154467}
   - component: {fileID: 1843865948345421863}
   - component: {fileID: 1837921428456521511}
+  - component: {fileID: 1457946052816374432}
   m_Layer: 0
   m_Name: Limousine White
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1457946052816374432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513562054150823853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ef74c0bf94c784db03c15ce7370e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextWaypoint: {fileID: 0}
+  speed: 1
