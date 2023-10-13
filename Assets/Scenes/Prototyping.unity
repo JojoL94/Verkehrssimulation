@@ -802,7 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carCollection: {fileID: 1224740759}
-  maxCars: 10
+  maxCars: 15
   spawnCountdown: 2
   spawnPoint: {fileID: 1131031587}
 --- !u!4 &1934428089

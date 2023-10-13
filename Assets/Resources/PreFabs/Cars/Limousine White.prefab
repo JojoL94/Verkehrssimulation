@@ -97,4 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaypoint: {fileID: 0}
-  speed: 1
+  maxSpeed: 1
+  baseAcceleration: 5
+  speed: 0

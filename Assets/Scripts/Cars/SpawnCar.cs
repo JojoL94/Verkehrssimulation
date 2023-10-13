@@ -15,7 +15,7 @@ public class SpawnCar : MonoBehaviour
     public Transform carCollection;
 
     //Max number of cars driving at the same time
-    public float maxCars = 10;
+    public float maxCars = 15;
 
     //Variable to define in seconds the time between spawning cars
     public float spawnCountdown = 2;

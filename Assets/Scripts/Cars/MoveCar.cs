@@ -11,12 +11,35 @@ public class MoveCar : MonoBehaviour
     //Current destionation of car
     public Waypoint nextWaypoint;
 
+    //Maximum speed of car
+    public float maxSpeed = 1f;
+
+    //Base acceleration speed of car in Unity units per second
+    //It determines, along with Time.deltaTime, the increase of acceeration
+    public float baseAcceleration = 5f;
+
     //Current speed of car
-    public float speed = 1f;
+    public float speed = 0f;
+
+    //Fixed Update is used for physics calculations that aren't linear
+    private void FixedUpdate()
+    {
+        //Acceleration
+        if (speed < maxSpeed)
+        {
+            //In brackets: Calculate the acceleration of speed
+            //Multiply result by Time.deltaTime to get acceleration per seconds
+            speed += (speed + (Time.deltaTime * baseAcceleration)) * Time.deltaTime;
+
+            //Ensure, that speed is never bigger than maxSpeed
+            speed = Mathf.Clamp(speed, 0, maxSpeed);
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
+
         //Move to nextWaypoint
         transform.position = Vector3.MoveTowards(transform.position, nextWaypoint.transform.position, speed * Time.deltaTime);
         transform.LookAt(nextWaypoint.transform);
