@@ -27,20 +27,16 @@ public class SpawnCar : MonoBehaviour
     private float currentTime;
 
     //Array containing all car PreFabs
-    private GameObject[] cars;
+    public GameObject[] cars;
 
     //Function to randomly spawn cars
     void spawnCar() {
 
         //Create a new GameObject consisting of a randomly chosen car in Resources/PreFabs/Cars folder
-        GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)]);
+        GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)],carCollection);
 
         //Fill MoveCar Script with first Waypoint
         car.GetComponent<MoveCar>().nextWaypoint = spawnPoint.GetComponent<Waypoint>().nextWaypoints[0];
-
-        //Add car to carCollection
-
-        car.transform.SetParent(carCollection, false);
 
         //Place cars to spawn point
         car.gameObject.transform.position = spawnPoint.transform.position;
@@ -52,7 +48,7 @@ public class SpawnCar : MonoBehaviour
         currentTime = spawnCountdown;
 
         //Load all cars of Cars folder
-        cars = Resources.LoadAll<GameObject>("PreFabs/Cars");
+        //cars = Resources.LoadAll<GameObject>("PreFabs/Cars");
     }
 
     // Update is called once per frame

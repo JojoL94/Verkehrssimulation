@@ -43,7 +43,7 @@ public class MoveCar : MonoBehaviour
         //Move to nextWaypoint
         transform.position = Vector3.MoveTowards(transform.position, nextWaypoint.transform.position, speed * Time.deltaTime);
         transform.LookAt(nextWaypoint.transform);
-
+        transform.Rotate(0, -90, 0);
         //If nextWaypoint was reached...
         if (Vector3.Distance(transform.position, nextWaypoint.transform.position) < 0.01) 
         {
