@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 240609891}
   - component: {fileID: 240609890}
   - component: {fileID: 240609889}
+  - component: {fileID: 240609892}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -679,13 +680,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240609888}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23746005, y: -0.2508758, z: 0.06362713, w: 0.93628293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.47, y: 9.79, z: -5.4799995}
   m_LocalScale: {x: 0.88621, y: 0.6335, z: 0.90197}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 28.463, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &240609892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240609888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c118ac2b603c0734a87f2f57b240a516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationsgeschwindigkeit: 3
+  bewegungsgeschwindigkeit: 3
+  scrollgeschwindigkeit: 3
 --- !u!1 &247002623
 GameObject:
   m_ObjectHideFlags: 0
