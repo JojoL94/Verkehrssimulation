@@ -11,8 +11,6 @@ public class WaypointManagerWindow : EditorWindow
     //Variable to store the waypointCollection (empty GameObject, acting as both, a folder and a list)
     public Transform waypointCollection;
 
-
-
     //Create new editor and define path to open it
     [MenuItem("Tools/Waypoint Editor")]
     public static void Open() 
@@ -72,10 +70,10 @@ public class WaypointManagerWindow : EditorWindow
         if (waypointCollection.childCount > 1) 
         {
             //Add predecessor as previous Waypoint
-            waypoint.previousWaypoints.Add(waypointCollection.GetChild(waypointCollection.childCount - 2).GetComponent<Waypoint>());
+            waypoint.GetComponent<Waypoint>().previousWaypoints.Add(waypointCollection.GetChild(waypointCollection.childCount - 2).GetComponent<Waypoint>().transform);
 
             //Add current Waypoint as successor to predecessor
-            waypoint.previousWaypoints[0].nextWaypoints.Add(waypoint);
+            waypoint.GetComponent<Waypoint>().previousWaypoints[0].GetComponent<Waypoint>().nextWaypoints.Add(waypoint.transform);
 
             //Place new Waypoint at position of first predecessor
             waypoint.transform.position = waypoint.previousWaypoints[0].transform.position;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1023,10 +1023,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousWaypoints:
-  - {fileID: 1053555089}
-  - {fileID: 556816520}
+  - {fileID: 1053555090}
+  - {fileID: 556816519}
   nextWaypoints:
-  - {fileID: 837301819}
+  - {fileID: 837301820}
 --- !u!4 &488403625
 Transform:
   m_ObjectHideFlags: 0
@@ -1154,9 +1154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousWaypoints:
-  - {fileID: 1832247001}
+  - {fileID: 1832247002}
   nextWaypoints:
-  - {fileID: 488403624}
+  - {fileID: 488403625}
 --- !u!1001 &590929120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1328,6 +1328,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+--- !u!1 &630704591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 630704593}
+  - component: {fileID: 630704592}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &630704592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630704591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0193456710b0f534d9524758dd37b93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCars: 30
+--- !u!4 &630704593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630704591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.3466835, y: -0.057203293, z: 5.3813415}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &680798698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1910,7 +1955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousWaypoints:
-  - {fileID: 488403624}
+  - {fileID: 488403625}
   nextWaypoints:
   - {fileID: 0}
 --- !u!4 &837301820
@@ -2201,10 +2246,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousWaypoints:
-  - {fileID: 1131031587}
+  - {fileID: 1131031588}
   nextWaypoints:
-  - {fileID: 488403624}
-  - {fileID: 1832247001}
+  - {fileID: 488403625}
+  - {fileID: 1832247002}
 --- !u!4 &1053555090
 Transform:
   m_ObjectHideFlags: 0
@@ -2271,7 +2316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoints: []
   nextWaypoints:
-  - {fileID: 1053555089}
+  - {fileID: 1053555090}
 --- !u!4 &1131031588
 Transform:
   m_ObjectHideFlags: 0
@@ -2616,10 +2661,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kameraRotationsgeschwindigkeit: 3
   kameraBewegungsgeschwindigkeit: 6
-  kameraScrollgeschwindigkeit: 3
   kameraZoomgeschwindigkeit: 10
   kameraMinZoom: 10
   kameraMaxZoom: 60
+  "kameraH\xF6henverstellgeschwindigkeit": 2
+  "minKameraH\xF6he": 10
+  "maxKameraH\xF6he": 20
 --- !u!4 &1251265795
 Transform:
   m_ObjectHideFlags: 0
@@ -3659,9 +3706,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousWaypoints:
-  - {fileID: 1053555089}
+  - {fileID: 1053555090}
   nextWaypoints:
-  - {fileID: 556816520}
+  - {fileID: 556816519}
 --- !u!4 &1832247002
 Transform:
   m_ObjectHideFlags: 0
@@ -3831,9 +3878,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carCollection: {fileID: 1224740759}
-  maxCars: 15
   spawnCountdown: 2
-  spawnPoint: {fileID: 1131031587}
+  spawnPoint: {fileID: 0}
   cars:
   - {fileID: 301492451801283101, guid: e7a35c7b45acd5f4e997ba10d6f6e9bd, type: 3}
   - {fileID: 4045146553551875017, guid: 129b25192afaaf2438f2ad67814eaeab, type: 3}
@@ -4166,6 +4212,7 @@ SceneRoots:
   - {fileID: 1251265795}
   - {fileID: 1018340016}
   - {fileID: 247002627}
+  - {fileID: 630704593}
   - {fileID: 1934428089}
   - {fileID: 1224740759}
   - {fileID: 749452200}

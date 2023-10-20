@@ -10,18 +10,17 @@ using UnityEngine;
 //Script to spawn cars in defined intervals
 public class SpawnCar : MonoBehaviour
 {
-
     //Collection (empty GameObject) the cars are later added as children for better overview
     public Transform carCollection;
-
-    //Max number of cars driving at the same time
-    public float maxCars = 15;
 
     //Variable to define in seconds the time between spawning cars
     public float spawnCountdown = 2;
 
     //Waypoint acting as spawn point
-    public Waypoint spawnPoint;
+    public Transform spawnPoint;
+
+    //Waypoint acting as destination for spawned cars (currently hard coded)
+    public Transform destination;
 
     //Variable to define in seconds the current time of the countdown
     private float currentTime;
@@ -29,27 +28,46 @@ public class SpawnCar : MonoBehaviour
     //Array containing all car PreFabs
     public GameObject[] cars;
 
+
+
+
     //Function to randomly spawn cars
     void spawnCar() {
 
-        //Create a new GameObject consisting of a randomly chosen car in Resources/PreFabs/Cars folder
+        //Create a new GameObject consisting of a randomly chosen car in carCollection
         GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)],carCollection);
 
         //Fill MoveCar Script with first Waypoint
-        car.GetComponent<MoveCar>().nextWaypoint = spawnPoint.GetComponent<Waypoint>().nextWaypoints[0];
+        car.GetComponent<MoveCar>().origin = spawnPoint;
+
+
+
+        //Fill MoveCar Script with destination Waypoint
+        /**
+         -----------------------------------------------
+         !!!!Currently hard coded, need change later!!!!
+         -----------------------------------------------
+         */
+        car.GetComponent<MoveCar>().destination = destination;
+
+
+
 
         //Place cars to spawn point
         car.gameObject.transform.position = spawnPoint.transform.position;
 
     }
+
+
+
     void Start()
     {
         //Initialize currentTime as spawnCountdown
         currentTime = spawnCountdown;
-
-        //Load all cars of Cars folder
-        //cars = Resources.LoadAll<GameObject>("PreFabs/Cars");
     }
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -63,7 +81,7 @@ public class SpawnCar : MonoBehaviour
         //...start of action after timer stopped
         else
         {
-            if (carCollection.childCount < maxCars) {
+            if (carCollection.childCount < GameObject.Find("GameManager").GetComponent<GameManager>().maxCars) {
 
                 //Spawn random car
                 spawnCar();

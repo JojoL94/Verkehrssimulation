@@ -103,6 +103,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 80492071631ffe442bdaacf7b2e4a9f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7705748354803723269}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 80492071631ffe442bdaacf7b2e4a9f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2673315925368825751}
   m_SourcePrefab: {fileID: 100100000, guid: 80492071631ffe442bdaacf7b2e4a9f3, type: 3}
 --- !u!1 &6436124065293232878 stripped
 GameObject:
@@ -121,7 +124,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ef74c0bf94c784db03c15ce7370e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextWaypoint: {fileID: 0}
-  maxSpeed: 6
+--- !u!114 &2673315925368825751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436124065293232878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3574260353061d54a8496988fdd89594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  origin: {fileID: 0}
+  destination: {fileID: 0}
+  travelRoute: []
+  maxSpeed: 3
   baseAcceleration: 5
   speed: 0
