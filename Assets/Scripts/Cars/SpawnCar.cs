@@ -16,18 +16,21 @@ public class SpawnCar : MonoBehaviour
     //Variable to define in seconds the time between spawning cars
     public float spawnCountdown = 2;
 
+    //Toogle for incomming traffic (car always searches for previous Waypoint)
+    //Default: false (car always searches for next Waypoint)
+    public bool incommingTraffic = false;
+
     //Waypoint acting as spawn point
     public Transform spawnPoint;
 
     //Waypoint acting as destination for spawned cars (currently hard coded)
     public Transform destination;
 
-    //Variable to define in seconds the current time of the countdown
-    private float currentTime;
-
     //Array containing all car PreFabs
     public GameObject[] cars;
 
+    //Variable to define in seconds the current time of the countdown
+    private float currentTime;
 
 
 
@@ -37,10 +40,18 @@ public class SpawnCar : MonoBehaviour
         //Create a new GameObject consisting of a randomly chosen car in carCollection
         GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)],carCollection);
 
+
+        //Toggle incomming traffic bool of Pathfinding for each car at spawn
+        if (!incommingTraffic)
+        {
+            car.GetComponent<Pathfinding>().incomingTraffic = false;
+        }
+        else {
+            car.GetComponent<Pathfinding>().incomingTraffic = true;
+        }
+
         //Fill MoveCar Script with first Waypoint
         car.GetComponent<MoveCar>().origin = spawnPoint;
-
-
 
         //Fill MoveCar Script with destination Waypoint
         /**
@@ -49,7 +60,6 @@ public class SpawnCar : MonoBehaviour
          -----------------------------------------------
          */
         car.GetComponent<MoveCar>().destination = destination;
-
 
 
 

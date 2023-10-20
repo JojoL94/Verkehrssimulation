@@ -28,47 +28,34 @@ public class Waypoint : MonoBehaviour
         //Draw a black line to connected previous Waypoints
         Gizmos.color = Color.black;
 
+
         if (previousWaypoints.Count > 0) {
+
             for (int i = 0; i < previousWaypoints.Count; i++)
             {
                 if (previousWaypoints[i] != null)
                 {
+
                     Gizmos.DrawLine(previousWaypoints[i].transform.position, transform.position);
+                }
+            }
+        }
+
+
+        //Draw a white line to connected next Waypoints
+        Gizmos.color = Color.white;
+
+        if (nextWaypoints.Count > 0)
+        {
+            for (int i = 0; i < nextWaypoints.Count; i++)
+            {
+                if (nextWaypoints[i] != null)
+                {
+
+                    Gizmos.DrawLine(nextWaypoints[i].transform.position, transform.position);
                 }
             }
         }
     }
 
-    public void Start()
-    {
-        //Initialize costs for eacht Waypoint in nextWaypoints
-
-        //Check if Waypoint has a predecessor
-        /**if (previousWaypoints.Count > 0 && previousWaypoints[0] != null)
-        {
-            //For every Waypoint in previousWaypoints...
-            for (int x = 0; x < previousWaypoints.Count; x++)
-            {
-                //...calculate gCost based on distance to neigbour in previousWaypoints 
-                float totalCost = Vector3.Distance(this.transform.localPosition, previousWaypoints[x].localPosition);
-
-                //... and add it to list
-                gCostPrevious.Add(totalCost);
-            }
-        }
-
-        //Check if Waypoint has a successor
-        if (nextWaypoints.Count > 0 && nextWaypoints[0] != null) {
-
-            //For every Waypoint in nextWaypoints...
-            for (int x = 0; x < nextWaypoints.Count; x++)
-            {
-                //...calculate gCost based on distance to neigbour in nextWaypoints...
-                float totalCost = Vector3.Distance(this.transform.localPosition, nextWaypoints[x].localPosition);
-
-                //... and add it to list
-                gCostNext.Add(totalCost);
-            }
-        }*/
-    }
 }

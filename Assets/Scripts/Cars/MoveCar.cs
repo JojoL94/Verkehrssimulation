@@ -58,21 +58,41 @@ public class MoveCar : MonoBehaviour
          //If nextWaypoint was reached...
          if (Vector3.Distance(transform.position, travelRoute[0].transform.position) < 0.01) 
          {
-             //Generate index of randomly chosen successor Waypoint
-             //int randomWaypoint = Random.Range(0, travelRoute[0].GetComponent<Waypoint>().nextWaypoints.Count);
+            if (this.GetComponent<Pathfinding>().incomingTraffic) { 
+            
+            }
 
-             //...check if Waypoint has successor, if not: Despawn car
-             if (travelRoute[0].GetComponent<Waypoint>().nextWaypoints[0] == null)
-             {
-                 Destroy(this.gameObject);
-             }
+            //...check if Waypoint has successor, if not...
+            if (!this.GetComponent<Pathfinding>().incomingTraffic &&
+                (travelRoute[0].GetComponent<Waypoint>().nextWaypoints.Count == 0|| travelRoute[0].GetComponent<Waypoint>().nextWaypoints[0] == null))
 
-             //Else...
-             else 
-             {
+            {
+                //...Despawn car...
+                Destroy(this.gameObject);
+
+                //...and destroy local copy of Waypoints collection
+                Destroy(this.gameObject.GetComponent<Pathfinding>().waypointTree);
+            }
+            //...check if Waypoint has predecessor in case of incomming traffic, if not...
+            else if (this.GetComponent<Pathfinding>().incomingTraffic &&
+                (travelRoute[0].GetComponent<Waypoint>().previousWaypoints.Count == 0 || travelRoute[0].GetComponent<Waypoint>().previousWaypoints[0] == null)) 
+            
+            {
+                //...despawn car...
+                Destroy(this.gameObject);
+
+                //and destroy local copy of Waypoints collection
+                Destroy(this.gameObject.GetComponent<Pathfinding>().waypointTree);
+            }
+
+
+
+            //Else...
+            else
+            {
                 //...remove reached Waypoint
                 travelRoute.Remove(travelRoute[0]);
-             }
+            }
          }
     }
 }

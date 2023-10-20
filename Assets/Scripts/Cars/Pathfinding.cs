@@ -9,8 +9,17 @@ using UnityEngine.UIElements;
 public class Pathfinding : MonoBehaviour
 {
 
+    //Bool to toggle driving direction of spawned cars
+    public bool incomingTraffic;
+
+    //GameObject containing hierarchy of waypoints to calculate route
+    public GameObject waypointTree;
+
+
+
+
     //Retraces the shortest path from end point to start point
-     void RetracePath(Transform startPoint, Transform endPoint){
+    void RetracePath(Transform startPoint, Transform endPoint){
         //List contains all Waypoints for path
         List<Transform> path = new List<Transform>();
 
@@ -27,7 +36,9 @@ public class Pathfinding : MonoBehaviour
 
         //Add path to travelRoute in MoveCar Script, so that car starts to move the route 
         this.GetComponent<MoveCar>().travelRoute = path;
-     }
+    }
+
+
 
 
 
@@ -35,17 +46,31 @@ public class Pathfinding : MonoBehaviour
     private void calculateRoute()
     {
 
+        //Local copy of Waypoints collection => Bug fix to prevent each car from accessing the same collection
+        waypointTree = Instantiate(GameObject.Find("Waypoints"));
+        waypointTree.transform.parent = GameObject.Find("WaypointTreeLists").transform;
+        waypointTree.transform.position = GameObject.Find("Waypoints").transform.position;
+
         //Spawn point of car
         Transform origin = this.GetComponent<MoveCar>().origin;
 
+        //Local copy of spawn point
+        origin = waypointTree.transform.Find(origin.name);
+
         //End point of car
         Transform destination = this.GetComponent<MoveCar>().destination;
+
+        //Local copy of end point
+        destination = waypointTree.transform.Find(destination.name);
 
         //List containing all Waypoints, that weren't checked so far
         List<Transform> openSet = new List<Transform>();
 
         //List containing all Waypoints that were checked
         List<Transform> closedSet = new List<Transform>();
+
+        //List containing all neighbouring Waypoints in driving direction
+        List<Transform> neighbourList;
 
         //First Waypoint is origin/spawn point
         openSet.Add(origin);
@@ -57,6 +82,7 @@ public class Pathfinding : MonoBehaviour
 
             //currentWaypoint is first entry in openSet
             Transform currentWaypoint = openSet[0];
+
 
             //For every entry in openSet...
             for (int i = 1; i < openSet.Count; i++) {
@@ -90,20 +116,30 @@ public class Pathfinding : MonoBehaviour
                 return;
             }
 
+    
 
+            //Toggle driving direction
+            if (incomingTraffic == false)
+            {
+                neighbourList = currentWaypoint.GetComponent<Waypoint>().nextWaypoints;
+            }
+            else {
+                neighbourList = currentWaypoint.GetComponent<Waypoint>().previousWaypoints;
+            }
+
+  
 
 
             //Check all neighbour Waypoints
-            foreach (Transform neighbour in currentWaypoint.GetComponent<Waypoint>().nextWaypoints) {
+            foreach (Transform neighbour in neighbourList) {
+
+        
 
                 //If neighbour Waypoint is in closedSet => was already checked and can be ignored
                 if (closedSet.Contains(neighbour)) continue;
 
                 //Else, calculate new gCosts (distance of current Waypoint to start point)
                 float newGcost = currentWaypoint.GetComponent<Waypoint>().gCost + Vector3.Distance(currentWaypoint.localPosition, neighbour.localPosition);
-
-
-
 
                 //If new path to neighbour Waypoint is shorter or neigbouring Waypoint is not in openSet...
                 if (newGcost < neighbour.GetComponent<Waypoint>().gCost || !openSet.Contains(neighbour)) {
@@ -122,7 +158,7 @@ public class Pathfinding : MonoBehaviour
                     if (!openSet.Contains(neighbour)) {
                         openSet.Add(neighbour);
                     }
-
+                    
                 }
             }
         }
