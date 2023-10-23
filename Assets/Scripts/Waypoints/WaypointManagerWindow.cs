@@ -70,14 +70,14 @@ public class WaypointManagerWindow : EditorWindow
         if (waypointCollection.childCount > 1) 
         {
             //Add predecessor as previous Waypoint
-            waypoint.GetComponent<Waypoint>().previousWaypoints.Add(waypointCollection.GetChild(waypointCollection.childCount - 2).GetComponent<Waypoint>().transform);
+            waypoint.GetComponent<Waypoint>().neighbours.Add(waypointCollection.GetChild(waypointCollection.childCount - 2).GetComponent<Waypoint>().transform);
 
             //Add current Waypoint as successor to predecessor
-            waypoint.GetComponent<Waypoint>().previousWaypoints[0].GetComponent<Waypoint>().nextWaypoints.Add(waypoint.transform);
+            waypoint.GetComponent<Waypoint>().neighbours[0].GetComponent<Waypoint>().neighbours.Add(waypoint.transform);
 
             //Place new Waypoint at position of first predecessor
-            waypoint.transform.position = waypoint.previousWaypoints[0].transform.position;
-            waypoint.transform.forward = waypoint.previousWaypoints[0].transform.forward;
+            waypoint.transform.position = waypoint.neighbours[0].transform.position;
+            waypoint.transform.forward = waypoint.neighbours[0].transform.forward;
         }
 
         //Select the new Waypoint

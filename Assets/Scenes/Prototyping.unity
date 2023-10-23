@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -898,8 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints: []
-  nextWaypoints:
+  neighbours:
   - {fileID: 581415513}
   gCost: 0
   hCost: 0
@@ -1071,8 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints: []
-  nextWaypoints:
+  neighbours:
   - {fileID: 837301820}
   gCost: 0
   hCost: 0
@@ -1202,8 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints: []
-  nextWaypoints:
+  neighbours:
   - {fileID: 488403625}
   gCost: 0
   hCost: 0
@@ -1251,10 +1248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints:
+  neighbours:
+  - {fileID: 581415513}
   - {fileID: 348870933}
-  nextWaypoints:
-  - {fileID: 1722616164}
   gCost: 0
   hCost: 0
 --- !u!1001 &590929120
@@ -2020,9 +2016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints:
+  neighbours:
   - {fileID: 1722616164}
-  nextWaypoints: []
   gCost: 0
   hCost: 0
 --- !u!1 &834372344
@@ -2108,8 +2103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints: []
-  nextWaypoints:
+  neighbours:
   - {fileID: 1722616164}
   - {fileID: 581415513}
   gCost: 0
@@ -2401,8 +2395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints: []
-  nextWaypoints:
+  neighbours:
   - {fileID: 488403625}
   - {fileID: 1832247002}
   gCost: 0
@@ -2471,8 +2464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints: []
-  nextWaypoints:
+  neighbours:
   - {fileID: 1053555090}
   gCost: 0
   hCost: 0
@@ -3417,7 +3409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carCollection: {fileID: 1224740759}
   spawnCountdown: 2
-  incommingTraffic: 1
+  incommingTraffic: 0
   spawnPoint: {fileID: 801547390}
   destination: {fileID: 348870933}
   cars:
@@ -3706,10 +3698,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints:
-  - {fileID: 581415513}
-  nextWaypoints:
+  neighbours:
   - {fileID: 801547390}
+  - {fileID: 581415513}
   gCost: 0
   hCost: 0
 --- !u!1001 &1732049282
@@ -4035,8 +4026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7847376d27e114148b1618fd66f166af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoints: []
-  nextWaypoints:
+  neighbours:
   - {fileID: 556816519}
   gCost: 0
   hCost: 0

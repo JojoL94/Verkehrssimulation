@@ -69,9 +69,6 @@ public class Pathfinding : MonoBehaviour
         //List containing all Waypoints that were checked
         List<Transform> closedSet = new List<Transform>();
 
-        //List containing all neighbouring Waypoints in driving direction
-        List<Transform> neighbourList;
-
         //First Waypoint is origin/spawn point
         openSet.Add(origin);
 
@@ -116,25 +113,12 @@ public class Pathfinding : MonoBehaviour
                 return;
             }
 
-    
-
-            //Toggle driving direction
-            if (incomingTraffic == false)
-            {
-                neighbourList = currentWaypoint.GetComponent<Waypoint>().nextWaypoints;
-            }
-            else {
-                neighbourList = currentWaypoint.GetComponent<Waypoint>().previousWaypoints;
-            }
-
-  
 
 
             //Check all neighbour Waypoints
-            foreach (Transform neighbour in neighbourList) {
+            foreach (Transform neighbour in currentWaypoint.GetComponent<Waypoint>().neighbours) {
 
-        
-
+       
                 //If neighbour Waypoint is in closedSet => was already checked and can be ignored
                 if (closedSet.Contains(neighbour)) continue;
 

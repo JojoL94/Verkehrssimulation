@@ -7,10 +7,10 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     //List containing all connected previous Waypoints
-    public List <Transform> previousWaypoints = new List<Transform>();
+    //public List <Transform> previousWaypoints = new List<Transform>();
     
     //List containing all connected next Waypoints
-    public List <Transform> nextWaypoints = new List<Transform>();
+    public List <Transform> neighbours = new List<Transform>();
 
     //gCost => (distance of current Waypoint to start point)
     public float gCost;
@@ -29,33 +29,15 @@ public class Waypoint : MonoBehaviour
         Gizmos.color = Color.black;
 
 
-        if (previousWaypoints.Count > 0) {
-
-            for (int i = 0; i < previousWaypoints.Count; i++)
-            {
-                if (previousWaypoints[i] != null)
-                {
-
-                    Gizmos.DrawLine(previousWaypoints[i].transform.position, transform.position);
-                }
-            }
-        }
-
-
-        //Draw a white line to connected next Waypoints
-        Gizmos.color = Color.white;
-
-        if (nextWaypoints.Count > 0)
+        for (int i = 0; i < neighbours.Count; i++)
         {
-            for (int i = 0; i < nextWaypoints.Count; i++)
+            if (neighbours[i] != null)
             {
-                if (nextWaypoints[i] != null)
-                {
 
-                    Gizmos.DrawLine(nextWaypoints[i].transform.position, transform.position);
-                }
+                Gizmos.DrawLine(neighbours[i].transform.position, transform.position);
             }
         }
+      
     }
 
 }

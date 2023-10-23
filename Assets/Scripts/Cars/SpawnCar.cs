@@ -16,10 +16,6 @@ public class SpawnCar : MonoBehaviour
     //Variable to define in seconds the time between spawning cars
     public float spawnCountdown = 2;
 
-    //Toogle for incomming traffic (car always searches for previous Waypoint)
-    //Default: false (car always searches for next Waypoint)
-    public bool incommingTraffic = false;
-
     //Waypoint acting as spawn point
     public Transform spawnPoint;
 
@@ -48,16 +44,6 @@ public class SpawnCar : MonoBehaviour
 
         //save transform of last car that spawned
         lastCarSpawned = car.transform;
-
-        //Toggle incomming traffic bool of Pathfinding for each car at spawn
-        if (!incommingTraffic)
-        {
-            car.GetComponent<Pathfinding>().incomingTraffic = false;
-        }
-        else
-        {
-            car.GetComponent<Pathfinding>().incomingTraffic = true;
-        }
 
         //Fill MoveCar Script with first Waypoint
         car.GetComponent<MoveCar>().origin = spawnPoint;
