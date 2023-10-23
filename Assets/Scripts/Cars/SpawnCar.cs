@@ -32,21 +32,30 @@ public class SpawnCar : MonoBehaviour
     //Variable to define in seconds the current time of the countdown
     private float currentTime;
 
+    //Variables for detecting car standing in spawnpoint and for blocking the spawner from spawning cars in to eachother
+    private bool blockedSpawn;
+    private Transform lastCarSpawned;
+
+    [SerializeField]
+    private float minDistanceToNextCar = 4f;
 
 
     //Function to randomly spawn cars
-    void spawnCar() {
-
+    void spawnCar()
+    {
         //Create a new GameObject consisting of a randomly chosen car in carCollection
-        GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)],carCollection);
+        GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)], carCollection);
 
+        //save transform of last car that spawned
+        lastCarSpawned = car.transform;
 
         //Toggle incomming traffic bool of Pathfinding for each car at spawn
         if (!incommingTraffic)
         {
             car.GetComponent<Pathfinding>().incomingTraffic = false;
         }
-        else {
+        else
+        {
             car.GetComponent<Pathfinding>().incomingTraffic = true;
         }
 
@@ -62,12 +71,9 @@ public class SpawnCar : MonoBehaviour
         car.GetComponent<MoveCar>().destination = destination;
 
 
-
         //Place cars to spawn point
         car.gameObject.transform.position = spawnPoint.transform.position;
-
     }
-
 
 
     void Start()
@@ -75,8 +81,6 @@ public class SpawnCar : MonoBehaviour
         //Initialize currentTime as spawnCountdown
         currentTime = spawnCountdown;
     }
-
-
 
 
     // Update is called once per frame
@@ -91,14 +95,18 @@ public class SpawnCar : MonoBehaviour
         //...start of action after timer stopped
         else
         {
-            if (carCollection.childCount < GameObject.Find("GameManager").GetComponent<GameManager>().maxCars) {
+            //spawn and reset timer if it is the first car or the last car spawned have a min distance to the spawner
+            if (lastCarSpawned == null || Vector3.Distance(lastCarSpawned.position, spawnPoint.position) > minDistanceToNextCar)
+            {
+                if (carCollection.childCount < GameObject.Find("GameManager").GetComponent<GameManager>().maxCars)
+                {
+                    //Spawn random car
+                    spawnCar();
+                }
 
-                //Spawn random car
-                spawnCar();
+                //Reset Timer
+                currentTime = spawnCountdown;
             }
-
-            //Reset Timer
-            currentTime = spawnCountdown;
         }
     }
 }
