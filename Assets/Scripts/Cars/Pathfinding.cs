@@ -28,7 +28,7 @@ public class Pathfinding : MonoBehaviour
 
         //Retrace the path backwards, starting at the end
         while (currentWaypoint != startPoint) {
-            path.Add(currentWaypoint);
+            path.Add(GameObject.Find("Waypoints").transform.Find(currentWaypoint.gameObject.name));
             currentWaypoint = currentWaypoint.parent;
         }
         //If done => reverse path, so that end point is at the end
@@ -73,8 +73,6 @@ public class Pathfinding : MonoBehaviour
         openSet.Add(origin);
 
 
-
-
         while (openSet.Count > 0) {
 
             //currentWaypoint is first entry in openSet
@@ -97,23 +95,15 @@ public class Pathfinding : MonoBehaviour
                 }
             }
 
-
-
-
             //Move currentWaypoint to closedSet
             openSet.Remove(currentWaypoint);
             closedSet.Add(currentWaypoint);
-
-
-
 
             //If destination was reached, retrace the path from destination to origin/ spawn point
             if (currentWaypoint == destination) {
                 RetracePath(origin, destination);
                 return;
             }
-
-
 
             //Check all neighbour Waypoints
             foreach (Transform neighbour in currentWaypoint.GetComponent<Waypoint>().neighbours) {
@@ -147,8 +137,6 @@ public class Pathfinding : MonoBehaviour
             }
         }
     }
-
-
 
     private void Start()
     {

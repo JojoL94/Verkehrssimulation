@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -26,6 +27,8 @@ public class MoveCar : MonoBehaviour
     //Current speed of car
     public float speed = 0f;
 
+    public GameObject lastLocalWaypoint, nextLocalWaypoint;
+
 
 
     //Fixed Update is used for physics calculations that aren't linear
@@ -43,21 +46,27 @@ public class MoveCar : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        lastLocalWaypoint = origin.GetChild(0).gameObject;
+    }
+
 
 
     // Update is called once per frame
     void Update()
     {
-
+        getNextLocalWaypoint();
         //Move to neighbouring Waypoint
-        transform.position = Vector3.MoveTowards(transform.position, travelRoute[0].transform.position, speed * Time.deltaTime);
-        transform.LookAt(travelRoute[0].transform);
+        transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position, speed * Time.deltaTime);
+        transform.LookAt(nextLocalWaypoint.transform);
         transform.Rotate(0, -90, 0);
 
         //If neighbouring Waypoint was reached...
-        if (Vector3.Distance(transform.position, travelRoute[0].transform.position) < 0.01)
+        if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.01)
         {
             //...remove reached Waypoint and...
+            lastLocalWaypoint = nextLocalWaypoint;
             travelRoute.Remove(travelRoute[0]);
 
             //...check if destination was reached and...
@@ -70,5 +79,29 @@ public class MoveCar : MonoBehaviour
                 Destroy(this.gameObject.GetComponent<Pathfinding>().waypointTree);
             }
         }
+    }
+
+
+    public GameObject nexBigWaypoint;
+    GameObject getNextLocalWaypoint()
+    {
+        LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
+        nexBigWaypoint = travelRoute[0].gameObject;
+
+        foreach(GameObject waypoint in lastWaypoint.connectedWaypoints)
+        {
+            Debug.Log("A " +waypoint.gameObject.name);
+            if(waypoint!=null)
+                if(nexBigWaypoint!=null)
+                    for(int i = 0; i < nexBigWaypoint.transform.childCount; i++)
+                    {
+                        Debug.Log("B " + nexBigWaypoint.transform.GetChild(i).gameObject.name);
+                        if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform)
+                        {
+                            nextLocalWaypoint = waypoint;
+                        }
+                    }
+        }
+        return null;
     }
 }
