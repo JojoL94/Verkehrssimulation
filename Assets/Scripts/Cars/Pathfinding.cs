@@ -9,13 +9,8 @@ using UnityEngine.UIElements;
 public class Pathfinding : MonoBehaviour
 {
 
-    //Bool to toggle driving direction of spawned cars
-    public bool incomingTraffic;
-
     //GameObject containing hierarchy of waypoints to calculate route
     public GameObject waypointTree;
-
-
 
 
     //Retraces the shortest path from end point to start point
@@ -34,8 +29,11 @@ public class Pathfinding : MonoBehaviour
         //If done => reverse path, so that end point is at the end
         path.Reverse();
 
-        //Add path to travelRoute in MoveCar Script, so that car starts to move the route 
+        //Add path to travelRoute in MoveCar Script, so that car starts to move the route ...
         this.GetComponent<MoveCar>().travelRoute = path;
+
+        //...and destroy local copy of Waypoints collection
+        Destroy(this.gameObject.GetComponent<Pathfinding>().waypointTree);
     }
 
 
@@ -107,7 +105,6 @@ public class Pathfinding : MonoBehaviour
 
             //Check all neighbour Waypoints
             foreach (Transform neighbour in currentWaypoint.GetComponent<Waypoint>().neighbours) {
-
        
                 //If neighbour Waypoint is in closedSet => was already checked and can be ignored
                 if (closedSet.Contains(neighbour)) continue;
@@ -124,8 +121,6 @@ public class Pathfinding : MonoBehaviour
 
                     //...and set currentWaypoint as parent to neighbour Waypoint
                     neighbour.parent = currentWaypoint;
-
-
 
                     //Add neighbour Waypoint to openSet
                     //=> As openSet is filled again, continue the while loop from start

@@ -8,22 +8,30 @@ public class GameManager : MonoBehaviour
     //Max number of cars driving at the same time
     public float maxCars = 30;
 
-    //List containing all Waypoints, acting as graph for A* Algorithm Pathfinding
-    public List<Transform> graph = new List<Transform>();
+    public Transform waypointCollection;
+    public Transform streetCollection;
 
     // Start is called before the first frame update
     void Start()
     {
-        //waypointCollection is the folder/empty Gameobject which contains all Waypoints
-        Transform waypointCollection = GameObject.Find("Waypoints").transform;
 
-        //For every Waypoint in waypointCollection...
-        for (int i = 0; i < waypointCollection.childCount; i++) {
+        int counter = 0;
 
-            //...add to graph
-            graph.Add(waypointCollection.GetChild(i));
+        //In runtime put all Waypoints in waypoint list für A* Algorithm
+        for (int x = 0; x < streetCollection.childCount; x++) {
+
+            //Transform waypoint = streetCollection.GetChild(x).GetChild(transform.childCount);
+            //waypoint.name = waypoint.name + "Nr. " + transform.childCount;
+
+            while (streetCollection.GetChild(x).transform.childCount > 0)
+            {
+                streetCollection.GetChild(x).GetChild(transform.childCount).name = "Waypoint" + counter;
+                streetCollection.GetChild(x).GetChild(transform.childCount).parent = waypointCollection.transform;
+                counter++;
+            }
         }
     }
+    
 
     // Update is called once per frame
     void Update()

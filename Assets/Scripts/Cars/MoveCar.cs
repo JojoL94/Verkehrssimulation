@@ -75,8 +75,6 @@ public class MoveCar : MonoBehaviour
                 //...Despawn car...
                 Destroy(this.gameObject);
 
-                //...and destroy local copy of Waypoints collection
-                Destroy(this.gameObject.GetComponent<Pathfinding>().waypointTree);
             }
         }
     }

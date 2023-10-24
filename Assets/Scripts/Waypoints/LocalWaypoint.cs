@@ -24,8 +24,10 @@ public class LocalWaypoint : MonoBehaviour
     {
         foreach (GameObject waypoint in connectedWaypoints)
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, waypoint.transform.position);
+            if (connectedWaypoints.Count != 0 && connectedWaypoints[0] != null) {
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(transform.position, waypoint.transform.position);
+            }
         }
     }
 }
