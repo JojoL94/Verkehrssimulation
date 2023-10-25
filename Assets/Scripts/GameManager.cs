@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
         int counter = 0;
 
-        //In runtime put all Waypoints in waypoint list für A* Algorithm
+        //In runtime put all Waypoints in waypoint list fÃ¼r A* Algorithm
         for (int x = 0; x < streetCollection.childCount; x++) {
 
             //Transform waypoint = streetCollection.GetChild(x).GetChild(transform.childCount);

@@ -7,7 +7,6 @@ using UnityEngine;
 //Script for movement of cars
 public class MoveCar : MonoBehaviour
 {
-
     //Spawn point of car
     public Transform origin;
 
@@ -28,7 +27,6 @@ public class MoveCar : MonoBehaviour
     public float speed = 0f;
 
     public GameObject lastLocalWaypoint, nextLocalWaypoint;
-
 
 
     //Fixed Update is used for physics calculations that aren't linear
@@ -52,46 +50,45 @@ public class MoveCar : MonoBehaviour
     }
 
 
-
     // Update is called once per frame
     void Update()
     {
         getNextLocalWaypoint();
         //Move to neighbouring Waypoint
-        transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position,
+            speed * Time.deltaTime);
         transform.LookAt(nextLocalWaypoint.transform);
         transform.Rotate(0, -90, 0);
-
         //If neighbouring Waypoint was reached...
-        if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.01)
+        if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
         {
             //...remove reached Waypoint and...
             lastLocalWaypoint = nextLocalWaypoint;
             travelRoute.Remove(travelRoute[0]);
 
             //...check if destination was reached and...
-            if (travelRoute.Count == 0) {
-
+            if (travelRoute.Count == 0)
+            {
                 //...Despawn car...
                 Destroy(this.gameObject);
-
             }
         }
     }
 
 
     public GameObject nexBigWaypoint;
+
     GameObject getNextLocalWaypoint()
     {
         LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
         nexBigWaypoint = travelRoute[0].gameObject;
 
-        foreach(GameObject waypoint in lastWaypoint.connectedWaypoints)
+        foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
         {
-            Debug.Log("A " +waypoint.gameObject.name);
-            if(waypoint!=null)
-                if(nexBigWaypoint!=null)
-                    for(int i = 0; i < nexBigWaypoint.transform.childCount; i++)
+            Debug.Log("A " + waypoint.gameObject.name);
+            if (waypoint != null)
+                if (nexBigWaypoint != null)
+                    for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
                     {
                         Debug.Log("B " + nexBigWaypoint.transform.GetChild(i).gameObject.name);
                         if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform)
@@ -100,6 +97,7 @@ public class MoveCar : MonoBehaviour
                         }
                     }
         }
+
         return null;
     }
 }
