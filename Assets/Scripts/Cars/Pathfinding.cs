@@ -29,11 +29,8 @@ public class Pathfinding : MonoBehaviour
         //If done => reverse path, so that end point is at the end
         path.Reverse();
 
-        //Add path to travelRoute in MoveCar Script, so that car starts to move the route ...
+        //Add path to travelRoute in MoveCar Script, so that car starts to move the route
         this.GetComponent<MoveCar>().travelRoute = path;
-
-        //...and destroy local copy of Waypoints collection
-        Destroy(this.gameObject.GetComponent<Pathfinding>().waypointTree);
     }
 
 
@@ -131,6 +128,9 @@ public class Pathfinding : MonoBehaviour
                 }
             }
         }
+
+        //After calculation of route: Destroy local copy of Waypoints collection
+        Destroy(this.gameObject.GetComponent<Pathfinding>().waypointTree);
     }
 
     private void Start()
