@@ -28,12 +28,21 @@ public class MoveCar : MonoBehaviour
 
     public GameObject lastLocalWaypoint, nextLocalWaypoint;
 
+    //Variables for controlling distance between driving cars
+    public float maxRaycastCarDistance = 8;
+    public float raycastCarDistance; // Die maximale Entfernung des Raycasts
+    public string carTag = "Car"; // Der Tag des anderen Autos
+    public bool carInFront = false; // Der Boolean, um anzuzeigen, ob sich ein Auto vor dem aktuellen Auto befindet
+
+    //Variables for Braking
+    public bool doBrake = false;
+    public float brakeDeceleration = 10f;
 
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
         //Acceleration
-        if (speed < maxSpeed)
+        if (speed < maxSpeed && !doBrake)
         {
             //In brackets: Calculate the acceleration of speed
             //Multiply result by Time.deltaTime to get acceleration per seconds
@@ -42,6 +51,15 @@ public class MoveCar : MonoBehaviour
             //Ensure, that speed is never bigger than maxSpeed
             speed = Mathf.Clamp(speed, 0, maxSpeed);
         }
+        else if (doBrake)
+        {
+            // Verringere die Geschwindigkeit basierend auf der Bremsdeceleration
+            speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime;
+
+            // Stelle sicher, dass die Geschwindigkeit nicht negativ wird (rückwärts fahren)
+            speed = Mathf.Max(speed, 0f);
+        }
+        
     }
 
     private void Start()
@@ -54,11 +72,10 @@ public class MoveCar : MonoBehaviour
     void Update()
     {
         getNextLocalWaypoint();
+        DetectCarInFront();
         //Move to neighbouring Waypoint
         transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position,
             speed * Time.deltaTime);
-        transform.LookAt(nextLocalWaypoint.transform);
-        transform.Rotate(0, -90, 0);
         //If neighbouring Waypoint was reached...
         if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
         {
@@ -73,6 +90,9 @@ public class MoveCar : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        //Rotate Object towards driving direction
+        transform.LookAt(nextLocalWaypoint.transform);
+        transform.Rotate(0, -90, 0);
     }
 
 
@@ -99,5 +119,35 @@ public class MoveCar : MonoBehaviour
         }
 
         return null;
+    }
+    
+    private void DetectCarInFront()
+    {
+        raycastCarDistance = (speed / maxSpeed) * maxRaycastCarDistance;
+        Vector3 raycastDirection = nextLocalWaypoint.transform.position - transform.position;
+        // Führe den Raycast durch
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, raycastDirection, out hit, raycastCarDistance))
+        {
+            // Wenn der Raycast einen Collider mit dem richtigen Tag trifft, setze carInFront auf true
+            if (hit.collider.CompareTag(carTag))
+            {
+                carInFront = true;
+                doBrake = true;
+            }
+            else
+            {
+                carInFront = false;
+                doBrake = false;
+            }
+        }
+        else
+        {
+            // Wenn der Raycast nichts trifft, setze carInFront auf false
+            carInFront = false;
+            doBrake = false;
+        }
+        // Debug-Statements für die Raycasts
+        Debug.DrawRay(transform.position, transform.right * raycastCarDistance, Color.magenta); // Zeichne den Raycast in der Szene
     }
 }

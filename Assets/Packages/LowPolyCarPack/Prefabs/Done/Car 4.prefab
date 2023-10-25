@@ -337,9 +337,10 @@ GameObject:
   - component: {fileID: 6436124065293072078}
   - component: {fileID: -7705748354803723269}
   - component: {fileID: 2673315925368825751}
+  - component: {fileID: 4759104031127122130}
   m_Layer: 0
   m_Name: Car 4
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,7 +375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ef74c0bf94c784db03c15ce7370e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  incomingTraffic: 0
   waypointTree: {fileID: 0}
 --- !u!114 &2673315925368825751
 MonoBehaviour:
@@ -394,3 +394,33 @@ MonoBehaviour:
   maxSpeed: 3
   baseAcceleration: 5
   speed: 0
+  lastLocalWaypoint: {fileID: 0}
+  nextLocalWaypoint: {fileID: 0}
+  maxRaycastCarDistance: 10
+  raycastCarDistance: 0
+  carTag: Car
+  carInFront: 0
+  doBrake: 0
+  brakeDeceleration: 10
+  nexBigWaypoint: {fileID: 0}
+--- !u!65 &4759104031127122130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436124065293232878}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
