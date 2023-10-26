@@ -29,7 +29,7 @@ public class MoveCar : MonoBehaviour
     public GameObject lastLocalWaypoint, nextLocalWaypoint;
 
     //Variables for controlling distance between driving cars
-    public float maxRaycastCarDistance = 8;
+    private float maxRaycastCarDistance = 9;
     public float raycastCarDistance; // Die maximale Entfernung des Raycasts
     public string carTag = "Car"; // Der Tag des anderen Autos
     public bool carInFront = false; // Der Boolean, um anzuzeigen, ob sich ein Auto vor dem aktuellen Auto befindet
@@ -123,7 +123,7 @@ public class MoveCar : MonoBehaviour
     
     private void DetectCarInFront()
     {
-        raycastCarDistance = (speed / maxSpeed) * maxRaycastCarDistance;
+        raycastCarDistance = ((speed / maxSpeed) * maxRaycastCarDistance) + 0.5f;
         Vector3 raycastDirection = nextLocalWaypoint.transform.position - transform.position;
         // Führe den Raycast durch
         RaycastHit hit;
