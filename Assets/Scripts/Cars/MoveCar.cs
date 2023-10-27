@@ -105,12 +105,10 @@ public class MoveCar : MonoBehaviour
 
         foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
         {
-            Debug.Log("A " + waypoint.gameObject.name);
             if (waypoint != null)
                 if (nexBigWaypoint != null)
                     for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
                     {
-                        Debug.Log("B " + nexBigWaypoint.transform.GetChild(i).gameObject.name);
                         if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform)
                         {
                             nextLocalWaypoint = waypoint;

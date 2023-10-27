@@ -99,8 +99,6 @@ MonoBehaviour:
   connectedWaypoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &5428805443007941202
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,8 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedWaypoints:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &7913447734089738409

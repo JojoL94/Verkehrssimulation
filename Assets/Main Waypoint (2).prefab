@@ -99,8 +99,6 @@ MonoBehaviour:
   connectedWaypoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &7913447734089738409
 GameObject:
   m_ObjectHideFlags: 0
