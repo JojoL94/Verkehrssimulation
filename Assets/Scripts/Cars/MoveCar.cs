@@ -65,23 +65,23 @@ public class MoveCar : MonoBehaviour
     private void Start()
     {
         lastLocalWaypoint = origin.GetChild(0).gameObject;
+        nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        getNextLocalWaypoint();
         DetectCarInFront();
+
         //Move to neighbouring Waypoint
         transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position,
             speed * Time.deltaTime);
         //If neighbouring Waypoint was reached...
         if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
         {
-            //...remove reached Waypoint and...
             lastLocalWaypoint = nextLocalWaypoint;
-            travelRoute.Remove(travelRoute[0]);
+            getNextLocalWaypoint();
 
             //...check if destination was reached and...
             if (travelRoute.Count == 0)
@@ -103,18 +103,35 @@ public class MoveCar : MonoBehaviour
         LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
         nexBigWaypoint = travelRoute[0].gameObject;
 
-        foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
-        {
-            if (waypoint != null)
-                if (nexBigWaypoint != null)
-                    for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
-                    {
-                        if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform)
-                        {
-                            nextLocalWaypoint = waypoint;
-                        }
-                    }
+        //Check if main Waypoint was reached
+        if (nextLocalWaypoint.transform.parent == nexBigWaypoint.transform) {
+            //Remove reached Waypoint
+            travelRoute.Remove(travelRoute[0]);
         }
+
+        //Check if next localWaypoint is connected to a main Waypoint
+        if (lastWaypoint.connectedWaypoints[0].transform.parent.GetComponent<Waypoint>() == null)
+        {
+            nextLocalWaypoint = lastWaypoint.connectedWaypoints[0];
+        }
+        else {
+
+            foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
+            {
+                if (waypoint != null)
+                    if (nexBigWaypoint != null)
+                        for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
+                        {
+                            if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform)
+                            {
+                                nextLocalWaypoint = waypoint;
+                            }
+                        }
+            }
+
+        }
+
+        
 
         return null;
     }
