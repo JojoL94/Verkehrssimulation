@@ -38,6 +38,9 @@ public class MoveCar : MonoBehaviour
     public bool doBrake = false;
     public float brakeDeceleration = 10f;
 
+    // Need to give wait
+    public bool doGiveWait = false;
+
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -51,7 +54,7 @@ public class MoveCar : MonoBehaviour
             //Ensure, that speed is never bigger than maxSpeed
             speed = Mathf.Clamp(speed, 0, maxSpeed);
         }
-        else if (doBrake)
+        if (doBrake)
         {
             // Verringere die Geschwindigkeit basierend auf der Bremsdeceleration
             speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime;
@@ -164,5 +167,14 @@ public class MoveCar : MonoBehaviour
         }
         // Debug-Statements für die Raycasts
         Debug.DrawRay(transform.position, transform.right * raycastCarDistance, Color.magenta); // Zeichne den Raycast in der Szene
+    }
+
+    public void giveWait(float distanceToHaltelinie)
+    {
+        speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime * (1/(distanceToHaltelinie+2f));
+
+        // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
+        speed = Mathf.Max(speed, 0);
+
     }
 }

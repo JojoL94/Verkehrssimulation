@@ -36,6 +36,7 @@ Transform:
   - {fileID: 7217476281854745673}
   - {fileID: 8280179689534063760}
   - {fileID: 6518487640329704797}
+  - {fileID: 4599590193288851542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4433358045280433356
@@ -66,17 +67,17 @@ MonoBehaviour:
   origin: {fileID: 0}
   destination: {fileID: 0}
   travelRoute: []
-  maxSpeed: 3
-  baseAcceleration: 5
+  maxSpeed: 4
+  baseAcceleration: 60
   speed: 0
   lastLocalWaypoint: {fileID: 0}
   nextLocalWaypoint: {fileID: 0}
-  maxRaycastCarDistance: 10
   raycastCarDistance: 0
   carTag: Car
   carInFront: 0
   doBrake: 0
   brakeDeceleration: 10
+  doGiveWait: 0
   nexBigWaypoint: {fileID: 0}
 --- !u!65 &-6201120591577893389
 BoxCollider:
@@ -120,6 +121,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2469964443567209350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4599590193288851542}
+  - component: {fileID: 2673844765598355339}
+  m_Layer: 0
+  m_Name: Look
+  m_TagString: CarLook
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4599590193288851542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469964443567209350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 301492451801310781}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2673844765598355339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469964443567209350}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2216461, y: 1.9974052, z: 1.9547808}
+  m_Center: {x: 1.5600439, y: 0.0042623878, z: 0}
 --- !u!1 &2632911450119856664
 GameObject:
   m_ObjectHideFlags: 0

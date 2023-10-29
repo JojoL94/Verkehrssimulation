@@ -218,6 +218,59 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -495230448983956962, guid: 5f62ea725ac15c145bade1597645729b, type: 3}
+--- !u!1 &8230385153900904449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4579419715487640055}
+  - component: {fileID: 6384312709535160335}
+  m_Layer: 0
+  m_Name: Look
+  m_TagString: CarLook
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4579419715487640055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8230385153900904449}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8264021764683276916}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6384312709535160335
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8230385153900904449}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2216461, y: 1.9974052, z: 1.9547808}
+  m_Center: {x: 1.5600439, y: 0.0042623878, z: 0}
 --- !u!1 &8264021764683382356
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4579419715487640055}
   - {fileID: 1621091527018633986}
   - {fileID: 5912812775086980511}
   - {fileID: 4266594329962643049}
@@ -284,17 +338,17 @@ MonoBehaviour:
   origin: {fileID: 0}
   destination: {fileID: 0}
   travelRoute: []
-  maxSpeed: 3
-  baseAcceleration: 5
+  maxSpeed: 4
+  baseAcceleration: 60
   speed: 0
   lastLocalWaypoint: {fileID: 0}
   nextLocalWaypoint: {fileID: 0}
-  maxRaycastCarDistance: 10
   raycastCarDistance: 0
   carTag: Car
   carInFront: 0
   doBrake: 0
   brakeDeceleration: 10
+  doGiveWait: 0
   nexBigWaypoint: {fileID: 0}
 --- !u!65 &3328508816936181976
 BoxCollider:
