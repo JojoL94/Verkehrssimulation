@@ -169,10 +169,12 @@ public class MoveCar : MonoBehaviour
         Debug.DrawRay(transform.position, transform.right * raycastCarDistance, Color.magenta); // Zeichne den Raycast in der Szene
     }
 
+
+    // Is called by intersection and its BoxColliders
     public void giveWait(float distanceToHaltelinie)
     {
-        speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime * (1/(distanceToHaltelinie+2f));
-
+        // Breaking is harder, the closer to the Haltelinie, the harder breake.
+        speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime * (1/(distanceToHaltelinie+1.5f));
         // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
         speed = Mathf.Max(speed, 0);
 
