@@ -23,11 +23,11 @@ public class BoxColliderBevahiour : MonoBehaviour
     {
         if (other?.gameObject.tag == "CarLook")
         {
-            Debug.Log($"Enter! {other.gameObject.name}");
+            //Debug.Log($"Enter! {other.gameObject.name}");
             hasCollision = true;
             if (behaviour == Behaviour.LookForOtherCar)
             {
-                Debug.Log($"Give wait! {other.gameObject.name}");
+                //Debug.Log($"Give wait! {other.gameObject.name}");
                 if (lookAt.hasCollision)
                 {
                     other.transform.parent.GetComponent<MoveCar>().giveWait(Vector3.Distance(other.transform.position, transform.GetChild(0).position));
@@ -40,11 +40,11 @@ public class BoxColliderBevahiour : MonoBehaviour
     {
         if (other?.gameObject.tag == "CarLook")
         {
-            Debug.Log($"Stay! {other.gameObject.name}");
+            //Debug.Log($"Stay! {other.gameObject.name}");
             hasCollision = true;
             if (behaviour == Behaviour.LookForOtherCar)
             {
-                Debug.Log($"Give wait! {other.gameObject.name}");
+                //Debug.Log($"Give wait! {other.gameObject.name}");
                 if (lookAt.hasCollision)
                 {
                     other.transform.parent.GetComponent<MoveCar>().giveWait(Vector3.Distance(other.transform.position, transform.GetChild(0).position));
@@ -58,7 +58,7 @@ public class BoxColliderBevahiour : MonoBehaviour
         if (other?.gameObject.tag == "CarLook")
         {
             hasCollision = false;
-            Debug.Log($"Exit! {other.gameObject.name}");
+            //Debug.Log($"Exit! {other.gameObject.name}");
 
         }
     }
