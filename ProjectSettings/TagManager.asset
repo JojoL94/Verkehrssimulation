@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Car
   - CarLook
+  - MainWaypoint
+  - LokalWaypoint
   layers:
   - Default
   - TransparentFX
@@ -13,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - MainWaypoint
+  - LokalWaypoint
   - 
   - 
   - 

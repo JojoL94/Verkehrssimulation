@@ -11,24 +11,24 @@ public class GameManager : MonoBehaviour
     public Transform waypointCollection;
     public Transform streetCollection;
 
+    //Counter to give every Main Waypoint an uniqe name
+    private int counter = 0;
+
     // Start is called before the first frame update
     void Start()
     {
 
-        int counter = 0;
-
         //In runtime put all Waypoints in waypoint list für A* Algorithm
         for (int x = 0; x < streetCollection.childCount; x++) {
 
-            //Transform waypoint = streetCollection.GetChild(x).GetChild(transform.childCount);
-            //waypoint.name = waypoint.name + "Nr. " + transform.childCount;
-
-            while (streetCollection.GetChild(x).transform.childCount > 0)
-            {
-                streetCollection.GetChild(x).GetChild(transform.childCount).name = "Waypoint" + counter;
-                streetCollection.GetChild(x).GetChild(transform.childCount).parent = waypointCollection.transform;
-                counter++;
-            }
+                //Filter out Right before Left Collider
+                while (streetCollection.GetChild(x).transform.childCount > 0 && !streetCollection.GetChild(x).GetChild(transform.childCount).name.Contains("RightOfWay"))
+                {
+                    //Name each Waypoint with uniqe name and put in  waypointCollection(A* Algorithm needs Waypoints with uniqe names and in separate List)
+                    streetCollection.GetChild(x).GetChild(transform.childCount).name = "Waypoint" + counter;
+                    streetCollection.GetChild(x).GetChild(transform.childCount).parent = waypointCollection.transform;
+                    counter++;
+                }
         }
     }
     

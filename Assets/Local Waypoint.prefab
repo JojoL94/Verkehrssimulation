@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1612156643113770549}
   - component: {fileID: 8889608900670248984}
   - component: {fileID: 2848304006419621602}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Local Waypoint
-  m_TagString: Untagged
+  m_TagString: LokalWaypoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
