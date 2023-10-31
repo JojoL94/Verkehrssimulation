@@ -123,7 +123,7 @@ public class MoveCar : MonoBehaviour
     
     private void DetectCarInFront()
     {
-        raycastCarDistance = ((speed / maxSpeed) * maxRaycastCarDistance) + 0.5f;
+        raycastCarDistance = ((speed / maxSpeed) * maxRaycastCarDistance) + 1f;
         Vector3 raycastDirection = nextLocalWaypoint.transform.position - transform.position;
         // Führe den Raycast durch
         RaycastHit hit;
