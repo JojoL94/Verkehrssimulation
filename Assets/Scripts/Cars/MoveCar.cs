@@ -38,6 +38,9 @@ public class MoveCar : MonoBehaviour
     public bool doBrake = false;
     public float brakeDeceleration = 10f;
 
+    // Need to give wait
+    public bool doGiveWait = false;
+
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -51,7 +54,7 @@ public class MoveCar : MonoBehaviour
             //Ensure, that speed is never bigger than maxSpeed
             speed = Mathf.Clamp(speed, 0, maxSpeed);
         }
-        else if (doBrake)
+        if (doBrake)
         {
             // Verringere die Geschwindigkeit basierend auf der Bremsdeceleration
             speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime;
@@ -65,23 +68,23 @@ public class MoveCar : MonoBehaviour
     private void Start()
     {
         lastLocalWaypoint = origin.GetChild(0).gameObject;
+        nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        getNextLocalWaypoint();
         DetectCarInFront();
+
         //Move to neighbouring Waypoint
         transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position,
             speed * Time.deltaTime);
         //If neighbouring Waypoint was reached...
         if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
         {
-            //...remove reached Waypoint and...
             lastLocalWaypoint = nextLocalWaypoint;
-            travelRoute.Remove(travelRoute[0]);
+            getNextLocalWaypoint();
 
             //...check if destination was reached and...
             if (travelRoute.Count == 0)
@@ -103,20 +106,35 @@ public class MoveCar : MonoBehaviour
         LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
         nexBigWaypoint = travelRoute[0].gameObject;
 
-        foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
-        {
-            Debug.Log("A " + waypoint.gameObject.name);
-            if (waypoint != null)
-                if (nexBigWaypoint != null)
-                    for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
-                    {
-                        Debug.Log("B " + nexBigWaypoint.transform.GetChild(i).gameObject.name);
-                        if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform)
-                        {
-                            nextLocalWaypoint = waypoint;
-                        }
-                    }
+        //Check if main Waypoint was reached
+        if (nextLocalWaypoint.transform.parent == nexBigWaypoint.transform) {
+            //Remove reached Waypoint
+            travelRoute.Remove(travelRoute[0]);
         }
+
+        //Check if next localWaypoint is connected to a main Waypoint
+        if (lastWaypoint.connectedWaypoints[0].transform.parent.GetComponent<Waypoint>() == null)
+        {
+            nextLocalWaypoint = lastWaypoint.connectedWaypoints[0];
+        }
+        else {
+
+            foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
+            {
+                if (waypoint != null)
+                    if (nexBigWaypoint != null)
+                        for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
+                        {
+                            if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform)
+                            {
+                                nextLocalWaypoint = waypoint;
+                            }
+                        }
+            }
+
+        }
+
+        
 
         return null;
     }
@@ -149,5 +167,16 @@ public class MoveCar : MonoBehaviour
         }
         // Debug-Statements für die Raycasts
         Debug.DrawRay(transform.position, transform.right * raycastCarDistance, Color.magenta); // Zeichne den Raycast in der Szene
+    }
+
+
+    // Is called by intersection and its BoxColliders
+    public void giveWait(float distanceToHaltelinie)
+    {
+        // Breaking is harder, the closer to the Haltelinie, the harder breake.
+        speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime * (1/(distanceToHaltelinie+1.5f));
+        // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
+        speed = Mathf.Max(speed, 0);
+
     }
 }

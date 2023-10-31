@@ -31,6 +31,7 @@ public class Pathfinding : MonoBehaviour
 
         //Add path to travelRoute in MoveCar Script, so that car starts to move the route
         this.GetComponent<MoveCar>().travelRoute = path;
+        
     }
 
 
