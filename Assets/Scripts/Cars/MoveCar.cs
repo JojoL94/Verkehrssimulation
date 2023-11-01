@@ -24,36 +24,29 @@ public class MoveCar : MonoBehaviour
     public float baseAcceleration = 5f;
 
     //Current speed of car
-    public float speed = 0f;
+    public float speed;
 
     public GameObject lastLocalWaypoint, nextLocalWaypoint;
 
     //Variables for controlling distance between driving cars
     private float maxRaycastCarDistance = 9;
     public float raycastCarDistance; // Die maximale Entfernung des Raycasts
-    public string carTag = "Car"; // Der Tag des anderen Autos
-    public bool carInFront = false; // Der Boolean, um anzuzeigen, ob sich ein Auto vor dem aktuellen Auto befindet
+    private string carTag = "Car"; // Der Tag des anderen Autos
+    [SerializeField] private Vector3 carInFront; // hitpoint zum Auto 
+    private Transform carNose;
+    private bool isCarInFront;
+    private float tmpCarDistance;
 
     //Variables for Braking
-    public bool doBrake = false;
-    public float brakeDeceleration = 10f;
+    public bool doBrake;
+    private float brakeDeceleration = 10f;
 
     // Need to give wait
-    public bool doGiveWait = false;
+    public bool doGiveWait;
 
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
-        //Acceleration
-        if (speed < maxSpeed && !doBrake)
-        {
-            //In brackets: Calculate the acceleration of speed
-            //Multiply result by Time.deltaTime to get acceleration per seconds
-            speed += (speed + (Time.deltaTime * baseAcceleration)) * Time.deltaTime;
-
-            //Ensure, that speed is never bigger than maxSpeed
-            speed = Mathf.Clamp(speed, 0, maxSpeed);
-        }
         if (doBrake)
         {
             // Verringere die Geschwindigkeit basierend auf der Bremsdeceleration
@@ -61,7 +54,16 @@ public class MoveCar : MonoBehaviour
 
             // Stelle sicher, dass die Geschwindigkeit nicht negativ wird (rückwärts fahren)
             speed = Mathf.Max(speed, 0f);
+        } else if (speed < maxSpeed)         //Acceleration
+        {
+            //In brackets: Calculate the acceleration of speed
+            //Multiply result by Time.deltaTime to get acceleration per seconds
+            speed += (speed + (Time.deltaTime * baseAcceleration)) * Time.deltaTime;
+
+            //Ensure, that speed is never bigger than maxSpeed
+            speed = Mathf.Clamp(speed, 0, maxSpeed - 0.01f);
         }
+
         
     }
 
@@ -69,6 +71,8 @@ public class MoveCar : MonoBehaviour
     {
         lastLocalWaypoint = origin.GetChild(0).gameObject;
         nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
+        brakeDeceleration = baseAcceleration * 2;
+        carNose = transform.GetChild(0);
     }
 
 
@@ -133,37 +137,31 @@ public class MoveCar : MonoBehaviour
             }
 
         }
-
-        
-
         return null;
     }
     
     private void DetectCarInFront()
     {
-        raycastCarDistance = ((speed / maxSpeed) * maxRaycastCarDistance) + 1f;
+        raycastCarDistance = ((speed / maxSpeed) * maxRaycastCarDistance);
         Vector3 raycastDirection = nextLocalWaypoint.transform.position - transform.position;
         // Führe den Raycast durch
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, raycastDirection, out hit, raycastCarDistance))
+        if (Physics.Raycast(carNose.position, raycastDirection, out hit, raycastCarDistance))
         {
             // Wenn der Raycast einen Collider mit dem richtigen Tag trifft, setze carInFront auf true
             if (hit.collider.CompareTag(carTag))
             {
-                carInFront = true;
+                carInFront = hit.point;
+                tmpCarDistance = raycastCarDistance + 1f;
                 doBrake = true;
-            }
-            else
-            {
-                carInFront = false;
-                doBrake = false;
+                isCarInFront = true;
             }
         }
-        else
+
+        if (isCarInFront == false || Vector3.Distance(carInFront, carNose.position) > tmpCarDistance)
         {
-            // Wenn der Raycast nichts trifft, setze carInFront auf false
-            carInFront = false;
             doBrake = false;
+            isCarInFront = false;
         }
         // Debug-Statements für die Raycasts
         Debug.DrawRay(transform.position, transform.right * raycastCarDistance, Color.magenta); // Zeichne den Raycast in der Szene
@@ -173,7 +171,7 @@ public class MoveCar : MonoBehaviour
     // Is called by intersection and its BoxColliders
     public void giveWait(float distanceToHaltelinie)
     {
-        // Breaking is harder, the closer to the Haltelinie, the harder breake.
+        // Breaking is harder, the closer to the Haltelinie, the harder brake.
         speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime * (1/(distanceToHaltelinie+1.5f));
         // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
         speed = Mathf.Max(speed, 0);

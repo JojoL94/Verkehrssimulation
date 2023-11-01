@@ -33,10 +33,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4599590193288851542}
   - {fileID: 7217476281854745673}
   - {fileID: 8280179689534063760}
   - {fileID: 6518487640329704797}
-  - {fileID: 4599590193288851542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4433358045280433356
@@ -73,10 +73,8 @@ MonoBehaviour:
   lastLocalWaypoint: {fileID: 0}
   nextLocalWaypoint: {fileID: 0}
   raycastCarDistance: 0
-  carTag: Car
   carInFront: 0
   doBrake: 0
-  brakeDeceleration: 10
   doGiveWait: 0
   nexBigWaypoint: {fileID: 0}
 --- !u!65 &-6201120591577893389
