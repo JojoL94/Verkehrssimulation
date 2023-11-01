@@ -19,9 +19,6 @@ public class Waypoint : MonoBehaviour
     //hCost => (distance of current Waypoint to end point)
     public float hCost;
 
-    //Max distance of Raycast
-    public float RaycastDistance = 100f;
-
     //Starting drawing Gizsmos (Virsualizing the Waypoints in Unity Editor, while they stay invisible ingame)
     public void OnDrawGizmos()
     {
@@ -43,16 +40,4 @@ public class Waypoint : MonoBehaviour
         }
       
     }
-
-    //Connect all Waypoints before start
-    void Awake()
-    {
-        RaycastHit hit;
-
-        //Connect all Main Waypoints
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("MainWaypoint"))) {
-            this.neighbours.Add(hit.collider.transform);
-        }
-    }
-
 }
