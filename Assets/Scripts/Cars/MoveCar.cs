@@ -83,8 +83,6 @@ public class MoveCar : MonoBehaviour
         //If neighbouring Waypoint was reached...
         if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
         {
-            lastLocalWaypoint = nextLocalWaypoint;
-            getNextLocalWaypoint();
 
             //...check if destination was reached and...
             if (travelRoute.Count == 0)
@@ -92,6 +90,8 @@ public class MoveCar : MonoBehaviour
                 //...Despawn car...
                 Destroy(this.gameObject);
             }
+            lastLocalWaypoint = nextLocalWaypoint;
+            getNextLocalWaypoint();
         }
         //Rotate Object towards driving direction
         transform.LookAt(nextLocalWaypoint.transform);
@@ -174,7 +174,7 @@ public class MoveCar : MonoBehaviour
     public void giveWait(float distanceToHaltelinie)
     {
         // Breaking is harder, the closer to the Haltelinie, the harder breake.
-        speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime * (1/(distanceToHaltelinie+1.5f));
+        speed -= (speed + (brakeDeceleration * Time.deltaTime)) * (0.3f/(distanceToHaltelinie+1.5f));
         // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
         speed = Mathf.Max(speed, 0);
 
