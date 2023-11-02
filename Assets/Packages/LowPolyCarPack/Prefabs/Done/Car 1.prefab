@@ -67,14 +67,16 @@ MonoBehaviour:
   origin: {fileID: 0}
   destination: {fileID: 0}
   travelRoute: []
-  maxSpeed: 4
+  maxSpeed: 6
   baseAcceleration: 60
   speed: 0
   lastLocalWaypoint: {fileID: 0}
   nextLocalWaypoint: {fileID: 0}
   raycastCarDistance: 0
+  carTag: Car
   carInFront: 0
   doBrake: 0
+  brakeDeceleration: 10
   doGiveWait: 0
   nexBigWaypoint: {fileID: 0}
 --- !u!65 &-6201120591577893389

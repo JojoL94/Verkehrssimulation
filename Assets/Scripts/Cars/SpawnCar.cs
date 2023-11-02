@@ -95,4 +95,19 @@ public class SpawnCar : MonoBehaviour
             }
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        if (spawnPoint != null && destination != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(spawnPoint.position, destination.position);
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(spawnPoint.position, 1f);
+
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(destination.position, 1f);
+        }
+    }
 }

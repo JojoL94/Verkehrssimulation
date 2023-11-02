@@ -18,7 +18,7 @@ public class BoxColliderBevahiour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Only the "nose" of the car should look --> Don't care if only booty is in trigger
-        if (other?.gameObject.tag == "CarLook")
+        if (other.CompareTag("CarLook"))
         {
             //Debug.Log($"Enter! {other.gameObject.name}");
             hasCollision = true;
@@ -36,13 +36,13 @@ public class BoxColliderBevahiour : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        // Only the "nose" of the car should look --> Don't care if only booty is in trigger
-        if (other?.gameObject.tag == "CarLook")
+        if (behaviour == Behaviour.LookForOtherCar)
         {
-            //Debug.Log($"Stay! {other.gameObject.name}");
-            hasCollision = true;
-            if (behaviour == Behaviour.LookForOtherCar)
+            // Only the "nose" of the car should look --> Don't care if only booty is in trigger
+            if (other.CompareTag("CarLook"))
             {
+                //Debug.Log($"Stay! {other.gameObject.name}");
+                hasCollision = true;
                 //Debug.Log($"Give wait! {other.gameObject.name}");
 
                 // Check if a car is in other BoxCollider
@@ -56,7 +56,7 @@ public class BoxColliderBevahiour : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // Only the "nose" of the car should look --> Don't care if only booty is in trigger
-        if (other?.gameObject.tag == "CarLook")
+        if (other.CompareTag("CarLook"))
         {
             hasCollision = false;
             //Debug.Log($"Exit! {other.gameObject.name}");

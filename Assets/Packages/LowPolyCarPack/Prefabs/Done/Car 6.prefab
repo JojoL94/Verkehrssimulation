@@ -447,7 +447,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   destination: {fileID: 0}
   travelRoute: []
-  maxSpeed: 4
+  maxSpeed: 6
   baseAcceleration: 60
   speed: 0
   lastLocalWaypoint: {fileID: 0}
