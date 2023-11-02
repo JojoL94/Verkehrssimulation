@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 2673315925368825751}
   - component: {fileID: 4759104031127122130}
   - component: {fileID: 5523258656047280445}
+  - component: {fileID: -1216856101645493984}
   m_Layer: 0
   m_Name: Car 4
   m_TagString: Car
@@ -451,9 +452,6 @@ MonoBehaviour:
   speed: 0
   lastLocalWaypoint: {fileID: 0}
   nextLocalWaypoint: {fileID: 0}
-  raycastCarDistance: 0
-  carTag: Car
-  carInFront: 0
   doBrake: 0
   brakeDeceleration: 10
   doGiveWait: 0
@@ -500,3 +498,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1216856101645493984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436124065293232878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb1e80cc42c4c44a9bb7f6789c38761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

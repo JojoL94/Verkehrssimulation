@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cars/CarDetection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -88,6 +89,7 @@
       <workItem from="1698319580490" duration="1178000" />
       <workItem from="1698744665657" duration="2477000" />
       <workItem from="1698846205209" duration="4420000" />
+      <workItem from="1698946981199" duration="8318000" />
     </task>
     <servers />
   </component>

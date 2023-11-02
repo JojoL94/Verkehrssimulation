@@ -27,20 +27,19 @@ public class MoveCar : MonoBehaviour
     public float speed = 0f;
 
     public GameObject lastLocalWaypoint, nextLocalWaypoint;
-
-    //Variables for controlling distance between driving cars
-    private float maxRaycastCarDistance = 9;
-    public float raycastCarDistance; // Die maximale Entfernung des Raycasts
-    public string carTag = "Car"; // Der Tag des anderen Autos
-    public bool carInFront = false; // Der Boolean, um anzuzeigen, ob sich ein Auto vor dem aktuellen Auto befindet
-
+    
     //Variables for Braking
     public bool doBrake = false;
     public float brakeDeceleration = 10f;
+    private float timer;
 
+    public float brakeTimer = 3f;
     // Need to give wait
     public bool doGiveWait = false;
 
+    //Variables for Distance
+    private CarDetection myCarDetector;
+    
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -56,27 +55,36 @@ public class MoveCar : MonoBehaviour
         }
         if (doBrake)
         {
+            timer += Time.deltaTime;
+            if (timer >= brakeTimer)
+            {
+                doBrake = false;
+                timer = 0f;
+            }
             // Verringere die Geschwindigkeit basierend auf der Bremsdeceleration
             speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime;
 
             // Stelle sicher, dass die Geschwindigkeit nicht negativ wird (rückwärts fahren)
             speed = Mathf.Max(speed, 0f);
         }
-
+        else
+        {
+            timer = 0f;
+        }
     }
 
     private void Start()
     {
         lastLocalWaypoint = origin.GetChild(0).gameObject;
         nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
+        myCarDetector = GetComponent<CarDetection>();
+        brakeDeceleration = baseAcceleration * 2;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        DetectCarInFront();
-
         //Move to neighbouring Waypoint
         transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position,
             speed * Time.deltaTime);
@@ -85,13 +93,14 @@ public class MoveCar : MonoBehaviour
         {
             lastLocalWaypoint = nextLocalWaypoint;
             getNextLocalWaypoint();
-
+            
             //...check if destination was reached and...
             if (travelRoute.Count == 0)
             {
                 //...Despawn car...
                 Destroy(this.gameObject);
             }
+            myCarDetector.SwitchLane();
         }
         //Rotate Object towards driving direction
         transform.LookAt(nextLocalWaypoint.transform);
@@ -141,35 +150,6 @@ public class MoveCar : MonoBehaviour
         return null;
     }
 
-    private void DetectCarInFront()
-    {
-        raycastCarDistance = ((speed / maxSpeed) * maxRaycastCarDistance) + 0.5f;
-        Vector3 raycastDirection = nextLocalWaypoint.transform.position - transform.position;
-        // Führe den Raycast durch
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, raycastDirection, out hit, raycastCarDistance))
-        {
-            // Wenn der Raycast einen Collider mit dem richtigen Tag trifft, setze carInFront auf true
-            if (hit.collider.CompareTag(carTag))
-            {
-                carInFront = true;
-                doBrake = true;
-            }
-            else
-            {
-                carInFront = false;
-                doBrake = false;
-            }
-        }
-        else
-        {
-            // Wenn der Raycast nichts trifft, setze carInFront auf false
-            carInFront = false;
-            doBrake = false;
-        }
-        // Debug-Statements für die Raycasts
-        Debug.DrawRay(transform.position, transform.right * raycastCarDistance, Color.magenta); // Zeichne den Raycast in der Szene
-    }
 
     
     // Is called by intersection and its BoxColliders
