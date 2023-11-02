@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 97.25001
@@ -201,7 +205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2189478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carCollection: {fileID: 1224740759}
   spawnCountdown: 3
-  spawnPoint: {fileID: 1847647357}
+  spawnPoint: {fileID: 0}
   destination: {fileID: 865128932}
   cars:
   - {fileID: 301492451801283101, guid: e7a35c7b45acd5f4e997ba10d6f6e9bd, type: 3}
@@ -252,6 +256,10 @@ PrefabInstance:
     - target: {fileID: 136476, guid: 517cd28356a64ae4ca59346763bafa76, type: 3}
       propertyPath: m_Name
       value: Highway Join Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 136476, guid: 517cd28356a64ae4ca59346763bafa76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 490264, guid: 517cd28356a64ae4ca59346763bafa76, type: 3}
       propertyPath: m_LocalPosition.x
@@ -309,6 +317,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -429,6 +441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 87.25
@@ -486,6 +502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Join Road (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_LocalPosition.x
       value: 109.74999
@@ -542,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -615,6 +639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 114.75
@@ -676,6 +704,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -858,6 +890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parkinglot Corner 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.249985
@@ -1002,6 +1038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.75
@@ -1116,6 +1156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1172,6 +1216,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalScale.z
@@ -1253,6 +1301,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1373,6 +1425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 172.25
@@ -1440,6 +1496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 109.75
@@ -1497,13 +1557,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.849993
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1551,68 +1615,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2862979305234574471, guid: 9caf5918894f24541981e4a9dc7b5676, type: 3}
   m_PrefabInstance: {fileID: 680798698}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &234400531
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 834372345}
-    m_Modifications:
-    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_Name
-      value: Road Join Road (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 194.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.500003
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 62.49999
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.00000013411044
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -2.9310773e-15
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0000000218557
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
---- !u!4 &234400532 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
-  m_PrefabInstance: {fileID: 234400531}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &240609888
 GameObject:
@@ -1723,6 +1725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleLane End (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 169448, guid: fc2ff23d1db8b1445bbc99fccb47754c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430878, guid: fc2ff23d1db8b1445bbc99fccb47754c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 163.74998
@@ -1784,6 +1790,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1958,6 +1968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 142.25
@@ -2015,17 +2029,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 62.09999
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000004
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2076,6 +2094,10 @@ PrefabInstance:
     - target: {fileID: 140742, guid: 70accd32f42b80b40a1a83ef93f9b293, type: 3}
       propertyPath: m_Name
       value: Road S-Curve (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 140742, guid: 70accd32f42b80b40a1a83ef93f9b293, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404980, guid: 70accd32f42b80b40a1a83ef93f9b293, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2144,6 +2166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Join Highway 1
       objectReference: {fileID: 0}
+    - target: {fileID: 156992, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 452492, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.5
@@ -2200,6 +2226,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalScale.z
@@ -2277,6 +2307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 102.25
@@ -2339,6 +2373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.25
@@ -2395,6 +2433,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2453,6 +2495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.25
@@ -2509,6 +2555,10 @@ PrefabInstance:
     - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_Name
       value: Parkinglot Corner 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2591,6 +2641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 129.75
@@ -2647,6 +2701,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2818,6 +2876,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3020,6 +3082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 109.75
@@ -3097,6 +3163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 119.75
@@ -3153,6 +3223,10 @@ PrefabInstance:
     - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_Name
       value: Road Join SIngleLane (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3278,6 +3352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 87.25
@@ -3335,6 +3413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleLane Straight 1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 166632, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 459058, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
       propertyPath: m_LocalScale.z
       value: 8.65006
@@ -3349,7 +3431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459058, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 85.00001
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 459058, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3405,6 +3487,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3468,6 +3554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.15
@@ -3529,6 +3619,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1668327
@@ -3539,11 +3633,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000012119543
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.0000014
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3599,6 +3693,10 @@ PrefabInstance:
     - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_Name
       value: Road Join Road (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3662,6 +3760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.75
@@ -3719,17 +3821,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.099995
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000004
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3780,6 +3886,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3843,6 +3953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 214.75
@@ -3905,13 +4019,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Join Highway 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 156992, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 452492, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.500008
       objectReference: {fileID: 0}
     - target: {fileID: 452492, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000064146475
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 452492, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4023,6 +4141,10 @@ PrefabInstance:
     - target: {fileID: 110414, guid: 43678520060fa5e42add8825ab61da06, type: 3}
       propertyPath: m_Name
       value: Road Straight 3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 110414, guid: 43678520060fa5e42add8825ab61da06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461886, guid: 43678520060fa5e42add8825ab61da06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4143,6 +4265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.75
@@ -4199,6 +4325,10 @@ PrefabInstance:
     - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_Name
       value: Parkinglot Corner 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4266,6 +4396,10 @@ PrefabInstance:
     - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_Name
       value: Parkinglot Corner 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4381,17 +4515,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 67.09999
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000004
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4447,6 +4585,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4510,6 +4652,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4567,6 +4713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 110414, guid: 43678520060fa5e42add8825ab61da06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461886, guid: 43678520060fa5e42add8825ab61da06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 142.25
@@ -4623,6 +4773,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4738,6 +4892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Join Road (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_LocalPosition.x
       value: 102.25
@@ -4794,6 +4952,10 @@ PrefabInstance:
     - target: {fileID: 149268, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
       propertyPath: m_Name
       value: SingleLane S-Curve (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 149268, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 422838, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4856,6 +5018,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4974,6 +5140,10 @@ PrefabInstance:
     - target: {fileID: 105156, guid: 834e3b05077e0b445961489bb25da1c7, type: 3}
       propertyPath: m_Name
       value: Road Curve
+      objectReference: {fileID: 0}
+    - target: {fileID: 105156, guid: 834e3b05077e0b445961489bb25da1c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 834e3b05077e0b445961489bb25da1c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5094,6 +5264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5156,6 +5330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5213,17 +5391,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 57.09999
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000004
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5306,6 +5488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5372,6 +5558,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5497,6 +5687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5564,6 +5758,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road S-Curve
       objectReference: {fileID: 0}
+    - target: {fileID: 140742, guid: 70accd32f42b80b40a1a83ef93f9b293, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404980, guid: 70accd32f42b80b40a1a83ef93f9b293, type: 3}
       propertyPath: m_LocalPosition.x
       value: 77.25
@@ -5620,6 +5818,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5683,6 +5885,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5744,6 +5950,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5824,196 +6034,196 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 154436897}
-  - {fileID: 1021969392}
-  - {fileID: 2048643154}
-  - {fileID: 2032045986}
-  - {fileID: 994673779}
-  - {fileID: 2024668717}
-  - {fileID: 449025449}
-  - {fileID: 1448451394}
-  - {fileID: 39589739}
-  - {fileID: 2051337403}
-  - {fileID: 637036546}
-  - {fileID: 2063747134}
-  - {fileID: 1188997279}
-  - {fileID: 1454441644}
-  - {fileID: 1935515602}
-  - {fileID: 979283768}
-  - {fileID: 1298840408}
-  - {fileID: 1461743544}
-  - {fileID: 1938738681}
-  - {fileID: 2143351821}
-  - {fileID: 490232680}
-  - {fileID: 1523912694}
-  - {fileID: 1843962912}
-  - {fileID: 1165313667}
-  - {fileID: 766113387}
-  - {fileID: 1539542318}
-  - {fileID: 2016015484}
-  - {fileID: 1328674311}
-  - {fileID: 447224398}
-  - {fileID: 624587988}
-  - {fileID: 892522365}
-  - {fileID: 1162763328}
-  - {fileID: 1920918}
-  - {fileID: 1043711405}
-  - {fileID: 2126383552}
-  - {fileID: 60790869}
-  - {fileID: 579636368}
-  - {fileID: 1811116014}
-  - {fileID: 1238129235}
-  - {fileID: 448525757}
-  - {fileID: 1464675189}
-  - {fileID: 1786244236}
-  - {fileID: 451979768}
-  - {fileID: 1640341455}
-  - {fileID: 74114575}
-  - {fileID: 1550593405}
-  - {fileID: 1682406129}
-  - {fileID: 58391147}
-  - {fileID: 2096643475}
-  - {fileID: 827402317}
-  - {fileID: 978035248}
-  - {fileID: 1121428819}
-  - {fileID: 177799060}
-  - {fileID: 213818205}
-  - {fileID: 1086184693}
-  - {fileID: 1731963325}
-  - {fileID: 532561072}
-  - {fileID: 1709550671}
-  - {fileID: 1829594401}
-  - {fileID: 1960711750}
-  - {fileID: 1079526024}
-  - {fileID: 817570104}
-  - {fileID: 1121615391}
-  - {fileID: 780355128}
-  - {fileID: 33336630}
-  - {fileID: 205268312}
-  - {fileID: 1259325244}
-  - {fileID: 1608908498}
-  - {fileID: 1018316667}
-  - {fileID: 1169613991}
-  - {fileID: 1555431538}
-  - {fileID: 579311427}
-  - {fileID: 1136018479}
-  - {fileID: 311495451}
-  - {fileID: 637826995}
-  - {fileID: 2070695608}
-  - {fileID: 990151547}
-  - {fileID: 938267486}
-  - {fileID: 1222913567}
-  - {fileID: 351967824}
-  - {fileID: 863498857}
-  - {fileID: 879322077}
-  - {fileID: 1701262507}
-  - {fileID: 1447967902}
-  - {fileID: 1109964344}
-  - {fileID: 1056826447}
-  - {fileID: 2128193639}
-  - {fileID: 607525008}
-  - {fileID: 21998811}
-  - {fileID: 341477333}
-  - {fileID: 914576884}
-  - {fileID: 1943430794}
-  - {fileID: 1014577468}
-  - {fileID: 1849444851}
-  - {fileID: 1501659887}
-  - {fileID: 581089769}
-  - {fileID: 505379341}
-  - {fileID: 789730680}
-  - {fileID: 1063867230}
-  - {fileID: 1588308048}
-  - {fileID: 1380744736}
-  - {fileID: 1694405310}
-  - {fileID: 448750469}
-  - {fileID: 441636671}
-  - {fileID: 124140618}
-  - {fileID: 1813136820}
-  - {fileID: 1144560315}
-  - {fileID: 1644137178}
-  - {fileID: 1954800516}
-  - {fileID: 1827183948}
-  - {fileID: 1041460771}
-  - {fileID: 1276853845}
-  - {fileID: 833956054}
-  - {fileID: 1663536139}
-  - {fileID: 1707535863}
-  - {fileID: 220066087}
-  - {fileID: 1457820631}
-  - {fileID: 742221904}
-  - {fileID: 1053320053}
-  - {fileID: 1567424015}
-  - {fileID: 1981040246}
-  - {fileID: 1112903720}
-  - {fileID: 1263461976}
-  - {fileID: 1898579316}
-  - {fileID: 1585294746}
-  - {fileID: 545928530}
-  - {fileID: 1071313865}
-  - {fileID: 635918372}
-  - {fileID: 309022701}
-  - {fileID: 1014097831}
-  - {fileID: 1095573907}
-  - {fileID: 576615927}
-  - {fileID: 154138568}
-  - {fileID: 486516518}
-  - {fileID: 916879824}
-  - {fileID: 1523509852}
-  - {fileID: 254986157}
-  - {fileID: 241939397}
-  - {fileID: 2022496173}
-  - {fileID: 372861651}
-  - {fileID: 1436040844}
-  - {fileID: 2018708087}
-  - {fileID: 1962519192}
-  - {fileID: 519766423}
-  - {fileID: 125460844}
-  - {fileID: 943985089}
-  - {fileID: 1402694202}
-  - {fileID: 1692379371}
-  - {fileID: 569626182}
-  - {fileID: 49200545}
-  - {fileID: 1252114961}
-  - {fileID: 1281024754}
-  - {fileID: 234400532}
-  - {fileID: 709856288}
-  - {fileID: 1717757380}
-  - {fileID: 773009055}
-  - {fileID: 1252093317}
-  - {fileID: 955191802}
-  - {fileID: 117411952}
-  - {fileID: 1826719785}
-  - {fileID: 528845717}
-  - {fileID: 2093711879}
-  - {fileID: 248822634}
-  - {fileID: 1923372581}
-  - {fileID: 2134186341}
-  - {fileID: 368008332}
-  - {fileID: 1379966025}
-  - {fileID: 1573160645}
-  - {fileID: 1604304716}
-  - {fileID: 843090155}
-  - {fileID: 89615137}
-  - {fileID: 1967598825}
-  - {fileID: 1694668475}
-  - {fileID: 1101922627}
-  - {fileID: 250288704}
-  - {fileID: 164184824}
-  - {fileID: 1825767319}
-  - {fileID: 1180007295}
-  - {fileID: 1738506533}
-  - {fileID: 797329753}
-  - {fileID: 554676521}
-  - {fileID: 1829786815}
-  - {fileID: 715826872}
-  - {fileID: 2145879327}
-  - {fileID: 274960481}
-  - {fileID: 896324386}
-  - {fileID: 2020442184}
-  - {fileID: 1860541831}
-  - {fileID: 242142114}
   - {fileID: 943042587}
+  - {fileID: 242142114}
+  - {fileID: 2020442184}
+  - {fileID: 274960481}
+  - {fileID: 2145879327}
+  - {fileID: 715826872}
+  - {fileID: 1829786815}
+  - {fileID: 554676521}
+  - {fileID: 797329753}
+  - {fileID: 1738506533}
+  - {fileID: 1180007295}
+  - {fileID: 1825767319}
+  - {fileID: 164184824}
+  - {fileID: 250288704}
+  - {fileID: 1101922627}
+  - {fileID: 1694668475}
+  - {fileID: 1967598825}
+  - {fileID: 89615137}
+  - {fileID: 843090155}
+  - {fileID: 1604304716}
+  - {fileID: 1379966025}
+  - {fileID: 368008332}
+  - {fileID: 1923372581}
+  - {fileID: 248822634}
+  - {fileID: 2093711879}
+  - {fileID: 528845717}
+  - {fileID: 1826719785}
+  - {fileID: 955191802}
+  - {fileID: 1252093317}
+  - {fileID: 1665856738}
+  - {fileID: 773009055}
+  - {fileID: 1717757380}
+  - {fileID: 709856288}
+  - {fileID: 1281024754}
+  - {fileID: 1252114961}
+  - {fileID: 49200545}
+  - {fileID: 569626182}
+  - {fileID: 1692379371}
+  - {fileID: 1402694202}
+  - {fileID: 943985089}
+  - {fileID: 125460844}
+  - {fileID: 519766423}
+  - {fileID: 1962519192}
+  - {fileID: 2018708087}
+  - {fileID: 1436040844}
+  - {fileID: 372861651}
+  - {fileID: 2022496173}
+  - {fileID: 241939397}
+  - {fileID: 254986157}
+  - {fileID: 1523509852}
+  - {fileID: 916879824}
+  - {fileID: 486516518}
+  - {fileID: 154138568}
+  - {fileID: 576615927}
+  - {fileID: 1095573907}
+  - {fileID: 1014097831}
+  - {fileID: 309022701}
+  - {fileID: 635918372}
+  - {fileID: 1071313865}
+  - {fileID: 545928530}
+  - {fileID: 1585294746}
+  - {fileID: 1898579316}
+  - {fileID: 1263461976}
+  - {fileID: 1112903720}
+  - {fileID: 1981040246}
+  - {fileID: 1567424015}
+  - {fileID: 1053320053}
+  - {fileID: 742221904}
+  - {fileID: 1457820631}
+  - {fileID: 220066087}
+  - {fileID: 1707535863}
+  - {fileID: 1663536139}
+  - {fileID: 833956054}
+  - {fileID: 1276853845}
+  - {fileID: 1041460771}
+  - {fileID: 1827183948}
+  - {fileID: 1954800516}
+  - {fileID: 1644137178}
+  - {fileID: 1144560315}
+  - {fileID: 1813136820}
+  - {fileID: 124140618}
+  - {fileID: 441636671}
+  - {fileID: 448750469}
+  - {fileID: 1694405310}
+  - {fileID: 1380744736}
+  - {fileID: 1588308048}
+  - {fileID: 1063867230}
+  - {fileID: 789730680}
+  - {fileID: 505379341}
+  - {fileID: 581089769}
+  - {fileID: 1501659887}
+  - {fileID: 1849444851}
+  - {fileID: 1014577468}
+  - {fileID: 1943430794}
+  - {fileID: 914576884}
+  - {fileID: 341477333}
+  - {fileID: 21998811}
+  - {fileID: 607525008}
+  - {fileID: 2128193639}
+  - {fileID: 1056826447}
+  - {fileID: 1109964344}
+  - {fileID: 1447967902}
+  - {fileID: 1701262507}
+  - {fileID: 879322077}
+  - {fileID: 863498857}
+  - {fileID: 351967824}
+  - {fileID: 1222913567}
+  - {fileID: 938267486}
+  - {fileID: 990151547}
+  - {fileID: 2070695608}
+  - {fileID: 637826995}
+  - {fileID: 311495451}
+  - {fileID: 1136018479}
+  - {fileID: 579311427}
+  - {fileID: 1555431538}
+  - {fileID: 1169613991}
+  - {fileID: 1018316667}
+  - {fileID: 1608908498}
+  - {fileID: 1259325244}
+  - {fileID: 205268312}
+  - {fileID: 33336630}
+  - {fileID: 780355128}
+  - {fileID: 1121615391}
+  - {fileID: 817570104}
+  - {fileID: 1079526024}
+  - {fileID: 1960711750}
+  - {fileID: 1829594401}
+  - {fileID: 1709550671}
+  - {fileID: 532561072}
+  - {fileID: 1731963325}
+  - {fileID: 1086184693}
+  - {fileID: 213818205}
+  - {fileID: 177799060}
+  - {fileID: 1121428819}
+  - {fileID: 978035248}
+  - {fileID: 827402317}
+  - {fileID: 2096643475}
+  - {fileID: 58391147}
+  - {fileID: 1682406129}
+  - {fileID: 1550593405}
+  - {fileID: 1640341455}
+  - {fileID: 1786244236}
+  - {fileID: 1464675189}
+  - {fileID: 448525757}
+  - {fileID: 1238129235}
+  - {fileID: 1811116014}
+  - {fileID: 579636368}
+  - {fileID: 60790869}
+  - {fileID: 2126383552}
+  - {fileID: 1043711405}
+  - {fileID: 1920918}
+  - {fileID: 1162763328}
+  - {fileID: 892522365}
+  - {fileID: 624587988}
+  - {fileID: 1328674311}
+  - {fileID: 2016015484}
+  - {fileID: 1539542318}
+  - {fileID: 766113387}
+  - {fileID: 1843962912}
+  - {fileID: 1523912694}
+  - {fileID: 490232680}
+  - {fileID: 2143351821}
+  - {fileID: 1938738681}
+  - {fileID: 1461743544}
+  - {fileID: 1298840408}
+  - {fileID: 979283768}
+  - {fileID: 1935515602}
+  - {fileID: 1454441644}
+  - {fileID: 1188997279}
+  - {fileID: 2063747134}
+  - {fileID: 637036546}
+  - {fileID: 2051337403}
+  - {fileID: 39589739}
+  - {fileID: 1448451394}
+  - {fileID: 449025449}
+  - {fileID: 2024668717}
+  - {fileID: 2032045986}
+  - {fileID: 2048643154}
+  - {fileID: 1021969392}
+  - {fileID: 154436897}
+  - {fileID: 994673779}
+  - {fileID: 1165313667}
+  - {fileID: 447224398}
+  - {fileID: 451979768}
+  - {fileID: 74114575}
+  - {fileID: 117411952}
+  - {fileID: 2134186341}
+  - {fileID: 1573160645}
+  - {fileID: 896324386}
+  - {fileID: 1860541831}
   m_Father: {fileID: 1193034287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &840389967
@@ -6027,6 +6237,10 @@ PrefabInstance:
     - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_Name
       value: Road Join SIngleLane (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6084,6 +6298,10 @@ PrefabInstance:
     - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_Name
       value: Parkinglot Corner 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6152,6 +6370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6208,6 +6430,10 @@ PrefabInstance:
     - target: {fileID: 149268, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
       propertyPath: m_Name
       value: SingleLane S-Curve (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 149268, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 422838, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6285,6 +6511,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6410,13 +6640,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.849993
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6471,6 +6705,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6529,6 +6767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 67.1
@@ -6585,6 +6827,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6647,6 +6893,10 @@ PrefabInstance:
     - target: {fileID: 169448, guid: fc2ff23d1db8b1445bbc99fccb47754c, type: 3}
       propertyPath: m_Name
       value: SingleLane End (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 169448, guid: fc2ff23d1db8b1445bbc99fccb47754c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430878, guid: fc2ff23d1db8b1445bbc99fccb47754c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6720,6 +6970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleLane Straight 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 166632, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 459058, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
@@ -6791,6 +7045,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 187.25
@@ -6801,7 +7059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 55.000004
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6852,6 +7110,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6917,15 +7179,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 199.75
+      value: 199.75002
       objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.500004
+      value: 7.500001
       objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 87.5
+      value: 87.50003
       objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6955,8 +7217,79 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 335291685382430605, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093500665126410631, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: left
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093500665126410631, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: right
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042144009966341880, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9073534
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042144009966341880, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_Size.z
+      value: 0.20213068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042144009966341880, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_Center.x
+      value: 1.5011816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042144009966341880, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_Center.y
+      value: 2.6632878e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042144009966341880, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_Center.z
+      value: -0.4410167
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848440963274806236, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: left
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848440963274806236, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: right
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848440963274806236, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: sendCars
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848440963274806236, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: lookTrigger
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848440963274806236, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003094601140996584, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: left
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003094601140996584, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: right
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852813499094469508, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182021488559764156, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 335291685382430605, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+    - {fileID: 5982302568148143395, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+    - {fileID: 5264167824586440049, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
@@ -6977,13 +7310,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.8499947
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7043,6 +7380,10 @@ PrefabInstance:
     - target: {fileID: 166632, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
       propertyPath: m_Name
       value: SingleLane Straight 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 166632, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 459058, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
       propertyPath: m_LocalScale.z
@@ -7161,6 +7502,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7318,6 +7663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.8500023
@@ -7380,6 +7729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 109.75
@@ -7436,6 +7789,10 @@ PrefabInstance:
     - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_Name
       value: Road Join Road (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7512,6 +7869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 119.75
@@ -7584,6 +7945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 82.25
@@ -7646,6 +8011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7707,6 +8076,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7785,17 +8158,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.09999
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000004
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7851,6 +8228,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7929,6 +8310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.25
@@ -7995,6 +8380,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8125,6 +8514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.1
@@ -8187,6 +8580,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 134.75
@@ -8243,6 +8640,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8414,6 +8815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 157.25
@@ -8475,6 +8880,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8596,6 +9005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 204.75
@@ -8657,6 +9070,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8725,6 +9142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.75
@@ -8781,6 +9202,10 @@ PrefabInstance:
     - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_Name
       value: Road Join Road (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8849,6 +9274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Join Road (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_LocalPosition.x
       value: 134.75
@@ -8905,6 +9334,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (76)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalScale.z
@@ -8992,6 +9425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.25
@@ -9049,6 +9486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.14999962
@@ -9105,6 +9546,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9172,6 +9617,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9297,6 +9746,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Join SIngleLane (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
@@ -9368,17 +9821,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.09999
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000004
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9440,6 +9897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 124.74999
@@ -9496,6 +9957,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9564,6 +10029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Join Road
       objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.750004
@@ -9630,6 +10099,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9745,13 +10218,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Join Highway 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 156992, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 452492, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.500008
       objectReference: {fileID: 0}
     - target: {fileID: 452492, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 452492, guid: 61bdc52826fce8f4d82932062de95073, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9867,6 +10344,62 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
   m_PrefabInstance: {fileID: 1928805643}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1527513633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527513635}
+  - component: {fileID: 1527513634}
+  m_Layer: 0
+  m_Name: CarSpawner (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1527513634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527513633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carCollection: {fileID: 1224740759}
+  spawnCountdown: 3
+  spawnPoint: {fileID: 865128932}
+  destination: {fileID: 0}
+  cars:
+  - {fileID: 301492451801283101, guid: e7a35c7b45acd5f4e997ba10d6f6e9bd, type: 3}
+  - {fileID: 4045146553551875017, guid: 129b25192afaaf2438f2ad67814eaeab, type: 3}
+  - {fileID: 9015176571355068757, guid: 3c2a7c5b0dba0d749b3fc479c1ee54ac, type: 3}
+  - {fileID: 6436124065293232878, guid: 26ef5116749fe7445be16f1c82f311dc, type: 3}
+  - {fileID: 8264021764683382356, guid: 01daa62fe905aed42bb880f19cdc6553, type: 3}
+  - {fileID: 9002816100803627893, guid: 287312ef19b9d594c809f6bc066b4279, type: 3}
+  minDistanceToNextCar: 8
+--- !u!4 &1527513635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527513633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1531184517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9878,6 +10411,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9941,6 +10478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9997,6 +10538,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10060,6 +10605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.25
@@ -10122,6 +10671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Join SIngleLane
       objectReference: {fileID: 0}
+    - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.75
@@ -10179,13 +10732,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.849993
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10297,6 +10854,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10479,6 +11040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10566,7 +11131,7 @@ MonoBehaviour:
   carCollection: {fileID: 1224740759}
   spawnCountdown: 4
   spawnPoint: {fileID: 1406993913}
-  destination: {fileID: 1305087477}
+  destination: {fileID: 865128932}
   cars:
   - {fileID: 301492451801283101, guid: e7a35c7b45acd5f4e997ba10d6f6e9bd, type: 3}
   - {fileID: 4045146553551875017, guid: 129b25192afaaf2438f2ad67814eaeab, type: 3}
@@ -10606,6 +11171,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10664,6 +11233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10720,6 +11293,10 @@ PrefabInstance:
     - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_Name
       value: Parkinglot Corner 1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10788,6 +11365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 3
       objectReference: {fileID: 0}
+    - target: {fileID: 110414, guid: 43678520060fa5e42add8825ab61da06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461886, guid: 43678520060fa5e42add8825ab61da06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.22499
@@ -10849,6 +11430,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalScale.z
@@ -11027,13 +11612,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15000725
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11076,6 +11665,72 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
   m_PrefabInstance: {fileID: 1663536138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1665856737
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 834372345}
+    m_Modifications:
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_Name
+      value: Road Join Road (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 194.74998
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.500003
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 62.499958
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000011920926
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -2.6054018e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000218557
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+--- !u!4 &1665856738 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+  m_PrefabInstance: {fileID: 1665856737}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1673727896
 GameObject:
@@ -11196,6 +11851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 129.75
@@ -11263,6 +11922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.85
@@ -11325,6 +11988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.75
@@ -11381,6 +12048,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11449,6 +12120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Curve 1
       objectReference: {fileID: 0}
+    - target: {fileID: 170104, guid: 68199663c6e51f44bae66172807b8014, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 442050, guid: 68199663c6e51f44bae66172807b8014, type: 3}
       propertyPath: m_LocalPosition.x
       value: 82
@@ -11510,6 +12185,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11691,6 +12370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 109.75
@@ -11752,6 +12435,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11867,6 +12554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.25
@@ -11923,6 +12614,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12041,6 +12736,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12166,6 +12865,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.75
@@ -12222,6 +12925,10 @@ PrefabInstance:
     - target: {fileID: 136476, guid: 517cd28356a64ae4ca59346763bafa76, type: 3}
       propertyPath: m_Name
       value: Highway Join Road (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136476, guid: 517cd28356a64ae4ca59346763bafa76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 490264, guid: 517cd28356a64ae4ca59346763bafa76, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12284,6 +12991,10 @@ PrefabInstance:
     - target: {fileID: 166632, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
       propertyPath: m_Name
       value: SingleLane Straight 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 166632, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 459058, guid: 9b0c19ad39b17024baf069bf79a4f7c5, type: 3}
       propertyPath: m_LocalScale.z
@@ -12413,6 +13124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 152.25
@@ -12475,13 +13190,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Bridge 1
       objectReference: {fileID: 0}
+    - target: {fileID: 157490, guid: 8d7240f2f0843e442b11595c5465dbf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 455828, guid: 8d7240f2f0843e442b11595c5465dbf7, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5273
       objectReference: {fileID: 0}
     - target: {fileID: 455828, guid: 8d7240f2f0843e442b11595c5465dbf7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 455828, guid: 8d7240f2f0843e442b11595c5465dbf7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12550,6 +13269,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12680,6 +13403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 92.24999
@@ -12737,17 +13464,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.09999
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948484
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000004
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12798,6 +13529,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12855,6 +13590,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12918,6 +13657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleLane S-Curve
       objectReference: {fileID: 0}
+    - target: {fileID: 149268, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 422838, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.25
@@ -12974,6 +13717,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13098,7 +13845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1934428088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13149,6 +13896,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13212,6 +13963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleLane S-Curve (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 149268, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 422838, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 62.25001
@@ -13268,6 +14023,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13331,6 +14090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleLane S-Curve (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 149268, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 422838, guid: 5d8d2fcae15c57f46b59943e3db78e5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 87.25002
@@ -13387,6 +14150,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13449,6 +14216,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13517,17 +14288,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 77.09999
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000004
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13578,6 +14353,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13656,6 +14435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.25
@@ -13717,6 +14500,10 @@ PrefabInstance:
     - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_Name
       value: Highway Straight 3 (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13780,6 +14567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Cross Road
       objectReference: {fileID: 0}
+    - target: {fileID: 146542, guid: 93bec4dd0427e844db426ee1317979ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 484574, guid: 93bec4dd0427e844db426ee1317979ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 134.75
@@ -13842,13 +14633,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.849993
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000022948482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13908,6 +14703,10 @@ PrefabInstance:
     - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_Name
       value: Road Join SIngleLane (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13975,6 +14774,10 @@ PrefabInstance:
     - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_Name
       value: Road Join SIngleLane (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 128486, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 476878, guid: 8820d45b6122a1a44b6d1a75e97a5127, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14100,6 +14903,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 124.74999
@@ -14200,6 +15007,10 @@ PrefabInstance:
     - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_Name
       value: Road Join Road (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 171770, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 456242, guid: c5fef14080d92e1448368c964f4f1552, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14364,6 +15175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 167.25
@@ -14426,6 +15241,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Curve 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 170104, guid: 68199663c6e51f44bae66172807b8014, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 442050, guid: 68199663c6e51f44bae66172807b8014, type: 3}
       propertyPath: m_LocalPosition.x
       value: 82
@@ -14487,6 +15306,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14555,6 +15378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Straight 2 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 129.75
@@ -14611,6 +15438,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14725,6 +15556,10 @@ PrefabInstance:
     - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_Name
       value: Road Straight 2 (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 182628, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14864,6 +15699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Highway Straight 3 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 106074, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461726, guid: 27efc696dd4698a43a8c68ebcf493a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.85
@@ -14920,6 +15759,10 @@ PrefabInstance:
     - target: {fileID: 168240, guid: 82697fef831cee04ab4411218e725f9f, type: 3}
       propertyPath: m_Name
       value: SingleLane Join SingleLane
+      objectReference: {fileID: 0}
+    - target: {fileID: 168240, guid: 82697fef831cee04ab4411218e725f9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 452574, guid: 82697fef831cee04ab4411218e725f9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14983,6 +15826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road Curve (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 105156, guid: 834e3b05077e0b445961489bb25da1c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 834e3b05077e0b445961489bb25da1c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 182.25
@@ -15045,6 +15892,7 @@ SceneRoots:
   - {fileID: 1934428089}
   - {fileID: 1589358556}
   - {fileID: 2189479}
+  - {fileID: 1527513635}
   - {fileID: 1745295146}
   - {fileID: 1673727898}
   - {fileID: 1782749084}

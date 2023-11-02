@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6408391104680810495}
   - component: {fileID: 6355942045692676848}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Look
   m_TagString: CarLook
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

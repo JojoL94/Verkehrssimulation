@@ -15,7 +15,7 @@ public class BoxColliderBevahiour : MonoBehaviour
     // Has Collision?
     public bool hasCollision;
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         // Only the "nose" of the car should look --> Don't care if only booty is in trigger
         if (other.CompareTag("CarLook"))
@@ -32,9 +32,9 @@ public class BoxColliderBevahiour : MonoBehaviour
                     other.transform.parent.GetComponent<MoveCar>().giveWait(Vector3.Distance(other.transform.position, transform.GetChild(0).position));
             }
         }
-    }
+    }*/
 
-    private void OnTriggerStay(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if (behaviour == Behaviour.LookForOtherCar)
         {
@@ -51,7 +51,7 @@ public class BoxColliderBevahiour : MonoBehaviour
                     other.transform.parent.GetComponent<MoveCar>().giveWait(Vector3.Distance(other.transform.position, transform.GetChild(0).position));
             }
         }
-    }
+    }*/
 
     private void OnTriggerExit(Collider other)
     {
