@@ -431,7 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ef74c0bf94c784db03c15ce7370e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointTree: {fileID: 0}
 --- !u!114 &2673315925368825751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +453,7 @@ MonoBehaviour:
   nextLocalWaypoint: {fileID: 0}
   doBrake: 0
   brakeDeceleration: 10
+  brakeTimer: 3
   doGiveWait: 0
   nexBigWaypoint: {fileID: 0}
 --- !u!65 &4759104031127122130
@@ -496,7 +496,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.05, y: 1, z: 0.5}
+  m_Size: {x: 6, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-1216856101645493984
 MonoBehaviour:
@@ -510,3 +510,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb1e80cc42c4c44a9bb7f6789c38761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carInFront: {fileID: 0}
+  targetDistanceToFrontCar: 0

@@ -78,7 +78,7 @@ public class MoveCar : MonoBehaviour
         lastLocalWaypoint = origin.GetChild(0).gameObject;
         nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
         myCarDetector = GetComponent<CarDetection>();
-        brakeDeceleration = baseAcceleration * 2;
+        brakeDeceleration = baseAcceleration * 7;
     }
 
 
