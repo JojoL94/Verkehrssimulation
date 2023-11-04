@@ -1,65 +1,65 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
+using static Pathfinding;
 
 //Script for Pathfinding of cars
 public class Pathfinding : MonoBehaviour
 {
+    //New class WaypointTree for nested hierachy of waypoints, needed for A* algorithm
+    public class WaypointTree
+    {
+        public WaypointTree parentWaypointObject;
+        public int numberParents;
+        public Transform id;
+    }
 
-    //GameObject containing hierarchy of waypoints to calculate route
-    public GameObject waypointTree;
+    //WaypointTree contains sorted hiearchie of all Waypoints by A* algorithm
+    WaypointTree waypointTreeList = new WaypointTree();
 
+    //WaypointTree contains WaypointTree object of destination to later retrace the path backwards
+    WaypointTree destinationTree = new WaypointTree();
+
+    //WaitingList to connect parents of WaypointTree objects
+    List<WaypointTree> waitingList = new List <WaypointTree>();
 
     //Retraces the shortest path from end point to start point
-    void RetracePath(Transform startPoint, Transform endPoint){
+    void RetracePath(Transform startPoint){
+
         //List contains all Waypoints for path
         List<Transform> path = new List<Transform>();
 
         //Begin calculating path, once end was found
-        Transform currentWaypoint = endPoint;
+        WaypointTree currentWaypoint = destinationTree;
 
         //Retrace the path backwards, starting at the end
-        while (currentWaypoint != startPoint) {
-            path.Add(GameObject.Find("Waypoints").transform.Find(currentWaypoint.gameObject.name));
-            currentWaypoint = currentWaypoint.parent;
-        }
+        while (currentWaypoint.id != startPoint) {
+            path.Add(GameObject.Find("Waypoints").transform.Find(currentWaypoint.id.gameObject.name));
+            currentWaypoint = currentWaypoint.parentWaypointObject;
+         }
+
         //If done => reverse path, so that end point is at the end
         path.Reverse();
 
         //Add path to travelRoute in MoveCar Script, so that car starts to move the route
         this.GetComponent<MoveCar>().travelRoute = path;
 
-        //After calculation of route: Destroy local copy of Waypoints collection
-        Destroy(this.gameObject.GetComponent<Pathfinding>().waypointTree);
     }
-
-
-
 
 
     //Calculate fastest route using A*Star Algorithm
     private void calculateRoute()
     {
-
-        //Local copy of Waypoints collection => Bug fix to prevent each car from accessing the same collection
-        waypointTree = Instantiate(GameObject.Find("Waypoints"));
-        waypointTree.transform.parent = GameObject.Find("WaypointTreeLists").transform;
-        waypointTree.transform.position = GameObject.Find("Waypoints").transform.position;
-
         //Spawn point of car
         Transform origin = this.GetComponent<MoveCar>().origin;
 
-        //Local copy of spawn point
-        origin = waypointTree.transform.Find(origin.name);
 
         //End point of car
         Transform destination = this.GetComponent<MoveCar>().destination;
-
-        //Local copy of end point
-        destination = waypointTree.transform.Find(destination.name);
 
         //List containing all Waypoints, that weren't checked so far
         List<Transform> openSet = new List<Transform>();
@@ -70,12 +70,13 @@ public class Pathfinding : MonoBehaviour
         //First Waypoint is origin/spawn point
         openSet.Add(origin);
 
+        //Fill waitingList with origin
+        waitingList.Add(new WaypointTree() {id = origin });
 
         while (openSet.Count > 0) {
 
             //currentWaypoint is first entry in openSet
             Transform currentWaypoint = openSet[0];
-
 
             //For every entry in openSet...
             for (int i = 1; i < openSet.Count; i++) {
@@ -99,13 +100,16 @@ public class Pathfinding : MonoBehaviour
 
             //If destination was reached, retrace the path from destination to origin/ spawn point
             if (currentWaypoint == destination) {
-                RetracePath(origin, destination);
+                RetracePath(origin);
                 return;
             }
 
             //Check all neighbour Waypoints
             foreach (Transform neighbour in currentWaypoint.GetComponent<Waypoint>().neighbours) {
-       
+
+                //Temporary WaypointTree object to contain current neigbour
+                WaypointTree child = new WaypointTree();
+              
                 //If neighbour Waypoint is in closedSet => was already checked and can be ignored
                 if (closedSet.Contains(neighbour)) continue;
 
@@ -115,19 +119,54 @@ public class Pathfinding : MonoBehaviour
                 //If new path to neighbour Waypoint is shorter or neigbouring Waypoint is not in openSet...
                 if (newGcost < neighbour.GetComponent<Waypoint>().gCost || !openSet.Contains(neighbour)) {
 
-                    //...update gCost and hCost...
+                    //...update gCost and hCost
                     neighbour.GetComponent<Waypoint>().gCost = newGcost;
                     neighbour.GetComponent<Waypoint>().hCost = Vector3.Distance(neighbour.localPosition, destination.localPosition);
 
-                    //...and set currentWaypoint as parent to neighbour Waypoint
-                    neighbour.parent = currentWaypoint;
+                    //Set currentWaypoint as id
+                    child.id = neighbour;
+
+                    //Get number of connected neighbours
+                    child.numberParents = child.id.gameObject.GetComponent<Waypoint>().neighbours.Count;
+
+                    //Add to waiting list to process later
+                    waitingList.Add(child);
+
+                    //Check if an entry in waitingList matches currently searched parent
+                    foreach (WaypointTree waypoint in waitingList)
+                    {
+                        //If so => Set entry as parent and remove from list
+                        if (currentWaypoint == waypoint.id)
+                        {
+                            child.parentWaypointObject = waypoint;
+
+                            waypoint.numberParents--;
+
+                            if (waypoint.numberParents <= 1)
+                            {
+                                //Debug.Log(waypoint.id);
+                                waitingList.Remove(waypoint);
+                            }
+
+                            break;
+                        }
+                    }
+
+                    //If WaypointTree object is destionation, save in destinationTree to use it later in retracePath
+                    if (child.id == destination)
+                    {
+                        destinationTree = child;
+                    }
+
+                    //Add too root object
+                    waypointTreeList = child;
 
                     //Add neighbour Waypoint to openSet
                     //=> As openSet is filled again, continue the while loop from start
                     if (!openSet.Contains(neighbour)) {
                         openSet.Add(neighbour);
                     }
-                    
+                  
                 }
             }
         }

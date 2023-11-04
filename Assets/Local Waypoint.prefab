@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1612156643113770549}
   - component: {fileID: 8889608900670248984}
   - component: {fileID: 2848304006419621602}
+  - component: {fileID: 3751179978078226547}
   m_Layer: 7
   m_Name: Local Waypoint
   m_TagString: LokalWaypoint
@@ -98,3 +99,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedWaypoints:
   - {fileID: 0}
+--- !u!65 &3751179978078226547
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841143762584590741}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
