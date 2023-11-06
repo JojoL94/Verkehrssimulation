@@ -10,6 +10,9 @@ using UnityEngine;
 //Script to spawn cars in defined intervals
 public class SpawnCar : MonoBehaviour
 {
+    //GameManager to collect information effecting the whole level
+    public GameObject gameManager;
+
     //Collection (empty GameObject) the cars are later added as children for better overview
     public Transform carCollection;
 
@@ -55,6 +58,10 @@ public class SpawnCar : MonoBehaviour
          -----------------------------------------------
          */
         car.GetComponent<MoveCar>().destination = destination;
+
+        car.GetComponent<MoveCar>().gameManager = gameManager;
+
+        gameManager.GetComponent<GameManager>().currentCars++;
 
 
         //Place cars to spawn point

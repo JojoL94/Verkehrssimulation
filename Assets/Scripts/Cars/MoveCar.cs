@@ -27,7 +27,10 @@ public class MoveCar : MonoBehaviour
     public float speed = 0f;
 
     public GameObject lastLocalWaypoint, nextLocalWaypoint;
-    
+
+    //GameManager to collect information effecting the whole level
+    public GameObject gameManager;
+
     //Variables for Braking
     public bool doBrake = false;
     public float brakeDeceleration = 10f;
@@ -39,7 +42,8 @@ public class MoveCar : MonoBehaviour
 
     //Variables for Distance
     private CarDetection myCarDetector;
-    
+
+
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -97,7 +101,8 @@ public class MoveCar : MonoBehaviour
             //...check if destination was reached and...
             if (travelRoute.Count == 0)
             {
-                //...Despawn car...
+                //...Despawn car
+                gameManager.GetComponent<GameManager>().currentCars--;
                 Destroy(this.gameObject);
             }
             myCarDetector.SwitchLane();
@@ -114,6 +119,15 @@ public class MoveCar : MonoBehaviour
     {
         LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
         nexBigWaypoint = travelRoute[0].gameObject;
+
+        //Bool to toggle iteration foreach lopp
+        bool toggleLoop = true;
+
+        //Look maximum of three main Waypoints in advance to predict route to take in crossing (to switch lanes if necessary)
+        Transform thirdNextWaypoint = null;
+        if(travelRoute.Count > 2){
+            thirdNextWaypoint = travelRoute[2];
+        }
 
         //Check if main Waypoint was reached
         if (nextLocalWaypoint.transform.parent == nexBigWaypoint.transform)
@@ -132,13 +146,35 @@ public class MoveCar : MonoBehaviour
 
             foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
             {
-                if (waypoint != null)
-                    if (nexBigWaypoint != null)
+                if (waypoint != null && toggleLoop == true && nexBigWaypoint != null)
+                    //if (nexBigWaypoint != null)
                         for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
                         {
-                            if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform)
+                            if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform && toggleLoop == true)
                             {
-                                nextLocalWaypoint = waypoint;
+                                //If possible: Look three steps ahead, to check if lane switch is necessary at crossings
+                                if (thirdNextWaypoint != null && toggleLoop == true)
+                                {
+                                    foreach (GameObject localWaypoint in waypoint.GetComponent<LocalWaypoint>().connectedWaypoints) 
+                                    {
+                                        foreach (GameObject finalLocalWaypoint in localWaypoint.gameObject.GetComponent<LocalWaypoint>().connectedWaypoints) {
+                                            if (finalLocalWaypoint.transform.parent == thirdNextWaypoint && toggleLoop == true)
+                                            {
+                                                toggleLoop = false;
+                                                nextLocalWaypoint = waypoint;
+                                                break;
+                                            }
+
+                                        }
+                                        
+                                    }    
+                                }
+                                else 
+                                {
+                                    nextLocalWaypoint = waypoint;
+                                }
+                                
+                                
                             }
                         }
             }

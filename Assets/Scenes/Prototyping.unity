@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 630704591}
   carCollection: {fileID: 1224740759}
   spawnCountdown: 3
   spawnPoint: {fileID: 1281443899}
@@ -4611,6 +4612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCars: 100
+  currentCars: 0
   waypointCollection: {fileID: 749452200}
   streetCollection: {fileID: 834372345}
   RaycastDistance: 100
@@ -5228,6 +5230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 630704591}
   carCollection: {fileID: 1224740759}
   spawnCountdown: 4
   spawnPoint: {fileID: 1523750572}
@@ -10383,6 +10386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 630704591}
   carCollection: {fileID: 1224740759}
   spawnCountdown: 3
   spawnPoint: {fileID: 865128932}
@@ -11134,6 +11138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 630704591}
   carCollection: {fileID: 1224740759}
   spawnCountdown: 4
   spawnPoint: {fileID: 1406993913}
@@ -11767,6 +11772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 630704591}
   carCollection: {fileID: 1224740759}
   spawnCountdown: 4
   spawnPoint: {fileID: 1281443899}
@@ -12306,6 +12312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 630704591}
   carCollection: {fileID: 1224740759}
   spawnCountdown: 4
   spawnPoint: {fileID: 530720555}
@@ -12668,6 +12675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 630704591}
   carCollection: {fileID: 1224740759}
   spawnCountdown: 4
   spawnPoint: {fileID: 739998237}
@@ -13894,6 +13902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 630704591}
   carCollection: {fileID: 1224740759}
   spawnCountdown: 2
   spawnPoint: {fileID: 1305087477}
@@ -15801,8 +15810,8 @@ SceneRoots:
   - {fileID: 1934428089}
   - {fileID: 1589358556}
   - {fileID: 2189479}
-  - {fileID: 1527513635}
   - {fileID: 1745295146}
+  - {fileID: 1527513635}
   - {fileID: 1673727898}
   - {fileID: 1782749084}
   - {fileID: 707760041}

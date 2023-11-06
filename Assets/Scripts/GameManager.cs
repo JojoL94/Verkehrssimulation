@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     //Max number of cars driving at the same time
     public float maxCars = 30;
+    public float currentCars = 0;
 
     public Transform waypointCollection;
     public Transform streetCollection;
