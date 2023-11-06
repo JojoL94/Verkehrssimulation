@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarDetection : MonoBehaviour
@@ -12,9 +13,9 @@ public class CarDetection : MonoBehaviour
 
     //Variablen für den Abstand
     public float targetDistanceToFrontCar;
-    private float minTargetDistance = 5.5f;
-    private float targetDistanceModifier = 10f;
-
+    private float minTargetDistance = 3f;
+    private float targetDistanceModifier = 100f;
+    private float raycastOffset = 3f;
     void Start()
     {
         myMoveCar = GetComponent<MoveCar>();
@@ -23,12 +24,14 @@ public class CarDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 objectPosition = transform.position + transform.right * raycastOffset;
+        bool tmpDoBrake = false;
         // Berechnen Sie den gewünschten Abstand basierend auf der Geschwindigkeit
         targetDistanceToFrontCar =
-            minTargetDistance + (myMoveCar.speed / myMoveCar.maxSpeed) * targetDistanceModifier;
+            minTargetDistance + myMoveCar.speed;
         Vector3 raycastDirection = transform.right;
         // Erstelle einen Raycast von der aktuellen Position in Richtung der Vorwärtsansicht (z.B., Z-Achse)
-        Ray ray = new Ray(transform.position, raycastDirection);
+        Ray ray = new Ray(objectPosition, raycastDirection);
         RaycastHit hit;
 
         // Überprüfe, ob der Raycast ein Objekt mit dem Tag "Car" trifft
@@ -41,9 +44,9 @@ public class CarDetection : MonoBehaviour
                     if (
                         hit.collider.GetComponent<CarDetection>().carInFront != transform)
                     {
-                        if (Vector3.Distance(hit.point, transform.position) < targetDistanceToFrontCar)
+                        if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
                         {
-                            myMoveCar.doBrake = true;
+                            tmpDoBrake = true;
                         }
 
                         if (hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
@@ -59,7 +62,7 @@ public class CarDetection : MonoBehaviour
                 }
             }
 
-            Debug.DrawRay(transform.position + Vector3.back, raycastDirection * raycastDistance,
+            Debug.DrawRay(objectPosition + Vector3.back, raycastDirection * raycastDistance,
                 Color.magenta); // Zeichne den Raycast in der Szene
         }
         else
@@ -70,13 +73,13 @@ public class CarDetection : MonoBehaviour
                     (carInFront.position - transform.position) * targetDistanceToFrontCar,
                     Color.cyan); // Zeichne den Raycast in der Szene
                 //Halte Abstand zum gefundenem Auto
-                if (Vector3.Distance(transform.position, carInFront.position) < targetDistanceToFrontCar)
+                if (Vector3.Distance(objectPosition, carInFront.position) < targetDistanceToFrontCar)
                 {
-                    myMoveCar.doBrake = true;
+                    tmpDoBrake = true;
                 }
                 else
                 {
-                    myMoveCar.doBrake = false;
+                    tmpDoBrake = false;
                     carInFrontDetected = false;
                 }
             }
@@ -92,14 +95,34 @@ public class CarDetection : MonoBehaviour
                     if (
                         hit.collider.GetComponent<CarDetection>().carInFront != transform)
                     {
-                        if (Vector3.Distance(hit.point, transform.position) < targetDistanceToFrontCar)
+                        if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
                         {
-                            myMoveCar.doBrake = true;
+                            tmpDoBrake = true;
+                        }
+
+                        if (hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                            hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
+                            hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                            hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
+                        {
+                            // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
+                            carInFront = hit.collider.gameObject.transform;
                         }
                     }
                 }
             }
         }
+        if (Physics.Raycast(transform.position, raycastDirection, out hit, raycastDistance))
+        {
+            if (hit.collider.CompareTag("Car"))
+            {
+                if (hit.collider.GetComponent<Transform>() != transform)
+                {
+                    tmpDoBrake = true;
+                }
+            }
+        }
+        myMoveCar.doBrake = tmpDoBrake;
     }
 
     public void SwitchLane()
