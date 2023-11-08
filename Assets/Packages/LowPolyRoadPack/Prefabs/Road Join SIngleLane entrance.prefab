@@ -299,7 +299,7 @@ Transform:
   m_GameObject: {fileID: 1624254446443728906}
   serializedVersion: 2
   m_LocalRotation: {x: -4.7961635e-14, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6.38, y: 0.4807, z: 5.72}
+  m_LocalPosition: {x: 6.08, y: 0.4807, z: 5.72}
   m_LocalScale: {x: 2.34, y: 0.73682386, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -437,7 +437,7 @@ Transform:
   m_GameObject: {fileID: 4458418627910758928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.65, y: 0.4807, z: 1.84}
+  m_LocalPosition: {x: 5.65, y: 0.4807, z: 2.11}
   m_LocalScale: {x: 2.34, y: 0.73682386, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -683,6 +683,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 476878}
     m_Modifications:
+    - target: {fileID: 661313119706124494, guid: 3c79442523df6c248a9e6b5533c87a67, type: 3}
+      propertyPath: m_Name
+      value: Waypoint 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428805443007941202, guid: 3c79442523df6c248a9e6b5533c87a67, type: 3}
+      propertyPath: m_Name
+      value: Waypoint 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6564650483351580558, guid: 3c79442523df6c248a9e6b5533c87a67, type: 3}
       propertyPath: connectedWaypoints.Array.size
       value: 2
@@ -791,6 +799,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 476878}
     m_Modifications:
+    - target: {fileID: 661313119706124494, guid: 3c79442523df6c248a9e6b5533c87a67, type: 3}
+      propertyPath: m_Name
+      value: Waypoint 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428805443007941202, guid: 3c79442523df6c248a9e6b5533c87a67, type: 3}
+      propertyPath: m_Name
+      value: Waypoint 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6552362732518994709, guid: 3c79442523df6c248a9e6b5533c87a67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -906,6 +922,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 476878}
     m_Modifications:
+    - target: {fileID: 5428805443007941202, guid: 5c32706ff8825e244a12a69ba4bd0bfc, type: 3}
+      propertyPath: m_Name
+      value: Waypoint 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7457291814507607333, guid: 5c32706ff8825e244a12a69ba4bd0bfc, type: 3}
       propertyPath: connectedWaypoints.Array.size
       value: 0

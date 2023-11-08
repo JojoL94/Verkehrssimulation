@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ public class MoveCar : MonoBehaviour
     //Current speed of car
     public float speed = 0f;
 
-    public GameObject lastLocalWaypoint, nextLocalWaypoint;
+    public GameObject lastLocalWaypoint, nextLocalWaypoint, next2LocalWaypoint;
 
     //GameManager to collect information effecting the whole level
     public GameObject gameManager;
@@ -85,7 +86,7 @@ public class MoveCar : MonoBehaviour
         brakeDeceleration = baseAcceleration * 7;
     }
 
-
+    public bool turnsRight;
     // Update is called once per frame
     void Update()
     {
@@ -95,9 +96,20 @@ public class MoveCar : MonoBehaviour
         //If neighbouring Waypoint was reached...
         if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
         {
+            int lastWaypointIndex = int.Parse(Regex.Replace(lastLocalWaypoint.name, "[^0-9]", ""));
+            
             lastLocalWaypoint = nextLocalWaypoint;
             getNextLocalWaypoint();
-            
+
+            int nextWaypointIndex = int.Parse(Regex.Replace(nextLocalWaypoint.name, "[^0-9]", ""));
+            int next2WaypointIndex = int.Parse(Regex.Replace(next2LocalWaypoint.name, "[^0-9]", ""));
+
+            int difference = next2WaypointIndex - lastWaypointIndex;
+            if (difference == 1 || difference == 2)
+                turnsRight = true;
+            else turnsRight = false;
+            Debug.Log($"Fährt von {lastWaypointIndex} über {nextWaypointIndex} zu {next2WaypointIndex} difference = {difference}");
+
             //...check if destination was reached and...
             if (travelRoute.Count == 0)
             {
@@ -119,6 +131,8 @@ public class MoveCar : MonoBehaviour
     {
         LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
         nexBigWaypoint = travelRoute[0].gameObject;
+
+        
 
         //Bool to toggle iteration foreach lopp
         bool toggleLoop = true;
@@ -172,16 +186,15 @@ public class MoveCar : MonoBehaviour
                                 else 
                                 {
                                     nextLocalWaypoint = waypoint;
-                                }
-                                
-                                
+                                }                                                                
                             }
                         }
             }
-
         }
 
-
+        if (travelRoute.Count > 1)
+            if (travelRoute[1] != null)
+                next2LocalWaypoint = nextLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
 
         return null;
     }
@@ -191,10 +204,17 @@ public class MoveCar : MonoBehaviour
     // Is called by intersection and its BoxColliders
     public void giveWait(float distanceToHaltelinie, float left, float right)
     {
-        // Breaking is harder, the closer to the Haltelinie, the harder breake.
-        speed -= (speed + (brakeDeceleration * Time.deltaTime))  * (left / (distanceToHaltelinie + right));
-        // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
-        speed = Mathf.Max(speed, 0);
+        if (!turnsRight)
+        {
+            // Breaking is harder, the closer to the Haltelinie, the harder breake.
+            speed -= (speed + (brakeDeceleration * Time.deltaTime))  * (left / (distanceToHaltelinie + right));
+            // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
+            speed = Mathf.Max(speed, 0);
+        }
+        else
+        {
+            Debug.Log("Eigentliche warten, aber fährt nach rechts, deswegen egal");
+        }
 
     }
 }

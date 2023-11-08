@@ -12,7 +12,7 @@ public class RightBeforeLeft : MonoBehaviour
     Vector3 raycastDirection;
 
     // Die Länge des Raycasts
-    float raycastDistance = 6f;
+    float raycastDistance = 6.75f;
 
     // Führe den eigentlichen Raycast durch
     RaycastHit hitSend;
@@ -65,9 +65,6 @@ public class RightBeforeLeft : MonoBehaviour
             lookHasCollision = true;
         }
         else lookHasCollision = false;*/
-
-
-
 
         if (sendHasCollision && lookHasCollision)
             if (hitLook.collider.GetComponent<MoveCar>())

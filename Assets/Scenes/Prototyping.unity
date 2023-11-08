@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -189,63 +189,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 404288, guid: b902c7d22d14fa843846ba35e963190b, type: 3}
   m_PrefabInstance: {fileID: 2118587652}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2189477
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2189479}
-  - component: {fileID: 2189478}
-  m_Layer: 0
-  m_Name: CarSpawner (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2189478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2189477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7637a868f067fa544a7213ddaae1dafa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 630704591}
-  carCollection: {fileID: 1224740759}
-  spawnCountdown: 3
-  spawnPoint: {fileID: 1281443899}
-  destination: {fileID: 1847647357}
-  cars:
-  - {fileID: 301492451801283101, guid: e7a35c7b45acd5f4e997ba10d6f6e9bd, type: 3}
-  - {fileID: 4045146553551875017, guid: 129b25192afaaf2438f2ad67814eaeab, type: 3}
-  - {fileID: 9015176571355068757, guid: 3c2a7c5b0dba0d749b3fc479c1ee54ac, type: 3}
-  - {fileID: 6436124065293232878, guid: 26ef5116749fe7445be16f1c82f311dc, type: 3}
-  - {fileID: 8264021764683382356, guid: 01daa62fe905aed42bb880f19cdc6553, type: 3}
-  - {fileID: 9002816100803627893, guid: 287312ef19b9d594c809f6bc066b4279, type: 3}
-  minDistanceToNextCar: 8
---- !u!4 &2189479
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2189477}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2347268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5217,7 +5160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &707760040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11125,7 +11068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1589358555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11759,7 +11702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1673727897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12662,7 +12605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1782749083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15809,7 +15752,6 @@ SceneRoots:
   - {fileID: 630704593}
   - {fileID: 1934428089}
   - {fileID: 1589358556}
-  - {fileID: 2189479}
   - {fileID: 1745295146}
   - {fileID: 1527513635}
   - {fileID: 1673727898}
