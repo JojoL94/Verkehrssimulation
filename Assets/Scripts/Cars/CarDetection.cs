@@ -112,16 +112,21 @@ public class CarDetection : MonoBehaviour
                 }
             }
         }
-        if (Physics.Raycast(transform.position, raycastDirection, out hit, raycastDistance))
+        if (Physics.Raycast(transform.position - transform.right, raycastDirection, out hit, raycastDistance))
         {
             if (hit.collider.CompareTag("Car"))
             {
                 if (hit.collider.GetComponent<Transform>() != transform)
                 {
+                    carInFront = hit.collider.gameObject.transform;
                     tmpDoBrake = true;
                 }
             }
+            Debug.DrawRay(transform.position - transform.right/2,
+                raycastDirection * Vector3.Distance(transform.position, hit.point),
+                Color.yellow);  // Zeichne den Raycast in der Szene
         }
+
         myMoveCar.doBrake = tmpDoBrake;
     }
 

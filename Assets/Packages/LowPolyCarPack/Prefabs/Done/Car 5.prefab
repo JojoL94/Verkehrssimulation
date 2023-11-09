@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 3328508816936181976}
   - component: {fileID: 5121131669814633496}
   - component: {fileID: -6076037535739725254}
+  - component: {fileID: 3122089873497862553}
   m_Layer: 0
   m_Name: Car 5
   m_TagString: Car
@@ -404,6 +405,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carInFront: {fileID: 0}
   targetDistanceToFrontCar: 0
+--- !u!65 &3122089873497862553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264021764683382356}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: -1, y: 0, z: 0}
 --- !u!1 &8995150456690738665
 GameObject:
   m_ObjectHideFlags: 0

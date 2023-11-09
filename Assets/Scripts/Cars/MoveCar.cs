@@ -117,7 +117,7 @@ public class MoveCar : MonoBehaviour
                 gameManager.GetComponent<GameManager>().currentCars--;
                 Destroy(this.gameObject);
             }
-            myCarDetector.SwitchLane();
+            //myCarDetector.SwitchLane();
         }
         //Rotate Object towards driving direction
         transform.LookAt(nextLocalWaypoint.transform);
