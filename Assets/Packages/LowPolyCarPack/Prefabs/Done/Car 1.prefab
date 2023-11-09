@@ -73,10 +73,13 @@ MonoBehaviour:
   speed: 0
   lastLocalWaypoint: {fileID: 0}
   nextLocalWaypoint: {fileID: 0}
+  next2LocalWaypoint: {fileID: 0}
+  gameManager: {fileID: 0}
   doBrake: 0
   brakeDeceleration: 10
   brakeTimer: 3
   doGiveWait: 0
+  turnsRight: 0
   nexBigWaypoint: {fileID: 0}
 --- !u!65 &-6201120591577893389
 BoxCollider:
@@ -153,8 +156,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: -1, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.5, z: 1.5}
+  m_Center: {x: 1.3, y: 0, z: 0}
 --- !u!1 &2469964443567209350
 GameObject:
   m_ObjectHideFlags: 0
