@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class KameraSteuerung : MonoBehaviour
@@ -12,6 +13,11 @@ public class KameraSteuerung : MonoBehaviour
     [SerializeField] float kameraHöhenverstellgeschwindigkeit = 2.0f;
     [SerializeField] float minKameraHöhe = 10f;
     [SerializeField] float maxKameraHöhe = 20f;
+    [SerializeField] private Transform adlerAugeStartPosition;
+    private void Start()
+    {
+        transform.position = adlerAugeStartPosition.position;
+    }
 
     void Update()
     {
