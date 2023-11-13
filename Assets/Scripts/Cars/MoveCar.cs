@@ -182,6 +182,7 @@ public class MoveCar : MonoBehaviour
         nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
         myCarDetector = GetComponent<CarDetection>();
         brakeDeceleration = baseAcceleration * 7;
+        transform.root.GetComponent<Datenvisualisierung>().carCounter++;
     }
 
     public bool turnsRight;
@@ -213,6 +214,7 @@ public class MoveCar : MonoBehaviour
             {
                 //...Despawn car
                 gameManager.GetComponent<GameManager>().currentCars--;
+                transform.root.GetComponent<Datenvisualisierung>().carCounter--;
                 Destroy(this.gameObject);
             }
             //myCarDetector.SwitchLane();

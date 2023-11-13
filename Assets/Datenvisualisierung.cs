@@ -5,7 +5,16 @@ using UnityEngine;
 
 public class Datenvisualisierung : MonoBehaviour
 {
-    public TextMeshProUGUI carCounter;
+    public TextMeshProUGUI carCounterTextMesh;
+
+    public TextMeshProUGUI carsSpeedMeanTextMesh;
+
+    public TextMeshProUGUI placeHolderTextMesh;
+    
+    public int carCounter;
+
+    private int oldCarCounter = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +24,10 @@ public class Datenvisualisierung : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        carCounter.SetText("Test");
+        if (carCounter != oldCarCounter)
+        {
+            carCounterTextMesh.SetText("Cars on the Street: " + carCounter.ToString());
+            oldCarCounter = carCounter;
+        }
     }
 }

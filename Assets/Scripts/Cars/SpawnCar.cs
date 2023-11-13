@@ -64,12 +64,10 @@ public class SpawnCar : MonoBehaviour
 
         gameManager.GetComponent<GameManager>().currentCars++;
 
-
         //Place cars to spawn point
         car.gameObject.transform.position = spawnPoint.transform.position;
     }
-
-
+    
     void Start()
     {
         //Initialize currentTime as spawnCountdown
