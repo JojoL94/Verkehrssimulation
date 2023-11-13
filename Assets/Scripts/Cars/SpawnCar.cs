@@ -28,6 +28,7 @@ public class SpawnCar : MonoBehaviour
     //Array containing all car PreFabs
     public GameObject[] cars;
 
+    private float maxCars;
     //Variable to define in seconds the current time of the countdown
     private float currentTime;
 
@@ -73,6 +74,7 @@ public class SpawnCar : MonoBehaviour
     {
         //Initialize currentTime as spawnCountdown
         currentTime = spawnCountdown;
+        maxCars = GameObject.Find("GameManager").GetComponent<GameManager>().maxCars;
     }
 
 
@@ -91,7 +93,7 @@ public class SpawnCar : MonoBehaviour
             //spawn and reset timer if it is the first car or the last car spawned have a min distance to the spawner
             if (lastCarSpawned == null || Vector3.Distance(lastCarSpawned.position, spawnPoint.position) > minDistanceToNextCar)
             {
-                if (carCollection.childCount < GameObject.Find("GameManager").GetComponent<GameManager>().maxCars)
+                if (carCollection.childCount < maxCars)
                 {
                     //Spawn random car
                     spawnCar();
