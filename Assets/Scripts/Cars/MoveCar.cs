@@ -31,6 +31,8 @@ public class MoveCar : MonoBehaviour
 
     //GameManager to collect information effecting the whole level
     public GameObject gameManager;
+    //nexBigWaypoint saves the next mainWaypoint
+    public GameObject nexBigWaypoint;
 
     //Variables for Braking
     public bool doBrake = false;
@@ -43,6 +45,14 @@ public class MoveCar : MonoBehaviour
 
     //Variables for Distance
     private CarDetection myCarDetector;
+
+    //Variables for lane switching
+    //Timer to check if on target lane
+    private float laneTimer;
+    //Bool to toggle for- and foreach-loops in lane switching
+    private bool laneLooping = true;
+    //lokalTargetWaypoint saves the child of the next mainWaypoint => needs to be reached to turn left/right if necessary
+    private Transform lokalTargetWaypoint;
 
 
     //Fixed Update is used for physics calculations that aren't linear
@@ -76,7 +86,95 @@ public class MoveCar : MonoBehaviour
         {
             timer = 0f;
         }
+
+
+        //-----------------------------------------------------------------------------------------------------------------
+        //BEGIN OF LANE SWITCHING
+        //-----------------------------------------------------------------------------------------------------------------
+
+        //Timer to check if on right lane
+        if (laneTimer <= 2f)
+        {
+            laneTimer += Time.deltaTime;
+        }
+        else {
+            prepareLaneSwitch();
+            laneTimer = 0f;
+        }
     }
+
+    //Check if laneSwitch is necessary to turn at next crossing and do so if thats the case
+    private void prepareLaneSwitch()
+    {
+        //Bool to toggle looping
+        laneLooping = true;
+
+        //Check if 4 lane street
+        if (travelRoute.Count >= 2 && nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint"))
+        {
+
+            //Check which waypoint the car need to take to reach travelRoute[1] (basically, check if it needs to turn left or right)
+            for (int x = 0; x < nexBigWaypoint.transform.childCount; x++)
+            {
+                if (laneLooping == true)
+                {
+                    foreach (GameObject waypoint in nexBigWaypoint.transform.GetChild(x).GetComponent<LocalWaypoint>().connectedWaypoints)
+                    {
+                        if (waypoint.transform.parent == travelRoute[1])
+                        {
+                            //lokalTargetWaypoint is the lokalWaypoint the car needs to reach, so it can correctly turn at crossings
+                            lokalTargetWaypoint = nexBigWaypoint.transform.GetChild(x);
+
+                            //Check if current lane is the correct one to reach lokalTargetWaypoint, switch lane if not
+                            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position);
+                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 1
+                                || Vector3.Cross(delta, this.gameObject.transform.right).y < -1)
+                            {
+                                switchLane();
+                            }
+
+                            laneLooping = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Switch lane for ShadowWaypoints
+    private void switchLane() {
+        for (int x = 0; x < nextLocalWaypoint.transform.parent.childCount; x++) {
+            if (nextLocalWaypoint.transform.parent.GetChild(x) == nextLocalWaypoint.transform) {
+                //ShadowWaypoints have two children, the first [0] is the outside, the second [1] is the inside
+                if (nextLocalWaypoint.transform.GetSiblingIndex() == 0)
+                {
+                    //Switch if next lane is empty
+                    if (nextLocalWaypoint.transform.parent.GetChild(x+1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0
+                        && lastLocalWaypoint.transform.parent.GetChild(x+1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0) 
+                    {
+                        nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x+1).gameObject;
+                        break;
+                    }
+                }
+                else 
+                {
+                    //Switch if next lane is empty
+                    if (nextLocalWaypoint.transform.parent.GetChild(x-1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0
+                        && lastLocalWaypoint.transform.parent.GetChild(x-1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0)
+                    {
+                        nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x-1).gameObject;
+                        break;
+                    }
+                    
+                }            
+            }
+        }
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------
+    //End OF LANE SWITCHING
+    //-----------------------------------------------------------------------------------------------------------------
 
     private void Start()
     {
@@ -97,7 +195,7 @@ public class MoveCar : MonoBehaviour
         if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
         {
             int lastWaypointIndex = int.Parse(Regex.Replace(lastLocalWaypoint.name, "[^0-9]", ""));
-            
+
             lastLocalWaypoint = nextLocalWaypoint;
             getNextLocalWaypoint();
 
@@ -108,7 +206,7 @@ public class MoveCar : MonoBehaviour
             if (difference == 1 || difference == 2)
                 turnsRight = true;
             else turnsRight = false;
-            Debug.Log($"Fährt von {lastWaypointIndex} über {nextWaypointIndex} zu {next2WaypointIndex} difference = {difference}");
+            //Debug.Log($"Fährt von {lastWaypointIndex} über {nextWaypointIndex} zu {next2WaypointIndex} difference = {difference}");
 
             //...check if destination was reached and...
             if (travelRoute.Count == 0)
@@ -124,22 +222,19 @@ public class MoveCar : MonoBehaviour
         transform.Rotate(0, -90, 0);
     }
 
-
-    public GameObject nexBigWaypoint;
-
     GameObject getNextLocalWaypoint()
     {
         LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
         nexBigWaypoint = travelRoute[0].gameObject;
 
-        
+
 
         //Bool to toggle iteration foreach lopp
         bool toggleLoop = true;
 
         //Look maximum of three main Waypoints in advance to predict route to take in crossing (to switch lanes if necessary)
         Transform thirdNextWaypoint = null;
-        if(travelRoute.Count > 2){
+        if (travelRoute.Count > 2) {
             thirdNextWaypoint = travelRoute[2];
         }
 
@@ -161,36 +256,16 @@ public class MoveCar : MonoBehaviour
             foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
             {
                 if (waypoint != null && toggleLoop == true && nexBigWaypoint != null)
-                    //if (nexBigWaypoint != null)
-                        for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
+                    for (int i = 0; i < nexBigWaypoint.transform.childCount; i++)
+                    {
+                        if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform && toggleLoop == true)
                         {
-                            if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform && toggleLoop == true)
-                            {
-                                //If possible: Look three steps ahead, to check if lane switch is necessary at crossings
-                                if (thirdNextWaypoint != null && toggleLoop == true)
-                                {
-                                    foreach (GameObject localWaypoint in waypoint.GetComponent<LocalWaypoint>().connectedWaypoints) 
-                                    {
-                                        foreach (GameObject finalLocalWaypoint in localWaypoint.gameObject.GetComponent<LocalWaypoint>().connectedWaypoints) {
-                                            if (finalLocalWaypoint.transform.parent == thirdNextWaypoint && toggleLoop == true)
-                                            {
-                                                toggleLoop = false;
-                                                nextLocalWaypoint = waypoint;
-                                                break;
-                                            }
-
-                                        }
-                                        
-                                    }    
-                                }
-                                else 
-                                {
-                                    nextLocalWaypoint = waypoint;
-                                }                                                                
-                            }
-                        }
+                            nextLocalWaypoint = waypoint;
+                            toggleLoop = false;
+                        }  
+                    }
             }
-        }
+    } 
 
         if (travelRoute.Count > 1)
             if (travelRoute[1] != null)
@@ -213,7 +288,7 @@ public class MoveCar : MonoBehaviour
         }
         else
         {
-            Debug.Log("Eigentliche warten, aber fährt nach rechts, deswegen egal");
+            //Debug.Log("Eigentliche warten, aber fährt nach rechts, deswegen egal");
         }
 
     }

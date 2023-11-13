@@ -170,6 +170,7 @@ public class Pathfinding : MonoBehaviour
                 }
             }
         }
+        waitingList.Clear();
     }
 
     private void Start()

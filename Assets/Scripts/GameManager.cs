@@ -34,32 +34,57 @@ public class GameManager : MonoBehaviour
                     //Filter out all "RightOfWay" children
                     if (!streetCollection.GetChild(x).GetChild(y).name.Contains("RightOfWay")) {
 
-                        //For all other children (mainWaypoints)
-                        //Declare mainWaypoint
-                        Transform mainWaypoint = streetCollection.GetChild(x).GetChild(y);
-
                         //Declare RaycastHit
                         RaycastHit hit;
 
-                        //Connect all Main Waypoints
-                        if (Physics.Raycast(mainWaypoint.transform.position, mainWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("MainWaypoint"))
-                        && mainWaypoint.transform.parent != hit.transform.parent)
+                        //Special case: ShadoWaypoints (Standalone LokalWaypoints)
+                        if (streetCollection.GetChild(x).GetChild(y).name.Contains("ShadowWaypoint"))
                         {
-                            mainWaypoint.GetComponent<Waypoint>().neighbours.Add(hit.collider.transform);
-                        }
+                            //For shadowWaypoints
+                            //Declare shadowWaypoint
+                            Transform shadowWaypoint = streetCollection.GetChild(x).GetChild(y);
 
-                        //Iterate through children
-                        for (int z = 0; z < mainWaypoint.transform.childCount; z++)
-                        {
-                            //For all other children (lokalWaypoints)
-                            //Declare lokalWaypoint
-                            GameObject localWaypoint = mainWaypoint.GetChild(z).gameObject;
-
-                            //Connect all Lokal Waypoints
-                            if (Physics.Raycast(localWaypoint.transform.position, localWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("LokalWaypoint"))
-                            && localWaypoint.transform.parent.parent != hit.transform.parent.parent)
+                            //Iterate through children
+                            for (int z = 0; z < shadowWaypoint.transform.childCount; z++)
                             {
-                                localWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints.Add(hit.collider.gameObject);
+                                //For all other children (lokalWaypoints)
+                                //Declare lokalWaypoint
+                                GameObject localWaypoint = shadowWaypoint.GetChild(z).gameObject;
+
+                                //Connect all Lokal Waypoints
+                                if (Physics.Raycast(localWaypoint.transform.position, localWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("LokalWaypoint"))
+                                && localWaypoint.transform.parent.parent != hit.transform.parent.parent)
+                                {
+                                    localWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints.Add(hit.collider.gameObject);
+                                }
+                            }
+                        }
+                        else 
+                        {
+                            //For all other children (mainWaypoints)
+                            //Declare mainWaypoint
+                            Transform mainWaypoint = streetCollection.GetChild(x).GetChild(y);
+
+                            //Connect all Main Waypoints
+                            if (Physics.Raycast(mainWaypoint.transform.position, mainWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("MainWaypoint"))
+                            && mainWaypoint.transform.parent != hit.transform.parent)
+                            {
+                                mainWaypoint.GetComponent<Waypoint>().neighbours.Add(hit.collider.transform);
+                            }
+
+                            //Iterate through children
+                            for (int z = 0; z < mainWaypoint.transform.childCount; z++)
+                            {
+                                //For all other children (lokalWaypoints)
+                                //Declare lokalWaypoint
+                                GameObject localWaypoint = mainWaypoint.GetChild(z).gameObject;
+
+                                //Connect all Lokal Waypoints
+                                if (Physics.Raycast(localWaypoint.transform.position, localWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("LokalWaypoint"))
+                                && localWaypoint.transform.parent.parent != hit.transform.parent.parent)
+                                {
+                                    localWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints.Add(hit.collider.gameObject);
+                                }
                             }
                         }
                     }
@@ -76,7 +101,9 @@ public class GameManager : MonoBehaviour
         for (int x = 0; x < streetCollection.childCount; x++) {
 
                 //Filter out Right before Left Collider
-                while (streetCollection.GetChild(x).transform.childCount > 0 && !streetCollection.GetChild(x).GetChild(transform.childCount).name.Contains("RightOfWay"))
+                while (streetCollection.GetChild(x).transform.childCount > 0 
+                && !streetCollection.GetChild(x).GetChild(transform.childCount).name.Contains("RightOfWay")
+                && !streetCollection.GetChild(x).GetChild(transform.childCount).name.Contains("ShadowWaypoint"))
                 {
                     //Name each Waypoint with uniqe name and put in  waypointCollection(A* Algorithm needs Waypoints with uniqe names and in separate List)
                     streetCollection.GetChild(x).GetChild(transform.childCount).name = "Waypoint" + counter;
