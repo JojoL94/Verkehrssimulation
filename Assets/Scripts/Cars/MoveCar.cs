@@ -8,6 +8,9 @@ using UnityEngine;
 //Script for movement of cars
 public class MoveCar : MonoBehaviour
 {
+    //Identification Variable
+    public int carID;
+    
     //Spawn point of car
     public Transform origin;
 
@@ -31,6 +34,7 @@ public class MoveCar : MonoBehaviour
 
     //GameManager to collect information effecting the whole level
     public GameObject gameManager;
+
     //nexBigWaypoint saves the next mainWaypoint
     public GameObject nexBigWaypoint;
 
@@ -40,6 +44,7 @@ public class MoveCar : MonoBehaviour
     private float timer;
 
     public float brakeTimer = 3f;
+
     // Need to give wait
     public bool doGiveWait = false;
 
@@ -49,8 +54,10 @@ public class MoveCar : MonoBehaviour
     //Variables for lane switching
     //Timer to check if on target lane
     private float laneTimer;
+
     //Bool to toggle for- and foreach-loops in lane switching
     private bool laneLooping = true;
+
     //lokalTargetWaypoint saves the child of the next mainWaypoint => needs to be reached to turn left/right if necessary
     private Transform lokalTargetWaypoint;
 
@@ -68,6 +75,7 @@ public class MoveCar : MonoBehaviour
             //Ensure, that speed is never bigger than maxSpeed
             speed = Mathf.Clamp(speed, 0, maxSpeed);
         }
+
         if (doBrake)
         {
             timer += Time.deltaTime;
@@ -76,6 +84,7 @@ public class MoveCar : MonoBehaviour
                 doBrake = false;
                 timer = 0f;
             }
+
             // Verringere die Geschwindigkeit basierend auf der Bremsdeceleration
             speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime;
 
@@ -97,7 +106,8 @@ public class MoveCar : MonoBehaviour
         {
             laneTimer += Time.deltaTime;
         }
-        else {
+        else
+        {
             prepareLaneSwitch();
             laneTimer = 0f;
         }
@@ -112,13 +122,13 @@ public class MoveCar : MonoBehaviour
         //Check if 4 lane street
         if (travelRoute.Count >= 2 && nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint"))
         {
-
             //Check which waypoint the car need to take to reach travelRoute[1] (basically, check if it needs to turn left or right)
             for (int x = 0; x < nexBigWaypoint.transform.childCount; x++)
             {
                 if (laneLooping == true)
                 {
-                    foreach (GameObject waypoint in nexBigWaypoint.transform.GetChild(x).GetComponent<LocalWaypoint>().connectedWaypoints)
+                    foreach (GameObject waypoint in nexBigWaypoint.transform.GetChild(x).GetComponent<LocalWaypoint>()
+                                 .connectedWaypoints)
                     {
                         if (waypoint.transform.parent == travelRoute[1])
                         {
@@ -143,31 +153,37 @@ public class MoveCar : MonoBehaviour
     }
 
     //Switch lane for ShadowWaypoints
-    private void switchLane() {
-        for (int x = 0; x < nextLocalWaypoint.transform.parent.childCount; x++) {
-            if (nextLocalWaypoint.transform.parent.GetChild(x) == nextLocalWaypoint.transform) {
+    private void switchLane()
+    {
+        for (int x = 0; x < nextLocalWaypoint.transform.parent.childCount; x++)
+        {
+            if (nextLocalWaypoint.transform.parent.GetChild(x) == nextLocalWaypoint.transform)
+            {
                 //ShadowWaypoints have two children, the first [0] is the outside, the second [1] is the inside
                 if (nextLocalWaypoint.transform.GetSiblingIndex() == 0)
                 {
                     //Switch if next lane is empty
-                    if (nextLocalWaypoint.transform.parent.GetChild(x+1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0
-                        && lastLocalWaypoint.transform.parent.GetChild(x+1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0) 
+                    if (nextLocalWaypoint.transform.parent.GetChild(x + 1).gameObject.GetComponent<ShadowWaypoint>()
+                            .carsOnLane == 0
+                        && lastLocalWaypoint.transform.parent.GetChild(x + 1).gameObject.GetComponent<ShadowWaypoint>()
+                            .carsOnLane == 0)
                     {
-                        nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x+1).gameObject;
+                        nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x + 1).gameObject;
                         break;
                     }
                 }
-                else 
+                else
                 {
                     //Switch if next lane is empty
-                    if (nextLocalWaypoint.transform.parent.GetChild(x-1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0
-                        && lastLocalWaypoint.transform.parent.GetChild(x-1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0)
+                    if (nextLocalWaypoint.transform.parent.GetChild(x - 1).gameObject.GetComponent<ShadowWaypoint>()
+                            .carsOnLane == 0
+                        && lastLocalWaypoint.transform.parent.GetChild(x - 1).gameObject.GetComponent<ShadowWaypoint>()
+                            .carsOnLane == 0)
                     {
-                        nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x-1).gameObject;
+                        nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x - 1).gameObject;
                         break;
                     }
-                    
-                }            
+                }
             }
         }
     }
@@ -181,11 +197,12 @@ public class MoveCar : MonoBehaviour
         lastLocalWaypoint = origin.GetChild(0).gameObject;
         nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
         myCarDetector = GetComponent<CarDetection>();
+        carID = transform.root.GetComponent<Datenvisualisierung>().AddCarInDatenVisualisierung(GetComponent<MoveCar>());
         brakeDeceleration = baseAcceleration * 7;
-        transform.root.GetComponent<Datenvisualisierung>().carCounter++;
     }
 
     public bool turnsRight;
+
     // Update is called once per frame
     void Update()
     {
@@ -214,11 +231,12 @@ public class MoveCar : MonoBehaviour
             {
                 //...Despawn car
                 gameManager.GetComponent<GameManager>().currentCars--;
-                transform.root.GetComponent<Datenvisualisierung>().carCounter--;
+                transform.root.GetComponent<Datenvisualisierung>().RemoveCarInDatenVisualisierung(GetComponent<MoveCar>());
                 Destroy(this.gameObject);
             }
             //myCarDetector.SwitchLane();
         }
+
         //Rotate Object towards driving direction
         transform.LookAt(nextLocalWaypoint.transform);
         transform.Rotate(0, -90, 0);
@@ -230,13 +248,13 @@ public class MoveCar : MonoBehaviour
         nexBigWaypoint = travelRoute[0].gameObject;
 
 
-
         //Bool to toggle iteration foreach lopp
         bool toggleLoop = true;
 
         //Look maximum of three main Waypoints in advance to predict route to take in crossing (to switch lanes if necessary)
         Transform thirdNextWaypoint = null;
-        if (travelRoute.Count > 2) {
+        if (travelRoute.Count > 2)
+        {
             thirdNextWaypoint = travelRoute[2];
         }
 
@@ -254,7 +272,6 @@ public class MoveCar : MonoBehaviour
         }
         else
         {
-
             foreach (GameObject waypoint in lastWaypoint.connectedWaypoints)
             {
                 if (waypoint != null && toggleLoop == true && nexBigWaypoint != null)
@@ -264,10 +281,10 @@ public class MoveCar : MonoBehaviour
                         {
                             nextLocalWaypoint = waypoint;
                             toggleLoop = false;
-                        }  
+                        }
                     }
             }
-    } 
+        }
 
         if (travelRoute.Count > 1)
             if (travelRoute[1] != null)
@@ -277,14 +294,13 @@ public class MoveCar : MonoBehaviour
     }
 
 
-    
     // Is called by intersection and its BoxColliders
     public void giveWait(float distanceToHaltelinie, float left, float right)
     {
         if (!turnsRight)
         {
             // Breaking is harder, the closer to the Haltelinie, the harder breake.
-            speed -= (speed + (brakeDeceleration * Time.deltaTime))  * (left / (distanceToHaltelinie + right));
+            speed -= (speed + (brakeDeceleration * Time.deltaTime)) * (left / (distanceToHaltelinie + right));
             // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
             speed = Mathf.Max(speed, 0);
         }
@@ -292,6 +308,5 @@ public class MoveCar : MonoBehaviour
         {
             //Debug.Log("Eigentliche warten, aber fährt nach rechts, deswegen egal");
         }
-
     }
 }

@@ -9137,9 +9137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carCounterTextMesh: {fileID: 1530338292}
-  carsSpeedMeanTextMesh: {fileID: 810290610}
-  placeHolderTextMesh: {fileID: 0}
-  carCounter: 0
+  carsAverageSpeedTextMesh: {fileID: 810290610}
+  placeHolderTextMesh: {fileID: 570873591}
+  cars: []
 --- !u!1001 &1238129234
 PrefabInstance:
   m_ObjectHideFlags: 0
