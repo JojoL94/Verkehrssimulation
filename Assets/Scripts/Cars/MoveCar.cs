@@ -45,6 +45,9 @@ public class MoveCar : MonoBehaviour
 
     public float brakeTimer = 3f;
 
+    //Variables for rotation
+    private float rotationSpeed = 3f;
+    
     // Need to give wait
     public bool doGiveWait = false;
 
@@ -236,10 +239,19 @@ public class MoveCar : MonoBehaviour
             }
             //myCarDetector.SwitchLane();
         }
+        // Bestimme die Richtung zum Ziel-Waypoint
+        Vector3 targetDirection = (nextLocalWaypoint.transform.position - transform.position).normalized;
+
+        // Berechne die Rotation, um die Zielrichtung zu erreichen
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        Quaternion offSetTargetRotation = Quaternion.Euler(0f, -90f, 0f);
 
         //Rotate Object towards driving direction
-        transform.LookAt(nextLocalWaypoint.transform);
-        transform.Rotate(0, -90, 0);
+        // Führe eine lineare Interpolation zwischen der aktuellen Rotation und der Zielrotation durch
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offSetTargetRotation, Time.deltaTime * rotationSpeed);
+
+        //transform.LookAt(nextLocalWaypoint.transform);
+        //transform.Rotate(0, -90, 0);
     }
 
     GameObject getNextLocalWaypoint()
