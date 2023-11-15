@@ -50,22 +50,6 @@ public class RightBeforeLeft : MonoBehaviour
         }
         else lookHasCollision = false;
 
-        /*Vector3 newPos2 = new Vector3(lookTrigger.position.x + 1, lookTrigger.position.y, lookTrigger.position.z);
-        if (Physics.Raycast(newPos2, lookTrigger.TransformDirection(Vector3.back), out hitLook, raycastDistance, layerMask))
-        {                                                                                         // Überprüfen, ob das getroffene Objekt ein Auto ist
-            //Debug.DrawRay(newPos2, lookTrigger.TransformDirection(Vector3.back) * raycastDistance, Color.magenta); // Zeichne den Raycast in der Szene
-            lookHasCollision = true;
-        }
-        else lookHasCollision = false;
-
-        Vector3 newPos3 = new Vector3(lookTrigger.position.x - 1, lookTrigger.position.y, lookTrigger.position.z);
-        if (Physics.Raycast(newPos3, lookTrigger.TransformDirection(Vector3.back), out hitLook, raycastDistance, layerMask))
-        {                                                                                         // Überprüfen, ob das getroffene Objekt ein Auto ist
-            //Debug.DrawRay(newPos3, lookTrigger.TransformDirection(Vector3.back) * raycastDistance, Color.magenta); // Zeichne den Raycast in der Szene
-            lookHasCollision = true;
-        }
-        else lookHasCollision = false;*/
-
         if (sendHasCollision && lookHasCollision)
             if (hitLook.collider.GetComponent<MoveCar>())
                 hitLook.collider.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, hitLook.collider.transform.position), left, right);
