@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4624364201630097205}
   - component: {fileID: 1040207494358462788}
   - component: {fileID: 2798722197206478519}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car 5.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 880187149782946346}
   - component: {fileID: 734144310247011494}
   - component: {fileID: 7047998162807683095}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car 5.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3574260353061d54a8496988fdd89594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carID: 0
   origin: {fileID: 0}
   destination: {fileID: 0}
   travelRoute: []
@@ -346,12 +347,12 @@ MonoBehaviour:
   nextLocalWaypoint: {fileID: 0}
   next2LocalWaypoint: {fileID: 0}
   gameManager: {fileID: 0}
+  nexBigWaypoint: {fileID: 0}
   doBrake: 0
   brakeDeceleration: 10
   brakeTimer: 3
   doGiveWait: 0
   turnsRight: 0
-  nexBigWaypoint: {fileID: 0}
 --- !u!65 &3328508816936181976
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -441,7 +442,7 @@ GameObject:
   - component: {fileID: 2129213276714520480}
   - component: {fileID: 3025568309517689158}
   - component: {fileID: 3966605929787902990}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -45,7 +45,7 @@ public class SpawnCar : MonoBehaviour
     {
         //Create a new GameObject consisting of a randomly chosen car in carCollection
         GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)], carCollection);
-
+        car.name = $"Car${gameManager.GetComponent<GameManager>().currentCars}";
         //save transform of last car that spawned
         lastCarSpawned = car.transform;
 
@@ -73,6 +73,7 @@ public class SpawnCar : MonoBehaviour
         //Initialize currentTime as spawnCountdown
         currentTime = spawnCountdown;
         maxCars = GameObject.Find("GameManager").GetComponent<GameManager>().maxCars;
+        StartCoroutine(spawnCarAfterTime());
     }
 
 
@@ -80,7 +81,7 @@ public class SpawnCar : MonoBehaviour
     void Update()
     {
         //Begin of timer
-        if (currentTime > 0)
+        /*if (currentTime > 0)
         {
             //Timer runs down...
             currentTime -= Time.deltaTime;
@@ -99,6 +100,22 @@ public class SpawnCar : MonoBehaviour
 
                 //Reset Timer
                 currentTime = spawnCountdown;
+            }
+        }*/
+    }
+
+    IEnumerator spawnCarAfterTime()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(spawnCountdown, spawnCountdown * 3));
+            if (lastCarSpawned == null || Vector3.Distance(lastCarSpawned.position, spawnPoint.position) > minDistanceToNextCar)
+            {
+                if (carCollection.childCount < maxCars)
+                {
+                    //Spawn random car
+                    spawnCar();
+                }               
             }
         }
     }

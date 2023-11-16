@@ -63,7 +63,13 @@ public class MoveCar : MonoBehaviour
 
     //lokalTargetWaypoint saves the child of the next mainWaypoint => needs to be reached to turn left/right if necessary
     private Transform lokalTargetWaypoint;
-    
+
+    // Is the car turning right? If so don't give wait
+    public bool turnsRight;
+
+    // Transform to get information if car is blocking the intersection
+    Transform n2LocalWaypointSend;
+
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -203,21 +209,40 @@ public class MoveCar : MonoBehaviour
         brakeDeceleration = baseAcceleration * 7;
     }
 
-    public bool turnsRight;
-
     // Update is called once per frame
     void Update()
     {
         //Move to neighbouring Waypoint
         transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position,
             speed * Time.deltaTime);
-        //If neighbouring Waypoint was reached...
+
+        // If car is getting closer to intersection
+        if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) <= 3.5f)
+        {
+            // Check if intersection is clean
+            if (n2LocalWaypointSend != null)
+            {
+                SendIntersection sendIntersection = n2LocalWaypointSend.GetComponent<SendIntersection>();
+                if (sendIntersection != null)
+                {
+                    if (sendIntersection.hasCollision && transform.name != sendIntersection.hittingCar.name)
+                    {
+                        // If something is blocking the intersectiong, wait;
+                        giveWait(Vector3.Distance(transform.position, nextLocalWaypoint.transform.position));
+                        return;
+                    }
+
+                }
+            }
+        }
+
         if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
         {
             int lastWaypointIndex = int.Parse(Regex.Replace(lastLocalWaypoint.name, "[^0-9]", ""));
 
             lastLocalWaypoint = nextLocalWaypoint;
             getNextLocalWaypoint();
+          
 
             int nextWaypointIndex = int.Parse(Regex.Replace(nextLocalWaypoint.name, "[^0-9]", ""));
             int next2WaypointIndex = int.Parse(Regex.Replace(next2LocalWaypoint.name, "[^0-9]", ""));
@@ -257,7 +282,8 @@ public class MoveCar : MonoBehaviour
     {
         LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
         nexBigWaypoint = travelRoute[0].gameObject;
-        
+
+
         //Bool to toggle iteration foreach lopp
         bool toggleLoop = true;
 
@@ -278,7 +304,7 @@ public class MoveCar : MonoBehaviour
         //Check if next localWaypoint is connected to a main Waypoint
         if (lastWaypoint.connectedWaypoints[0].transform.parent.GetComponent<Waypoint>() == null)
         {
-            nextLocalWaypoint = lastWaypoint.connectedWaypoints[0];
+            nextLocalWaypoint = lastWaypoint.connectedWaypoints[0];            
         }
         else
         {
@@ -298,19 +324,37 @@ public class MoveCar : MonoBehaviour
 
         if (travelRoute.Count > 1)
             if (travelRoute[1] != null)
+            {
                 next2LocalWaypoint = nextLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
+
+                foreach (GameObject localWaypoint in nextLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints)
+                {
+                    if (localWaypoint.transform.parent == travelRoute[1].transform)
+                        next2LocalWaypoint = localWaypoint.GetComponent<LocalWaypoint>().gameObject;
+                }
+            }
+
+        if (next2LocalWaypoint.transform.Find("Send") != null)
+            n2LocalWaypointSend = next2LocalWaypoint.transform.Find("Send");
+        else n2LocalWaypointSend = null;
 
         return null;
     }
 
 
     // Is called by intersection and its BoxColliders
-    public void giveWait(float distanceToHaltelinie, float left, float right)
+    public void giveWait(float distanceToHaltelinie = .1f, float left = 0.3f, float right = 12f)
     {
         if (!turnsRight)
         {
+            // Je näher das Auto an der Haltelinie ist, desto stärker wird gebremst
+            float normalizedDistance = Mathf.Clamp01(distanceToHaltelinie / 10f);
+            float test = 20f * (1 - normalizedDistance);
+
             // Breaking is harder, the closer to the Haltelinie, the harder breake.
-            speed -= (speed + (brakeDeceleration * Time.deltaTime)) * (left / (distanceToHaltelinie + right));
+            // speed -= (speed + (brakeDeceleration * Time.deltaTime)) * (left / (distanceToHaltelinie + right));
+
+            speed -= test * Time.deltaTime;
             // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
             speed = Mathf.Max(speed, 0);
         }
