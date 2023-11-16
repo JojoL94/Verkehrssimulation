@@ -15,7 +15,8 @@ public class CarDetection : MonoBehaviour
     public float targetDistanceToFrontCar;
     private float minTargetDistance = 3f;
     private float targetDistanceModifier = 100f;
-    private float raycastOffset = 3f;
+    private float raycastOffset = 2.7f;
+
     void Start()
     {
         myMoveCar = GetComponent<MoveCar>();
@@ -79,7 +80,6 @@ public class CarDetection : MonoBehaviour
                 }
                 else
                 {
-                    tmpDoBrake = false;
                     carInFrontDetected = false;
                 }
             }
@@ -112,6 +112,7 @@ public class CarDetection : MonoBehaviour
                 }
             }
         }
+
         if (Physics.Raycast(transform.position, raycastDirection, out hit, raycastDistance))
         {
             if (hit.collider.CompareTag("Car"))
@@ -126,9 +127,29 @@ public class CarDetection : MonoBehaviour
                     }
                 }
             }
-            Debug.DrawRay(transform.position - transform.right/2,
+
+            Debug.DrawRay(transform.position - transform.right / 2,
                 raycastDirection * Vector3.Distance(transform.position, hit.point),
-                Color.yellow);  // Zeichne den Raycast in der Szene
+                Color.yellow); // Zeichne den Raycast in der Szene
+        }
+
+        if (Vector3.Distance(transform.position, myMoveCar.nextLocalWaypoint.transform.position) < targetDistanceToFrontCar)
+        {
+            raycastDirection = myMoveCar.nextLocalWaypoint.transform.position - transform.position;
+            if (Physics.Raycast(objectPosition, raycastDirection, out hit, raycastDistance))
+            {
+                if (hit.collider.CompareTag("Car"))
+                {
+                    if (hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint)
+                    {
+                        // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, trigger brake
+                        tmpDoBrake = true;
+                    }
+                }
+                Debug.DrawRay(transform.position - transform.right / 4,
+                    raycastDirection * Vector3.Distance(transform.position, hit.point),
+                    Color.blue); // Zeichne den Raycast in der Szene
+            }
         }
 
         myMoveCar.doBrake = tmpDoBrake;

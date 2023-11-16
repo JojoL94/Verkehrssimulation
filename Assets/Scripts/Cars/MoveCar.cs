@@ -63,8 +63,7 @@ public class MoveCar : MonoBehaviour
 
     //lokalTargetWaypoint saves the child of the next mainWaypoint => needs to be reached to turn left/right if necessary
     private Transform lokalTargetWaypoint;
-
-
+    
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -258,8 +257,7 @@ public class MoveCar : MonoBehaviour
     {
         LocalWaypoint lastWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>();
         nexBigWaypoint = travelRoute[0].gameObject;
-
-
+        
         //Bool to toggle iteration foreach lopp
         bool toggleLoop = true;
 
