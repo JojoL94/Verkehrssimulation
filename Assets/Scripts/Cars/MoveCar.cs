@@ -155,9 +155,10 @@ public class MoveCar : MonoBehaviour
                             lokalTargetWaypoint = nexBigWaypoint.transform.GetChild(x);
 
                             //Check if current lane is the correct one to reach lokalTargetWaypoint, switch lane if not
-                            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position);
-                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 1
-                                || Vector3.Cross(delta, this.gameObject.transform.right).y < -1)
+                            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position).normalized;
+                            Debug.Log(Vector3.Cross(delta, this.gameObject.transform.right));
+                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.1
+                                || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.1)
                             {
                                 switchLane();
                             }
