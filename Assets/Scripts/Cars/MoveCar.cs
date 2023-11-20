@@ -67,8 +67,14 @@ public class MoveCar : MonoBehaviour
     // Is the car turning right? If so don't give wait
     public bool turnsRight;
 
+    //Containts the initial y value to offset different heights of preFab => Used to fix "some cars sink in road"-bug
+    public float initalYValue = 0f;
+
     // Transform to get information if car is blocking the intersection
     Transform n2LocalWaypointSend;
+
+    //Position of nextLocalWaypoint
+    Vector3 nextLocalWaypointPosition = new Vector3();
 
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
@@ -212,12 +218,16 @@ public class MoveCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Current fix of "cars stuck in road"-bug:
+        //change y value of affected cars (car4 and car5) in preFab and add preFab-y value on top of waypoint y-value
+        nextLocalWaypointPosition = new Vector3(nextLocalWaypoint.transform.position.x, nextLocalWaypoint.transform.position.y + initalYValue, nextLocalWaypoint.transform.position.z);
+
         //Move to neighbouring Waypoint
-        transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position,
+        transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypointPosition,
             speed * Time.deltaTime);
 
         // If car is getting closer to intersection
-        if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) <= 3.5f)
+        if (Vector3.Distance(transform.position, nextLocalWaypointPosition) <= 3.5f)
         {
             // Check if intersection is clean
             if (n2LocalWaypointSend != null)
@@ -228,7 +238,7 @@ public class MoveCar : MonoBehaviour
                     if (sendIntersection.hasCollision && transform.name != sendIntersection.hittingCar.name)
                     {
                         // If something is blocking the intersectiong, wait;
-                        giveWait(Vector3.Distance(transform.position, nextLocalWaypoint.transform.position));
+                        giveWait(Vector3.Distance(transform.position, nextLocalWaypointPosition));
                         return;
                     }
 
@@ -236,7 +246,7 @@ public class MoveCar : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
+        if (Vector3.Distance(transform.position, nextLocalWaypointPosition) < 0.3)
         {
             int lastWaypointIndex = int.Parse(Regex.Replace(lastLocalWaypoint.name, "[^0-9]", ""));
 
@@ -264,7 +274,7 @@ public class MoveCar : MonoBehaviour
             //myCarDetector.SwitchLane();
         }
         // Bestimme die Richtung zum Ziel-Waypoint
-        Vector3 targetDirection = (nextLocalWaypoint.transform.position - transform.position).normalized;
+        Vector3 targetDirection = (nextLocalWaypointPosition - transform.position).normalized;
 
         // Berechne die Rotation, um die Zielrichtung zu erreichen
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
