@@ -108,7 +108,7 @@ public class SpawnCar : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(spawnCountdown, spawnCountdown * 3));
+            yield return new WaitForSeconds(Random.Range(spawnCountdown, spawnCountdown * 4));
             if (lastCarSpawned == null || Vector3.Distance(lastCarSpawned.position, spawnPoint.position) > minDistanceToNextCar)
             {
                 if (carCollection.childCount < maxCars)

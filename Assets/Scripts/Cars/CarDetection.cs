@@ -45,19 +45,22 @@ public class CarDetection : MonoBehaviour
                     if (
                         hit.collider.GetComponent<CarDetection>().carInFront != transform)
                     {
-                        if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
+                        if (hit.collider.GetComponent<Transform>() != transform)
                         {
-                            tmpDoBrake = true;
-                        }
+                            if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
+                            {
+                                tmpDoBrake = true;
+                            }
 
-                        if (hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
-                            hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
-                            hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
-                            hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
-                        {
-                            // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
-                            carInFront = hit.collider.gameObject.transform;
-                            carInFrontDetected = true;
+                            if (hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
+                            {
+                                // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
+                                carInFront = hit.collider.gameObject.transform;
+                                carInFrontDetected = true;
+                            }
                         }
                     }
                 }
@@ -95,18 +98,21 @@ public class CarDetection : MonoBehaviour
                     if (
                         hit.collider.GetComponent<CarDetection>().carInFront != transform)
                     {
-                        if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
+                        if (hit.collider.GetComponent<Transform>() != transform)
                         {
-                            tmpDoBrake = true;
-                        }
+                            if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
+                            {
+                                tmpDoBrake = true;
+                            }
 
-                        if (hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
-                            hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
-                            hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
-                            hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
-                        {
-                            // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
-                            carInFront = hit.collider.gameObject.transform;
+                            if (hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
+                            {
+                                // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
+                                carInFront = hit.collider.gameObject.transform;
+                            }
                         }
                     }
                 }
@@ -133,7 +139,8 @@ public class CarDetection : MonoBehaviour
                 Color.yellow); // Zeichne den Raycast in der Szene
         }
 
-        if (Vector3.Distance(transform.position, myMoveCar.nextLocalWaypoint.transform.position) < targetDistanceToFrontCar)
+        if (Vector3.Distance(transform.position, myMoveCar.nextLocalWaypoint.transform.position) <
+            targetDistanceToFrontCar)
         {
             raycastDirection = myMoveCar.nextLocalWaypoint.transform.position - transform.position;
             if (Physics.Raycast(objectPosition, raycastDirection, out hit, raycastDistance))
@@ -142,10 +149,14 @@ public class CarDetection : MonoBehaviour
                 {
                     if (hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint)
                     {
-                        // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, trigger brake
-                        tmpDoBrake = true;
+                        if (hit.collider.GetComponent<Transform>() != transform)
+                        {
+                            // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, trigger brake
+                            tmpDoBrake = true;
+                        }
                     }
                 }
+
                 Debug.DrawRay(transform.position - transform.right / 4,
                     raycastDirection * Vector3.Distance(transform.position, hit.point),
                     Color.blue); // Zeichne den Raycast in der Szene
