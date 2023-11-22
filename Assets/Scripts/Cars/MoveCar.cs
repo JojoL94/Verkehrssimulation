@@ -156,8 +156,12 @@ public class MoveCar : MonoBehaviour
 
                             //Check if current lane is the correct one to reach lokalTargetWaypoint, switch lane if not
                             Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position).normalized;
-                            Debug.Log(Vector3.Cross(delta, this.gameObject.transform.right));
-                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.1
+                            //y > 0 = car is on the right side compared to the targetWaypoint => needs to switch to left lane
+                            // y < 0 = car is on the left side compared to the targetWaypoint => needs to switch to right lane
+                            // y == 0 = car is exactly in front of targetWaypoint => needs no lane switch
+                            //ATTENTION: Our waypoints aren't properly alligned and probably will never be, because of different PreFabs
+                            // => Because of that we can't use exactly 0 as comparison
+                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.2
                                 || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.1)
                             {
                                 switchLane();
