@@ -8,7 +8,7 @@ public class LookIntersection : MonoBehaviour
     Vector3 raycastDirection;
 
     // Die Länge des Raycasts
-    public float raycastDistance = 6.75f;
+    public float raycastDistance = 5f;
 
     // Führe den eigentlichen Raycast durch
     RaycastHit hitSend;

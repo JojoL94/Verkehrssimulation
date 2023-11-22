@@ -25,7 +25,7 @@ public class MoveCar : MonoBehaviour
 
     //Base acceleration speed of car in Unity units per second
     //It determines, along with Time.deltaTime, the increase of acceeration
-    public float baseAcceleration = 5f;
+    public float baseAcceleration = 50f;
 
     //Current speed of car
     public float speed = 0f;
@@ -67,8 +67,19 @@ public class MoveCar : MonoBehaviour
     // Is the car turning right? If so don't give wait
     public bool turnsRight;
 
+    //Containts the initial y value to offset different heights of preFab => Used to fix "some cars sink in road"-bug
+    public float initalYValue = 0f;
+
     // Transform to get information if car is blocking the intersection
     Transform n2LocalWaypointSend;
+
+    //Position of nextLocalWaypoint
+    Vector3 nextLocalWaypointPosition = new Vector3();
+
+    public string causingBrake = "";
+
+
+    public GameObject objectInIntersection = null;
 
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
@@ -144,9 +155,10 @@ public class MoveCar : MonoBehaviour
                             lokalTargetWaypoint = nexBigWaypoint.transform.GetChild(x);
 
                             //Check if current lane is the correct one to reach lokalTargetWaypoint, switch lane if not
-                            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position);
-                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 1
-                                || Vector3.Cross(delta, this.gameObject.transform.right).y < -1)
+                            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position).normalized;
+                            Debug.Log(Vector3.Cross(delta, this.gameObject.transform.right));
+                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.1
+                                || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.1)
                             {
                                 switchLane();
                             }
@@ -206,18 +218,21 @@ public class MoveCar : MonoBehaviour
         nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
         myCarDetector = GetComponent<CarDetection>();
         carID = transform.root.GetComponent<Datenvisualisierung>().AddCarInDatenVisualisierung(GetComponent<MoveCar>());
-        brakeDeceleration = baseAcceleration * 7;
+        brakeDeceleration = baseAcceleration * 7;        
     }
 
     // Update is called once per frame
     void Update()
-    {
-        //Move to neighbouring Waypoint
-        transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypoint.transform.position,
-            speed * Time.deltaTime);
+    {        
+        //Current fix of "cars stuck in road"-bug:
+        //change y value of affected cars (car4 and car5) in preFab and add preFab-y value on top of waypoint y-value
+        nextLocalWaypointPosition = new Vector3(nextLocalWaypoint.transform.position.x, nextLocalWaypoint.transform.position.y + initalYValue, nextLocalWaypoint.transform.position.z);
 
+        //Move to neighbouring Waypoint
+        transform.position = Vector3.MoveTowards(transform.position, nextLocalWaypointPosition,
+            speed * Time.deltaTime);
         // If car is getting closer to intersection
-        if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) <= 3.5f)
+        if (Vector3.Distance(transform.position, nextLocalWaypointPosition) <= 4.5f)
         {
             // Check if intersection is clean
             if (n2LocalWaypointSend != null)
@@ -225,10 +240,12 @@ public class MoveCar : MonoBehaviour
                 SendIntersection sendIntersection = n2LocalWaypointSend.GetComponent<SendIntersection>();
                 if (sendIntersection != null)
                 {
+                    
                     if (sendIntersection.hasCollision && transform.name != sendIntersection.hittingCar.name)
                     {
+                        objectInIntersection = sendIntersection.hittingCar;
                         // If something is blocking the intersectiong, wait;
-                        giveWait(Vector3.Distance(transform.position, nextLocalWaypoint.transform.position));
+                        giveWait(Vector3.Distance(transform.position, nextLocalWaypointPosition),causingBrake:"ClearIntersection");
                         return;
                     }
 
@@ -236,7 +253,7 @@ public class MoveCar : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(transform.position, nextLocalWaypoint.transform.position) < 0.3)
+        if (Vector3.Distance(transform.position, nextLocalWaypointPosition) < 0.5)
         {
             int lastWaypointIndex = int.Parse(Regex.Replace(lastLocalWaypoint.name, "[^0-9]", ""));
 
@@ -264,7 +281,7 @@ public class MoveCar : MonoBehaviour
             //myCarDetector.SwitchLane();
         }
         // Bestimme die Richtung zum Ziel-Waypoint
-        Vector3 targetDirection = (nextLocalWaypoint.transform.position - transform.position).normalized;
+        Vector3 targetDirection = (nextLocalWaypointPosition - transform.position).normalized;
 
         // Berechne die Rotation, um die Zielrichtung zu erreichen
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
@@ -276,6 +293,15 @@ public class MoveCar : MonoBehaviour
 
         //transform.LookAt(nextLocalWaypoint.transform);
         //transform.Rotate(0, -90, 0);
+    }
+
+    IEnumerator test()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+            causingBrake = "";
+        }
     }
 
     GameObject getNextLocalWaypoint()
@@ -343,13 +369,14 @@ public class MoveCar : MonoBehaviour
 
 
     // Is called by intersection and its BoxColliders
-    public void giveWait(float distanceToHaltelinie = .1f, float left = 0.3f, float right = 12f)
+    public void giveWait(float distanceToHaltelinie = .1f, float left = 0.3f, float right = 12f, string causingBrake = "")
     {
+        this.causingBrake = causingBrake;
         if (!turnsRight)
         {
             // Je näher das Auto an der Haltelinie ist, desto stärker wird gebremst
             float normalizedDistance = Mathf.Clamp01(distanceToHaltelinie / 10f);
-            float test = 20f * (1 - normalizedDistance);
+            float test = 5f * (1 - normalizedDistance);
 
             // Breaking is harder, the closer to the Haltelinie, the harder breake.
             // speed -= (speed + (brakeDeceleration * Time.deltaTime)) * (left / (distanceToHaltelinie + right));

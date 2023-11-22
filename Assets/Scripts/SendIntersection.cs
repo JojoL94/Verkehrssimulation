@@ -7,7 +7,7 @@ public class SendIntersection : MonoBehaviour
 {
 
     // Die Länge des Raycasts
-    float raycastDistance = 7.5f;
+    float raycastDistance = 12.5f;
 
     // Führe den eigentlichen Raycast durch
     RaycastHit hitSend;
@@ -16,6 +16,8 @@ public class SendIntersection : MonoBehaviour
     public GameObject hittingCar;
 
     public LayerMask layerMask;
+
+    public float offset;
     
 
     private void Start()
@@ -25,9 +27,10 @@ public class SendIntersection : MonoBehaviour
 
     private void Update()
     {
+        Vector3 localOffset = transform.parent.InverseTransformDirection(Vector3.right); // Lokaler Offset um 2 Einheiten auf der y-Achse im Parent-Objekt
         // Checks if someone is standing in the intersection
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.back) * raycastDistance, Color.yellow); // Zeichne den Raycast in der Szene
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hitSend, raycastDistance, layerMask))
+        Debug.DrawRay(transform.position + localOffset, transform.TransformDirection(Vector3.back) * raycastDistance, Color.red); // Zeichne den Raycast in der Szene
+        if (Physics.Raycast(transform.position + localOffset, transform.TransformDirection(Vector3.back), out hitSend, raycastDistance, layerMask))
         {                                             
             // Überprüfen, ob das getroffene Objekt ein Auto ist
             hasCollision = true;
@@ -41,4 +44,24 @@ public class SendIntersection : MonoBehaviour
             hittingCar = null;
         }
     }
+
+    void OnDrawGizmos()
+    {
+        // Zeichne den Raycast mit dem Offset im Editor
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(GetRaycastStartPosition(), GetRaycastDirection() * -raycastDistance);
+    }
+    Vector3 GetRaycastStartPosition()
+    {
+        // Berechne den Startpunkt des Raycasts mit dem Offset
+        return transform.position + transform.TransformDirection(Vector3.back * -2);
+    }
+
+    Vector3 GetRaycastDirection()
+    {
+        // Gib die Richtung des Raycasts basierend auf der aktuellen Rotation zurück
+        return transform.forward;
+    }
+
 }
+

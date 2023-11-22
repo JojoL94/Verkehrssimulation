@@ -97,8 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c21fa36b7edf5d4a96b37851cbc746e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectedWaypoints:
-  - {fileID: 0}
+  connectedWaypoints: []
 --- !u!65 &3751179978078226547
 BoxCollider:
   m_ObjectHideFlags: 0

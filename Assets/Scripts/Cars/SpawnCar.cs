@@ -62,10 +62,12 @@ public class SpawnCar : MonoBehaviour
 
         car.GetComponent<MoveCar>().gameManager = gameManager;
 
+        car.GetComponent<MoveCar>().initalYValue = car.gameObject.transform.position.y;
+
         gameManager.GetComponent<GameManager>().currentCars++;
 
         //Place cars to spawn point
-        car.gameObject.transform.position = spawnPoint.transform.position;
+        car.gameObject.transform.position = car.gameObject.transform.position+spawnPoint.transform.position;
     }
     
     void Start()

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 //GameManager is responsible for everything that's effecting the entire map (like max number of cars on map, etc.)
 public class GameManager : MonoBehaviour
@@ -117,6 +119,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SetTime(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SetTime(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SetTime(3);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SetTime(5);
+        }
+    }
+
+    void SetTime(int index)
+    {
+        Time.timeScale = index;
     }
 }
