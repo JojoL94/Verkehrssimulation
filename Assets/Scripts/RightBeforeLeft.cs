@@ -12,7 +12,7 @@ public class RightBeforeLeft : MonoBehaviour
     Vector3 raycastDirection;
 
     // Die Länge des Raycasts
-    float raycastDistance = 6.75f;
+    float raycastDistance = 10f;
 
     // Führe den eigentlichen Raycast durch
     RaycastHit hitSend;
@@ -36,12 +36,18 @@ public class RightBeforeLeft : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawRay(lookTrigger.position, lookTrigger.TransformDirection(Vector3.back) * raycastDistance, Color.white);
+        Debug.DrawRay(sendCars.position, sendCars.TransformDirection(Vector3.back) * raycastDistance, Color.red);
         if (Physics.Raycast(sendCars.position, sendCars.TransformDirection(Vector3.back), out hitSend, raycastDistance, layerMask))
         {                                                                                         // Überprüfen, ob das getroffene Objekt ein Auto ist
             //Debug.DrawRay(sendCars.position, sendCars.TransformDirection(Vector3.back) * raycastDistance, Color.cyan); // Zeichne den Raycast in der Szene
-            sendHasCollision = true;
-            sendCar = hitSend.collider.gameObject;
+            sendCar = hitSend.collider.gameObject.transform.parent.gameObject;
+            if(sendCar!=lookCar)
+                sendHasCollision = true;
+            else
+            {
+                sendHasCollision = false;
+                sendCar = null;
+            }
         }
         else
         {
@@ -49,23 +55,50 @@ public class RightBeforeLeft : MonoBehaviour
             sendCar = null;
         }
 
-        Debug.DrawRay(lookTrigger.position, lookTrigger.TransformDirection(Vector3.back) * raycastDistance, Color.gray);
-        if (Physics.Raycast(lookTrigger.position, lookTrigger.TransformDirection(Vector3.back), out hitLook, raycastDistance, layerMask))
+        Debug.DrawRay(lookTrigger.position, lookTrigger.TransformDirection(Vector3.back) * raycastDistance / 2, Color.green);
+        if (Physics.Raycast(lookTrigger.position, lookTrigger.TransformDirection(Vector3.back), out hitLook, raycastDistance/2, layerMask))
         {                                                                                         // Überprüfen, ob das getroffene Objekt ein Auto ist
             //Debug.DrawRay(lookTrigger.position, lookTrigger.TransformDirection(Vector3.back) * raycastDistance, Color.magenta); // Zeichne den Raycast in der Szene
-            lookHasCollision = true;
-            lookCar = hitLook.collider.gameObject;
+            lookCar = hitLook.collider.gameObject.transform.parent.gameObject;
+            if (sendCar != lookCar)
+                lookHasCollision = true;
+            else
+            {
+                lookHasCollision = false;
+                lookCar = null;
+            }
         }
         else
         {
-           lookHasCollision = false;
+            lookHasCollision = false;
             lookCar = null;
         }
-        if (sendHasCollision && lookHasCollision && (lookCar!=sendCar && lookCar.transform.IsChildOf(sendCar.transform) && sendCar.transform.IsChildOf(lookCar.transform)))
-            if (hitLook.collider.GetComponent<MoveCar>())
+        if (sendHasCollision && lookHasCollision && (lookCar != sendCar && !lookCar.transform.IsChildOf(sendCar.transform) && !sendCar.transform.IsChildOf(lookCar.transform)))
+            if(sendCar != null && lookCar != null)
+            {
+                if (lookCar.GetComponent<MoveCar>() != null)
+                {
+                    lookCar.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, lookCar.transform.position)/2, left, right, causingBrake: "RechtsVorLinks");
+                    Debug.Log($"{lookCar.name} gives wait because of {sendCar.name}");
+                }
+            }
+            Debug.Log($"Send: {sendCar} + Look: {lookCar}");
+
+
+
+            /*if (hitLook.collider.GetComponent<MoveCar>())
                 hitLook.collider.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, hitLook.collider.transform.position), left, right, causingBrake: "RechtsVorLinks");
             else if (hitLook.collider.transform.parent.GetComponent<MoveCar>())
-                hitLook.collider.transform.parent.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, hitLook.collider.transform.position), left, right, causingBrake: "RechtsVorLinks");
+                hitLook.collider.transform.parent.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, hitLook.collider.transform.position), left, right, causingBrake: "RechtsVorLinks");*/
+    }
+
+    void OnDrawGizmos()
+    {
+        // Zeichne den Raycast mit dem Offset im Editor
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(sendCars.position, sendCars.TransformDirection(Vector3.back) * raycastDistance);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(lookTrigger.position, lookTrigger.TransformDirection(Vector3.back) * raycastDistance / 2);
     }
 
 }

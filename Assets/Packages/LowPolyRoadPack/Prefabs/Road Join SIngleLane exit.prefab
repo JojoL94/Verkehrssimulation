@@ -49,6 +49,8 @@ MonoBehaviour:
   lookTrigger: {fileID: 1755781702638058238}
   sendCars: {fileID: 6909661054293052158}
   behaviour: 0
+  lookCar: {fileID: 0}
+  sendCar: {fileID: 0}
   lookHasCollision: 0
   sendHasCollision: 0
   left: 0.3
@@ -84,7 +86,7 @@ Transform:
   m_GameObject: {fileID: 4475133728115685320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0.4807, z: 1.36}
+  m_LocalPosition: {x: 5.000002, y: 0.4807, z: 0.110000014}
   m_LocalScale: {x: 2.34, y: 0.73682386, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -394,6 +396,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &5181582035339184075
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +520,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &6140322745054063226
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +549,7 @@ Transform:
   m_GameObject: {fileID: 6140322745054063226}
   serializedVersion: 2
   m_LocalRotation: {x: -4.7961635e-14, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6.1, y: 0.4807, z: 2.48}
+  m_LocalPosition: {x: 6.35, y: 0.4807, z: 2.4800003}
   m_LocalScale: {x: 2.34, y: 0.73682386, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -704,6 +708,8 @@ MonoBehaviour:
   lookTrigger: {fileID: 3012719958384608340}
   sendCars: {fileID: 5906689458405291586}
   behaviour: 0
+  lookCar: {fileID: 0}
+  sendCar: {fileID: 0}
   lookHasCollision: 0
   sendHasCollision: 0
   left: 0.3
@@ -739,7 +745,7 @@ Transform:
   m_GameObject: {fileID: 7946445867771323150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.65, y: 0.4807, z: 1.84}
+  m_LocalPosition: {x: 5.6500015, y: 0.48070002, z: 0.8399999}
   m_LocalScale: {x: 2.34, y: 0.73682386, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -844,7 +850,7 @@ Transform:
   m_GameObject: {fileID: 8670677284684609111}
   serializedVersion: 2
   m_LocalRotation: {x: -4.7961635e-14, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 7.150001, y: 0.48, z: 5.7200017}
+  m_LocalPosition: {x: 5.400001, y: 0.48, z: 5.7200065}
   m_LocalScale: {x: 2.34, y: 0.73682386, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []

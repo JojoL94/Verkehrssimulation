@@ -45,7 +45,8 @@ public class SpawnCar : MonoBehaviour
     {
         //Create a new GameObject consisting of a randomly chosen car in carCollection
         GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)], carCollection);
-        car.name = $"Car${gameManager.GetComponent<GameManager>().currentCars}";
+        car.name = $"Car${gameManager.GetComponent<GameManager>().carUID}";
+        gameManager.GetComponent<GameManager>().carUID++;
         //save transform of last car that spawned
         lastCarSpawned = car.transform;
 

@@ -7,7 +7,7 @@ public class SendIntersection : MonoBehaviour
 {
 
     // Die Länge des Raycasts
-    float raycastDistance = 12.5f;
+    float raycastDistance = 10f;
 
     // Führe den eigentlichen Raycast durch
     RaycastHit hitSend;

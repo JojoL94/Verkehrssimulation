@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public float maxCars = 30;
     public float currentCars = 0;
 
+    public int carUID = 0;
+
     public Transform waypointCollection;
     public Transform streetCollection;
 
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     //In runtime connect all Waypoints before start
     private void Awake()
     {
+        carUID = 0;
         //Iterate through streetCollection
         for (int x = 0; x < streetCollection.childCount; x++)
         {

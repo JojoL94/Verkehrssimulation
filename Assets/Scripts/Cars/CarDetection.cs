@@ -13,7 +13,7 @@ public class CarDetection : MonoBehaviour
 
     //Variablen für den Abstand
     public float targetDistanceToFrontCar;
-    private float minTargetDistance = 3f;
+    private float minTargetDistance = 1.5f;
     private float targetDistanceModifier = 100f;
     private float raycastOffset = 2.7f;
 

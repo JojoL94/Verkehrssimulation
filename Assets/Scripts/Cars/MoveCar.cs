@@ -218,7 +218,9 @@ public class MoveCar : MonoBehaviour
         nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
         myCarDetector = GetComponent<CarDetection>();
         carID = transform.root.GetComponent<Datenvisualisierung>().AddCarInDatenVisualisierung(GetComponent<MoveCar>());
-        brakeDeceleration = baseAcceleration * 7;        
+        brakeDeceleration = baseAcceleration * 7;
+        StartCoroutine(test());
+        get2ndNextWaypoint();
     }
 
     // Update is called once per frame
@@ -245,7 +247,8 @@ public class MoveCar : MonoBehaviour
                     {
                         objectInIntersection = sendIntersection.hittingCar;
                         // If something is blocking the intersectiong, wait;
-                        giveWait(Vector3.Distance(transform.position, nextLocalWaypointPosition),causingBrake:"ClearIntersection");
+                        Debug.Log($"{name} gives wait --> Intersection is blocked by {objectInIntersection}");
+                        giveWait(Vector3.Distance(transform.position, nextLocalWaypointPosition)/10,causingBrake:"intersectionBlocked");
                         return;
                     }
 
@@ -348,6 +351,13 @@ public class MoveCar : MonoBehaviour
             }
         }
 
+        get2ndNextWaypoint();
+
+        return null;
+    }
+
+    void get2ndNextWaypoint()
+    {
         if (travelRoute.Count > 1)
             if (travelRoute[1] != null)
             {
@@ -363,8 +373,6 @@ public class MoveCar : MonoBehaviour
         if (next2LocalWaypoint.transform.Find("Send") != null)
             n2LocalWaypointSend = next2LocalWaypoint.transform.Find("Send");
         else n2LocalWaypointSend = null;
-
-        return null;
     }
 
 
@@ -376,8 +384,8 @@ public class MoveCar : MonoBehaviour
         {
             // Je näher das Auto an der Haltelinie ist, desto stärker wird gebremst
             float normalizedDistance = Mathf.Clamp01(distanceToHaltelinie / 10f);
-            float test = 5f * (1 - normalizedDistance);
-
+            float test = 20f * (1 - normalizedDistance);
+            doBrake = true;
             // Breaking is harder, the closer to the Haltelinie, the harder breake.
             // speed -= (speed + (brakeDeceleration * Time.deltaTime)) * (left / (distanceToHaltelinie + right));
 
@@ -387,6 +395,7 @@ public class MoveCar : MonoBehaviour
         }
         else
         {
+            doBrake = false;
             //Debug.Log("Eigentliche warten, aber fährt nach rechts, deswegen egal");
         }
     }
