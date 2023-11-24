@@ -45,13 +45,18 @@ public class SpawnCar : MonoBehaviour
     {
         //Create a new GameObject consisting of a randomly chosen car in carCollection
         GameObject car = Instantiate(cars[Random.Range(0, cars.Length - 1)], carCollection);
-        car.name = $"Car${gameManager.GetComponent<GameManager>().carUID}";
-        gameManager.GetComponent<GameManager>().carUID++;
+
+        //Store Skript as variable for performance reasons
+        MoveCar moveCar = car.GetComponent<MoveCar>();
+        GameManager managerSkript = gameManager.GetComponent<GameManager>();
+
+        car.name = $"Car${managerSkript.carUID}";
+        managerSkript.carUID++;
         //save transform of last car that spawned
         lastCarSpawned = car.transform;
 
         //Fill MoveCar Script with first Waypoint
-        car.GetComponent<MoveCar>().origin = spawnPoint;
+        moveCar.origin = spawnPoint;
 
         //Fill MoveCar Script with destination Waypoint
         /**
@@ -59,13 +64,13 @@ public class SpawnCar : MonoBehaviour
          !!!!Currently hard coded, need change later!!!!
          -----------------------------------------------
          */
-        car.GetComponent<MoveCar>().destination = destination;
+        moveCar.destination = destination;
 
-        car.GetComponent<MoveCar>().gameManager = gameManager;
+        moveCar.gameManager = gameManager;
 
-        car.GetComponent<MoveCar>().initalYValue = car.gameObject.transform.position.y;
+        moveCar.initalYValue = car.gameObject.transform.position.y;
 
-        gameManager.GetComponent<GameManager>().currentCars++;
+        managerSkript.currentCars++;
 
         //Place cars to spawn point
         car.gameObject.transform.position = car.gameObject.transform.position+spawnPoint.transform.position;
@@ -75,7 +80,7 @@ public class SpawnCar : MonoBehaviour
     {
         //Initialize currentTime as spawnCountdown
         currentTime = spawnCountdown;
-        maxCars = GameObject.Find("GameManager").GetComponent<GameManager>().maxCars;
+        maxCars = gameManager.GetComponent<GameManager>().maxCars;
         StartCoroutine(spawnCarAfterTime());
     }
 
