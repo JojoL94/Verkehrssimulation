@@ -95,6 +95,14 @@ public class MoveCar : MonoBehaviour
             speed = Mathf.Clamp(speed, 0, maxSpeed);
         }
 
+        //Deceleration
+        if (speed > maxSpeed && !doBrake)
+        {
+            doBrake = true;
+        }
+
+
+
         if (doBrake)
         {
             timer += Time.deltaTime;
@@ -115,25 +123,14 @@ public class MoveCar : MonoBehaviour
             timer = 0f;
         }
 
-
-        //-----------------------------------------------------------------------------------------------------------------
-        //BEGIN OF LANE SWITCHING
-        //-----------------------------------------------------------------------------------------------------------------
-
-        //Timer to check if on right lane
-        if (laneTimer <= 2f)
-        {
-            laneTimer += Time.deltaTime;
-        }
-        else
-        {
-            prepareLaneSwitch();
-            laneTimer = 0f;
-        }
     }
 
+    //-----------------------------------------------------------------------------------------------------------------
+    //BEGIN OF LANE SWITCHING
+    //-----------------------------------------------------------------------------------------------------------------
+
     //Check if laneSwitch is necessary to turn at next crossing and do so if thats the case
-    private void prepareLaneSwitch()
+    public void checkLaneSwitch()
     {
         //Bool to toggle looping
         laneLooping = true;
@@ -161,7 +158,7 @@ public class MoveCar : MonoBehaviour
                             // y == 0 = car is exactly in front of targetWaypoint => needs no lane switch
                             //ATTENTION: Our waypoints aren't properly alligned and probably will never be, because of different PreFabs
                             // => Because of that we can't use exactly 0 as comparison
-                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.2
+                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.1
                                 || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.1)
                             {
                                 switchLane();

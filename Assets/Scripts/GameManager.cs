@@ -31,13 +31,13 @@ public class GameManager : MonoBehaviour
         for (int x = 0; x < streetCollection.childCount; x++)
         {
             //Filter all streets with children
-            if (streetCollection.GetChild(x).childCount > 0 && !streetCollection.GetChild(x).name.Contains("RightOfWay")) {
+            if (streetCollection.GetChild(x).childCount > 0) {
 
                 //Iterate through all children
                 for (int y = 0; y < streetCollection.GetChild(x).transform.childCount; y++) {
 
                     //Filter out all "RightOfWay" children
-                    if (!streetCollection.GetChild(x).GetChild(y).name.Contains("RightOfWay")) {
+                    if (streetCollection.GetChild(x).GetChild(y).name.Contains("Waypoint")) {
 
                         //Declare RaycastHit
                         RaycastHit hit;
@@ -107,8 +107,7 @@ public class GameManager : MonoBehaviour
 
                 //Filter out Right before Left Collider
                 while (streetCollection.GetChild(x).transform.childCount > 0 
-                && !streetCollection.GetChild(x).GetChild(transform.childCount).name.Contains("RightOfWay")
-                && !streetCollection.GetChild(x).GetChild(transform.childCount).name.Contains("ShadowWaypoint"))
+                && streetCollection.GetChild(x).GetChild(transform.childCount).name.Contains("Main"))
                 {
                     //Name each Waypoint with uniqe name and put in  waypointCollection(A* Algorithm needs Waypoints with uniqe names and in separate List)
                     streetCollection.GetChild(x).GetChild(transform.childCount).name = "Waypoint" + counter;
