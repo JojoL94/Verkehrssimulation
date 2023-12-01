@@ -54,9 +54,8 @@ public class MoveCar : MonoBehaviour
     //Variables for Distance
     private CarDetection myCarDetector;
 
-    //Variables for lane switching
-    //Timer to check if on target lane
-    private float laneTimer;
+    //Timer to check time needed to reach waypoint
+    public float waypointTime;
 
     //Bool to toggle for- and foreach-loops in lane switching
     private bool laneLooping = true;
@@ -226,7 +225,10 @@ public class MoveCar : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+        //Timer to check time needed to reach waypoint
+        waypointTime += Time.deltaTime;
+
         //Current fix of "cars stuck in road"-bug:
         //change y value of affected cars (car4 and car5) in preFab and add preFab-y value on top of waypoint y-value
         nextLocalWaypointPosition = new Vector3(nextLocalWaypoint.transform.position.x, nextLocalWaypoint.transform.position.y + initalYValue, nextLocalWaypoint.transform.position.z);
@@ -327,6 +329,10 @@ public class MoveCar : MonoBehaviour
         //Check if main Waypoint was reached
         if (nextLocalWaypoint.transform.parent == nexBigWaypoint.transform)
         {
+            //Update timeCost
+            travelRoute[0].gameObject.GetComponent<Waypoint>().timeCost = waypointTime;
+            waypointTime = 0f;
+
             //Remove reached Waypoint
             travelRoute.Remove(travelRoute[0]);
         }

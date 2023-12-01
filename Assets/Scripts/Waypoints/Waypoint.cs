@@ -19,6 +19,14 @@ public class Waypoint : MonoBehaviour
     //hCost => (distance of current Waypoint to end point)
     public float hCost;
 
+    //Time needed for last car, to reach waypoint
+    public float timeCost;
+
+    //Total cost
+    public float fCost;
+
+
+
     //Starting drawing Gizsmos (Virsualizing the Waypoints in Unity Editor, while they stay invisible ingame)
     public void OnDrawGizmos()
     {
@@ -39,5 +47,16 @@ public class Waypoint : MonoBehaviour
             }
         }
       
+    }
+
+    public void Start()
+    {
+
+        foreach (Transform neighbour in neighbours) {
+
+            //Else, calculate new gCosts (distance of current Waypoint to start point)
+            neighbour.GetComponent<Waypoint>().gCost = Vector3.Distance(this.transform.localPosition, neighbour.localPosition);
+               
+        }
     }
 }
