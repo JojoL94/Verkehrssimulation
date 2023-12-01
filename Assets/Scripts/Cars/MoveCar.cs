@@ -248,7 +248,7 @@ public class MoveCar : MonoBehaviour
                     {
                         objectInIntersection = sendIntersection.hittingCar;
                         // If something is blocking the intersectiong, wait;
-                        Debug.Log($"{name} gives wait --> Intersection is blocked by {objectInIntersection}");
+                        //Debug.Log($"{name} gives wait --> Intersection is blocked by {objectInIntersection}");
                         giveWait(Vector3.Distance(transform.position, nextLocalWaypointPosition)/10,causingBrake:"intersectionBlocked");
                         return;
                     }
