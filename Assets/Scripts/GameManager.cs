@@ -59,8 +59,7 @@ public class GameManager : MonoBehaviour
                                 GameObject localWaypoint = shadowWaypoint.GetChild(z).gameObject;
 
                                 //Connect all Lokal Waypoints
-                                if (Physics.Raycast(localWaypoint.transform.position, localWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("LokalWaypoint"))
-                                && localWaypoint.transform.parent.parent != hit.transform.parent.parent)
+                                if (Physics.Raycast(localWaypoint.transform.position, localWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("LokalWaypoint")))
                                 {
                                     localWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints.Add(hit.collider.gameObject);
                                 }
