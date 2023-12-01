@@ -79,10 +79,10 @@ public class RightBeforeLeft : MonoBehaviour
                 if (lookCar.GetComponent<MoveCar>() != null)
                 {
                     lookCar.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, lookCar.transform.position)/2, left, right, causingBrake: "RechtsVorLinks");
-                    //Debug.Log($"{lookCar.name} gives wait because of {sendCar.name}");
+                    Debug.Log($"{lookCar.name} gives wait because of {sendCar.name}");
                 }
             }
-            //Debug.Log($"Send: {sendCar} + Look: {lookCar}");
+            Debug.Log($"Send: {sendCar} + Look: {lookCar}");
 
 
 

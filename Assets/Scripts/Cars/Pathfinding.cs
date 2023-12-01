@@ -54,14 +54,12 @@ public class Pathfinding : MonoBehaviour
     //Calculate fastest route using A*Star Algorithm
     private void calculateRoute()
     {
-        //Store Skripts as variables for performance reasons
-        MoveCar thisMoveCar = this.GetComponent<MoveCar>();
-
         //Spawn point of car
-        Transform origin = thisMoveCar.origin;
+        Transform origin = this.GetComponent<MoveCar>().origin;
+
 
         //End point of car
-        Transform destination = thisMoveCar.destination;
+        Transform destination = this.GetComponent<MoveCar>().destination;
 
         //List containing all Waypoints, that weren't checked so far
         List<Transform> openSet = new List<Transform>();
@@ -80,24 +78,18 @@ public class Pathfinding : MonoBehaviour
             //currentWaypoint is first entry in openSet
             Transform currentWaypoint = openSet[0];
 
-            //Store Skripts as variables for performance reasons
-            Waypoint currentWpWaypoint = currentWaypoint.GetComponent<Waypoint>();
-
             //For every entry in openSet...
             for (int i = 1; i < openSet.Count; i++) {
 
-                //Store Skripts as variables for performance reasons
-                Waypoint openSetWaypoint = openSet[i].GetComponent<Waypoint>();
-
                 //..calculate f costs (gCost + hCost)...
-                float fCostOpenSet = openSetWaypoint.gCost + openSetWaypoint.hCost;
-                float fCostCurrent = currentWpWaypoint.gCost + currentWpWaypoint.hCost;
+                float fCostOpenSet = openSet[i].GetComponent<Waypoint>().gCost + openSet[i].GetComponent<Waypoint>().hCost;
+                float fCostCurrent = currentWaypoint.GetComponent<Waypoint>().gCost + currentWaypoint.GetComponent<Waypoint>().hCost;
 
                 //... and check distances
                 //First compare fCost (sum of distances of Waypoint to start (gCost) and Waypoint to destination (hCost))
                 //If fCost is equal => compare hCost (distance of Waypoint to destination)
                 if (fCostOpenSet < fCostCurrent || 
-                    (fCostOpenSet == fCostCurrent && openSetWaypoint.hCost < currentWpWaypoint.hCost)) {
+                    (fCostOpenSet == fCostCurrent && openSet[i].GetComponent<Waypoint>().hCost < currentWaypoint.GetComponent<Waypoint>().hCost)) {
                     currentWaypoint = openSet[i];
                 }
             }
@@ -113,11 +105,7 @@ public class Pathfinding : MonoBehaviour
             }
 
             //Check all neighbour Waypoints
-            //Annotation: currentWaypoint.GetComponent<Waypoint>() must not be replaced by currentWpWaypoint => leads to UnassignedReferenceException
             foreach (Transform neighbour in currentWaypoint.GetComponent<Waypoint>().neighbours) {
-
-                //Store Skripts as variables for performance reasons
-                Waypoint neighbourWaypoint = neighbour.GetComponent<Waypoint>();
 
                 //Temporary WaypointTree object to contain current neigbour
                 WaypointTree child = new WaypointTree();
@@ -126,14 +114,14 @@ public class Pathfinding : MonoBehaviour
                 if (closedSet.Contains(neighbour)) continue;
 
                 //Else, calculate new gCosts (distance of current Waypoint to start point)
-                float newGcost = currentWpWaypoint.gCost + Vector3.Distance(currentWaypoint.localPosition, neighbour.localPosition);
+                float newGcost = currentWaypoint.GetComponent<Waypoint>().gCost + Vector3.Distance(currentWaypoint.localPosition, neighbour.localPosition);
 
                 //If new path to neighbour Waypoint is shorter or neigbouring Waypoint is not in openSet...
-                if (newGcost < neighbourWaypoint.gCost || !openSet.Contains(neighbour)) {
+                if (newGcost < neighbour.GetComponent<Waypoint>().gCost || !openSet.Contains(neighbour)) {
 
                     //...update gCost and hCost
-                    neighbourWaypoint.gCost = newGcost;
-                    neighbourWaypoint.hCost = Vector3.Distance(neighbour.localPosition, destination.localPosition);
+                    neighbour.GetComponent<Waypoint>().gCost = newGcost;
+                    neighbour.GetComponent<Waypoint>().hCost = Vector3.Distance(neighbour.localPosition, destination.localPosition);
 
                     //Set currentWaypoint as id
                     child.id = neighbour;

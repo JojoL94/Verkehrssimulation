@@ -42,8 +42,6 @@ public class CarDetection : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Car"))
                 {
-                    //Store Skript as variable for performance reasons
-                    MoveCar moveCarCollider = hit.collider.GetComponent<MoveCar>();
                     if (
                         hit.collider.GetComponent<CarDetection>().carInFront != transform)
                     {
@@ -54,10 +52,10 @@ public class CarDetection : MonoBehaviour
                                 tmpDoBrake = true;
                             }
 
-                            if (moveCarCollider.nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
-                                moveCarCollider.nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
-                                moveCarCollider.lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
-                                moveCarCollider.lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
+                            if (hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
                             {
                                 // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
                                 carInFront = hit.collider.gameObject.transform;
@@ -97,8 +95,6 @@ public class CarDetection : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Car"))
                 {
-                    //Store Skript as variable for performance reasons
-                    MoveCar moveCarCollider = hit.collider.GetComponent<MoveCar>();
                     if (
                         hit.collider.GetComponent<CarDetection>().carInFront != transform)
                     {
@@ -109,10 +105,10 @@ public class CarDetection : MonoBehaviour
                                 tmpDoBrake = true;
                             }
 
-                            if (moveCarCollider.nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
-                                moveCarCollider.nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
-                                moveCarCollider.lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
-                                moveCarCollider.lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
+                            if (hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
+                                hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.lastLocalWaypoint)
                             {
                                 // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
                                 carInFront = hit.collider.gameObject.transform;
