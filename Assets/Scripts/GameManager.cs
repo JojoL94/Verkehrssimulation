@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     //Counter to give every Main Waypoint an uniqe name
     private int counter = 0;
 
+    public GameObject feierabend, normal;
+
 
     //In runtime connect all Waypoints before start
     private void Awake()
@@ -115,6 +117,27 @@ public class GameManager : MonoBehaviour
                     counter++;
                 }
         }
+        normal.SetActive(true);
+        feierabend.SetActive(false);
+    }
+
+    public void ChangeFeierabendVerkehr()
+    {
+        normal.SetActive(!normal.activeInHierarchy);
+        feierabend.SetActive(!feierabend.activeInHierarchy);
+
+        if(normal.activeInHierarchy)
+            foreach(Transform child in normal.transform)
+            {
+                if (child.GetComponent<SpawnCar>() != null)
+                    child.GetComponent<SpawnCar>().startSpawnCar();
+            }
+        else
+            foreach (Transform child in feierabend.transform)
+            {
+                if (child.GetComponent<SpawnCar>() != null)
+                    child.GetComponent<SpawnCar>().startSpawnCar();
+            }
     }
     
 

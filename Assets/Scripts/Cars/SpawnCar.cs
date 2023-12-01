@@ -39,6 +39,9 @@ public class SpawnCar : MonoBehaviour
     [SerializeField]
     private float minDistanceToNextCar = 4f;
 
+    // Coroutine Update
+    Coroutine spawningCars;
+
 
     //Function to randomly spawn cars
     void spawnCar()
@@ -81,7 +84,18 @@ public class SpawnCar : MonoBehaviour
         //Initialize currentTime as spawnCountdown
         currentTime = spawnCountdown;
         maxCars = gameManager.GetComponent<GameManager>().maxCars;
-        StartCoroutine(spawnCarAfterTime());
+        startSpawnCar();
+    }
+
+    public void startSpawnCar()
+    {
+        if (spawningCars == null)
+            spawningCars = StartCoroutine(spawnCarAfterTime());
+        else
+        {
+            StopCoroutine(spawningCars);
+            spawningCars = StartCoroutine(spawnCarAfterTime());
+        }
     }
 
 
@@ -112,6 +126,7 @@ public class SpawnCar : MonoBehaviour
         }*/
     }
 
+    
     IEnumerator spawnCarAfterTime()
     {
         while (true)
