@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpeedLimit : MonoBehaviour
 {
-    public float speedLimit = 6f;
+    public float speedLimit = 10f;
 
     private void OnTriggerEnter(Collider other)
     {

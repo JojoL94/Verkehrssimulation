@@ -10,77 +10,58 @@ public class MoveCar : MonoBehaviour
 {
     //Identification Variable
     public int carID;
-    
     //Spawn point of car
     public Transform origin;
-
     //End point of car
     public Transform destination;
-
     //List containing all Waypoints the car takes to reach destination
     public List<Transform> travelRoute = new List<Transform>();
-
     //Maximum speed of car
-    public float maxSpeed = 3f;
+    public float maxSpeed = 6f;
 
+    public float maxSpeedOffset;
     //Base acceleration speed of car in Unity units per second
     //It determines, along with Time.deltaTime, the increase of acceeration
-    public float baseAcceleration = 50f;
-
+    private float baseAcceleration = 80f;
     //Current speed of car
     public float speed = 0f;
-
     public GameObject lastLocalWaypoint, nextLocalWaypoint, next2LocalWaypoint;
-
     //GameManager to collect information effecting the whole level
     public GameObject gameManager;
-
     //nexBigWaypoint saves the next mainWaypoint
     public GameObject nexBigWaypoint;
-
     //Variables for Braking
     public bool doBrake = false;
-    public float brakeDeceleration = 10f;
+    private float brakeDeceleration;
+    public float brakeDecelerationModifier;
     private float timer;
-
     public float brakeTimer = 3f;
-
     //Variables for rotation
     private float rotationSpeed = 3f;
-    
     // Need to give wait
     public bool doGiveWait = false;
-
     //Variables for Distance
     private CarDetection myCarDetector;
-
     //Variables for lane switching
     //Timer to check if on target lane
     private float laneTimer;
-
     //Bool to toggle for- and foreach-loops in lane switching
     private bool laneLooping = true;
-
     //lokalTargetWaypoint saves the child of the next mainWaypoint => needs to be reached to turn left/right if necessary
     private Transform lokalTargetWaypoint;
-
     // Is the car turning right? If so don't give wait
     public bool turnsRight;
-
     //Containts the initial y value to offset different heights of preFab => Used to fix "some cars sink in road"-bug
     public float initalYValue = 0f;
-
     // Transform to get information if car is blocking the intersection
     Transform n2LocalWaypointSend;
-
     //Position of nextLocalWaypoint
     Vector3 nextLocalWaypointPosition = new Vector3();
-
     public string causingBrake = "";
-
-
     public GameObject objectInIntersection = null;
 
+    //Variables for Types of Driver
+    private int drivingType;
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -91,8 +72,9 @@ public class MoveCar : MonoBehaviour
             //Multiply result by Time.deltaTime to get acceleration per seconds
             speed += (speed + (Time.deltaTime * baseAcceleration)) * Time.deltaTime;
 
+            float tmpMaxSpeed = maxSpeed - maxSpeedOffset;
             //Ensure, that speed is never bigger than maxSpeed
-            speed = Mathf.Clamp(speed, 0, maxSpeed);
+            speed = Mathf.Clamp(speed, 0, tmpMaxSpeed);
         }
 
         //Deceleration
@@ -112,8 +94,9 @@ public class MoveCar : MonoBehaviour
                 timer = 0f;
             }
 
+            float tmpBrakeDeceleration = brakeDeceleration + (brakeDeceleration * brakeDecelerationModifier/100);
             // Verringere die Geschwindigkeit basierend auf der Bremsdeceleration
-            speed -= (speed + (brakeDeceleration * Time.deltaTime)) * Time.deltaTime;
+            speed -= (speed +(tmpBrakeDeceleration * Time.deltaTime)) * Time.deltaTime;
 
             // Stelle sicher, dass die Geschwindigkeit nicht negativ wird (rückwärts fahren)
             speed = Mathf.Max(speed, 0f);
@@ -219,9 +202,55 @@ public class MoveCar : MonoBehaviour
         nextLocalWaypoint = lastLocalWaypoint.GetComponent<LocalWaypoint>().connectedWaypoints[0];
         myCarDetector = GetComponent<CarDetection>();
         carID = transform.root.GetComponent<Datenvisualisierung>().AddCarInDatenVisualisierung(GetComponent<MoveCar>());
-        brakeDeceleration = baseAcceleration * 7;
+        brakeDeceleration = baseAcceleration * 2;
         StartCoroutine(test());
         get2ndNextWaypoint();
+        //Setup Driver Type (16 different Driver Types possible)
+        bool tmpIntSetupDrivingType  = (Random.value > 0.5f);
+        //int tmpIntSetupDrivingType = Random.Range(0, 1);
+        if (!tmpIntSetupDrivingType)
+        {
+            //maxSpeedOffset = Random.Range(maxSpeed/4, maxSpeed/3);  //Langsam
+            maxSpeedOffset = maxSpeed / 3;
+        }
+        else
+        {
+            //maxSpeedOffset = Random.Range(0, maxSpeed/4); //Schnell
+            maxSpeedOffset = 0;
+        }
+        tmpIntSetupDrivingType  = (Random.value > 0.5f);
+        if (!tmpIntSetupDrivingType)
+        {
+            //baseAcceleration -= Random.Range(baseAcceleration/4, baseAcceleration/3); //Langsam
+            baseAcceleration -= baseAcceleration / 3;
+        }
+        else
+        {
+            //baseAcceleration -= Random.Range(0, baseAcceleration/4); //Schnell
+        }
+        tmpIntSetupDrivingType  = (Random.value > 0.5f);
+        if (!tmpIntSetupDrivingType)
+        {
+            //brakeDeceleration += Random.Range(brakeDeceleration/4, brakeDeceleration/3); //Harter Bremser
+            brakeDeceleration += brakeDeceleration / 3;
+        }
+        else
+        {
+            //brakeDeceleration += Random.Range(0, brakeDeceleration/4); //weicher Bremser
+            brakeDeceleration += 0;
+        }
+        tmpIntSetupDrivingType  = (Random.value > 0.5f);
+        if (!tmpIntSetupDrivingType)
+        {
+            //myCarDetector.minTargetDistance += Random.Range(myCarDetector.minTargetDistance/4, myCarDetector.minTargetDistance/3); //großer Abstand
+            myCarDetector.minTargetDistance += myCarDetector.minTargetDistance / 3;
+        }
+        else
+        {
+            //myCarDetector.minTargetDistance += Random.Range(0, myCarDetector.minTargetDistance/4); //kleiner Abstand
+            
+        }
+        //End Setup Driver Type
     }
 
     // Update is called once per frame

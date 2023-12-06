@@ -13,13 +13,16 @@ public class CarDetection : MonoBehaviour
 
     //Variablen für den Abstand
     public float targetDistanceToFrontCar;
-    private float minTargetDistance = 1.5f;
+    public float minTargetDistance = 1.5f;
     private float targetDistanceModifier = 100f;
     private float raycastOffset = 2.7f;
 
+    //Variablen für das Bremsen
+    private float myBrakeModifier;
     void Start()
     {
         myMoveCar = GetComponent<MoveCar>();
+        myBrakeModifier = myMoveCar.brakeDecelerationModifier;
     }
 
     // Update is called once per frame
@@ -51,7 +54,13 @@ public class CarDetection : MonoBehaviour
                         {
                             if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
                             {
+                                myBrakeModifier = 100 - ((Vector3.Distance(hit.point, objectPosition) / targetDistanceToFrontCar) * 100);
+                                myMoveCar.brakeDecelerationModifier = myBrakeModifier;
                                 tmpDoBrake = true;
+                            }
+                            else
+                            {
+                                myBrakeModifier = 0;
                             }
 
                             if (moveCarCollider.nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
@@ -81,15 +90,19 @@ public class CarDetection : MonoBehaviour
                 //Halte Abstand zum gefundenem Auto
                 if (Vector3.Distance(objectPosition, carInFront.position) < targetDistanceToFrontCar)
                 {
+                    myBrakeModifier = 100 - ((Vector3.Distance(objectPosition, carInFront.position) / targetDistanceToFrontCar) * 100);
+                    myMoveCar.brakeDecelerationModifier = myBrakeModifier;
                     tmpDoBrake = true;
                 }
                 else
                 {
+                    myBrakeModifier = 0;
                     carInFrontDetected = false;
                 }
             }
             else
             {
+                myBrakeModifier = 0;
                 carInFrontDetected = false;
             }
 
@@ -106,7 +119,13 @@ public class CarDetection : MonoBehaviour
                         {
                             if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
                             {
+                                myBrakeModifier = 100 - ((Vector3.Distance(hit.point, objectPosition) / targetDistanceToFrontCar) * 100);
+                                myMoveCar.brakeDecelerationModifier = myBrakeModifier;
                                 tmpDoBrake = true;
+                            }
+                            else
+                            {
+                                myBrakeModifier = 0;
                             }
 
                             if (moveCarCollider.nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
@@ -166,7 +185,6 @@ public class CarDetection : MonoBehaviour
                     Color.blue); // Zeichne den Raycast in der Szene
             }
         }
-
         myMoveCar.doBrake = tmpDoBrake;
     }
 

@@ -6,10 +6,10 @@ using UnityEngine;
 public class SendIntersection : MonoBehaviour
 {
 
-    // Die Länge des Raycasts
-    float raycastDistance = 10f;
+    // Die Lï¿½nge des Raycasts
+    float raycastDistance = 8.5f;
 
-    // Führe den eigentlichen Raycast durch
+    // Fï¿½hre den eigentlichen Raycast durch
     RaycastHit hitSend;
 
     public bool hasCollision = false;
@@ -32,7 +32,7 @@ public class SendIntersection : MonoBehaviour
         Debug.DrawRay(transform.position + localOffset, transform.TransformDirection(Vector3.back) * raycastDistance, Color.red); // Zeichne den Raycast in der Szene
         if (Physics.Raycast(transform.position + localOffset, transform.TransformDirection(Vector3.back), out hitSend, raycastDistance, layerMask))
         {                                             
-            // Überprüfen, ob das getroffene Objekt ein Auto ist
+            // ï¿½berprï¿½fen, ob das getroffene Objekt ein Auto ist
             hasCollision = true;
             hittingCar = hitSend.transform.gameObject;
             if (hittingCar.GetComponent<MoveCar>() == null)
@@ -59,7 +59,7 @@ public class SendIntersection : MonoBehaviour
 
     Vector3 GetRaycastDirection()
     {
-        // Gib die Richtung des Raycasts basierend auf der aktuellen Rotation zurück
+        // Gib die Richtung des Raycasts basierend auf der aktuellen Rotation zurï¿½ck
         return transform.forward;
     }
 

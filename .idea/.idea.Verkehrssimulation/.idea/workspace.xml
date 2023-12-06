@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../DayR2022/Assets/Scripts/Robot/RobotHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cars/CarDetection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -97,6 +98,10 @@
       <workItem from="1699903748943" duration="4806000" />
       <workItem from="1699949861071" duration="11030000" />
       <workItem from="1700134723000" duration="2359000" />
+      <workItem from="1700730630949" duration="605000" />
+      <workItem from="1701343075784" duration="1057000" />
+      <workItem from="1701351918818" duration="4936000" />
+      <workItem from="1701851345314" duration="6306000" />
     </task>
     <servers />
   </component>
