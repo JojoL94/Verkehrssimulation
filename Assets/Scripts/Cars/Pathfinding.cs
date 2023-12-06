@@ -90,14 +90,14 @@ public class Pathfinding : MonoBehaviour
                 Waypoint openSetWaypoint = openSet[i].GetComponent<Waypoint>();
 
                 //..calculate f costs (gCost + hCost)...
-                float fCostOpenSet = openSetWaypoint.gCost + openSetWaypoint.hCost;
-                float fCostCurrent = currentWpWaypoint.gCost + currentWpWaypoint.hCost;
+                openSetWaypoint.fCost = openSetWaypoint.gCost + openSetWaypoint.hCost + (openSetWaypoint.timeCost*5);
+                currentWpWaypoint.fCost = currentWpWaypoint.gCost + currentWpWaypoint.hCost + (currentWpWaypoint.timeCost*5);
 
                 //... and check distances
                 //First compare fCost (sum of distances of Waypoint to start (gCost) and Waypoint to destination (hCost))
                 //If fCost is equal => compare hCost (distance of Waypoint to destination)
-                if (fCostOpenSet < fCostCurrent || 
-                    (fCostOpenSet == fCostCurrent && openSetWaypoint.hCost < currentWpWaypoint.hCost)) {
+                if (openSetWaypoint.fCost < currentWpWaypoint.fCost || 
+                    (openSetWaypoint.fCost == currentWpWaypoint.fCost && openSetWaypoint.hCost < currentWpWaypoint.hCost)) {
                     currentWaypoint = openSet[i];
                 }
             }
@@ -126,10 +126,10 @@ public class Pathfinding : MonoBehaviour
                 if (closedSet.Contains(neighbour)) continue;
 
                 //Else, calculate new gCosts (distance of current Waypoint to start point)
-                float newGcost = currentWpWaypoint.gCost + Vector3.Distance(currentWaypoint.localPosition, neighbour.localPosition);
+                float newGcost = currentWaypoint.GetComponent<Waypoint>().gCost + Vector3.Distance(currentWaypoint.localPosition, neighbour.localPosition);
 
                 //If new path to neighbour Waypoint is shorter or neigbouring Waypoint is not in openSet...
-                if (newGcost < neighbourWaypoint.gCost || !openSet.Contains(neighbour)) {
+                if (newGcost < neighbour.GetComponent<Waypoint>().gCost || !openSet.Contains(neighbour)) {
 
                     //...update gCost and hCost
                     neighbourWaypoint.gCost = newGcost;
