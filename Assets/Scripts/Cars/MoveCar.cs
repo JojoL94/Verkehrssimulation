@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 //Script for movement of cars
@@ -10,6 +12,8 @@ public class MoveCar : MonoBehaviour
 {
     //Identification Variable
     public int carID;
+    //PrefabID
+    public int prefabId;
     //Spawn point of car
     public Transform origin;
     //End point of car
@@ -18,7 +22,8 @@ public class MoveCar : MonoBehaviour
     public List<Transform> travelRoute = new List<Transform>();
     //Maximum speed of car
     public float maxSpeed = 6f;
-
+    // Average speed
+    public float averageSpeed;
     public float maxSpeedOffset;
     //Base acceleration speed of car in Unity units per second
     //It determines, along with Time.deltaTime, the increase of acceeration
@@ -59,6 +64,7 @@ public class MoveCar : MonoBehaviour
     Vector3 nextLocalWaypointPosition = new Vector3();
     public string causingBrake = "";
     public GameObject objectInIntersection = null;
+    
 
     //Variables for Types of Driver
     private int drivingType;
@@ -204,6 +210,8 @@ public class MoveCar : MonoBehaviour
         carID = transform.root.GetComponent<Datenvisualisierung>().AddCarInDatenVisualisierung(GetComponent<MoveCar>());
         brakeDeceleration = baseAcceleration * 2;
         StartCoroutine(test());
+        // Start Cortourine for calculating averageSpeed
+        StartCoroutine(CalculateAvgSpeed());
         get2ndNextWaypoint();
         //Setup Driver Type (16 different Driver Types possible)
         bool tmpIntSetupDrivingType  = (Random.value > 0.5f);
@@ -427,6 +435,25 @@ public class MoveCar : MonoBehaviour
         {
             doBrake = false;
             //Debug.Log("Eigentliche warten, aber fährt nach rechts, deswegen egal");
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        CarInfoView.instance.ChangeCarInfoTo(this);
+    }
+
+    
+    IEnumerator CalculateAvgSpeed()
+    {
+        int counter = 0;
+        float sumSpeed = 0;
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            counter++;
+            sumSpeed += speed;
+            averageSpeed = sumSpeed/counter;
         }
     }
 }

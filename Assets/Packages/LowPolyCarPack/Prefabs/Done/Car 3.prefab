@@ -446,11 +446,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carID: 0
+  prefabId: 3
   origin: {fileID: 0}
   destination: {fileID: 0}
   travelRoute: []
   maxSpeed: 6
-  baseAcceleration: 60
+  maxSpeedOffset: 0
   speed: 0
   lastLocalWaypoint: {fileID: 0}
   nextLocalWaypoint: {fileID: 0}
@@ -458,10 +459,13 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   nexBigWaypoint: {fileID: 0}
   doBrake: 0
-  brakeDeceleration: 10
+  brakeDecelerationModifier: 0
   brakeTimer: 3
   doGiveWait: 0
   turnsRight: 0
+  initalYValue: 0
+  causingBrake: 
+  objectInIntersection: {fileID: 0}
 --- !u!65 &5804457404240539079
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -518,6 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carInFront: {fileID: 0}
   targetDistanceToFrontCar: 0
+  minTargetDistance: 1.5
 --- !u!65 &7061586353575894982
 BoxCollider:
   m_ObjectHideFlags: 0
