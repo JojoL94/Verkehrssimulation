@@ -42,18 +42,19 @@ public class MoveCar : MonoBehaviour
     private float timer;
     public float brakeTimer = 3f;
     //Variables for rotation
-    private float rotationSpeed = 3f;
+    private float rotationSpeed = 5f;
     // Need to give wait
     public bool doGiveWait = false;
     //Variables for Distance
     private CarDetection myCarDetector;
-    //Variables for lane switching
-    //Timer to check if on target lane
-    private float laneTimer;
+    //Timer to check time needed to reach waypoint
+    private float waypointTime;
     //Bool to toggle for- and foreach-loops in lane switching
     private bool laneLooping = true;
+    //Temporarily saves parent of last laneSwitchTrigger to prevent switching into another trigger of same parent
+    public GameObject laneStreetObject;
     //lokalTargetWaypoint saves the child of the next mainWaypoint => needs to be reached to turn left/right if necessary
-    private Transform lokalTargetWaypoint;
+    public Transform lokalTargetWaypoint;
     // Is the car turning right? If so don't give wait
     public bool turnsRight;
     //Containts the initial y value to offset different heights of preFab => Used to fix "some cars sink in road"-bug
@@ -147,7 +148,7 @@ public class MoveCar : MonoBehaviour
                             // y == 0 = car is exactly in front of targetWaypoint => needs no lane switch
                             //ATTENTION: Our waypoints aren't properly alligned and probably will never be, because of different PreFabs
                             // => Because of that we can't use exactly 0 as comparison
-                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.1
+                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.08
                                 || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.1)
                             {
                                 switchLane();
@@ -172,27 +173,13 @@ public class MoveCar : MonoBehaviour
                 //ShadowWaypoints have two children, the first [0] is the outside, the second [1] is the inside
                 if (nextLocalWaypoint.transform.GetSiblingIndex() == 0)
                 {
-                    //Switch if next lane is empty
-                    if (nextLocalWaypoint.transform.parent.GetChild(x + 1).gameObject.GetComponent<ShadowWaypoint>()
-                            .carsOnLane == 0
-                        && lastLocalWaypoint.transform.parent.GetChild(x + 1).gameObject.GetComponent<ShadowWaypoint>()
-                            .carsOnLane == 0)
-                    {
                         nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x + 1).gameObject;
                         break;
-                    }
                 }
                 else
                 {
-                    //Switch if next lane is empty
-                    if (nextLocalWaypoint.transform.parent.GetChild(x - 1).gameObject.GetComponent<ShadowWaypoint>()
-                            .carsOnLane == 0
-                        && lastLocalWaypoint.transform.parent.GetChild(x - 1).gameObject.GetComponent<ShadowWaypoint>()
-                            .carsOnLane == 0)
-                    {
                         nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x - 1).gameObject;
                         break;
-                    }
                 }
             }
         }
@@ -263,7 +250,10 @@ public class MoveCar : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+        //Timer to check time needed to reach waypoint
+        waypointTime += Time.deltaTime;
+
         //Current fix of "cars stuck in road"-bug:
         //change y value of affected cars (car4 and car5) in preFab and add preFab-y value on top of waypoint y-value
         nextLocalWaypointPosition = new Vector3(nextLocalWaypoint.transform.position.x, nextLocalWaypoint.transform.position.y + initalYValue, nextLocalWaypoint.transform.position.z);
@@ -364,6 +354,10 @@ public class MoveCar : MonoBehaviour
         //Check if main Waypoint was reached
         if (nextLocalWaypoint.transform.parent == nexBigWaypoint.transform)
         {
+            //Update timeCost
+            travelRoute[0].gameObject.GetComponent<Waypoint>().timeCost = waypointTime;
+            waypointTime = 0f;
+
             //Remove reached Waypoint
             travelRoute.Remove(travelRoute[0]);
         }

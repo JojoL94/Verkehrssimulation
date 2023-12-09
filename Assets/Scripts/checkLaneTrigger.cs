@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class checkLaneTrigger : MonoBehaviour
@@ -13,11 +11,14 @@ public class checkLaneTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        MoveCar moveCar = other.gameObject.GetComponent<MoveCar>();
         //Check if colliding object is car
-        if (other.CompareTag("Car"))
+        if (other.CompareTag("Car") && (this.transform.parent.gameObject != moveCar.laneStreetObject))
         {
+            //Save street Object of current trigger => prevents triggering neighbouring trigger in case of entering collider when switching
+            moveCar.laneStreetObject = this.transform.parent.gameObject;
             //Check lane
-            other.gameObject.GetComponent<MoveCar>().checkLaneSwitch();
+            moveCar.checkLaneSwitch();
         }
     }
 }
