@@ -125,7 +125,7 @@ public class MoveCar : MonoBehaviour
         //Bool to toggle looping
         laneLooping = true;
 
-        //Check if 4 lane street
+        //Check if more than 2 big waypoints to prevent null pointer
         if (travelRoute.Count >= 2 && nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint"))
         {
             //Check which waypoint the car need to take to reach travelRoute[1] (basically, check if it needs to turn left or right)
@@ -146,10 +146,10 @@ public class MoveCar : MonoBehaviour
                             //y > 0 = car is on the right side compared to the targetWaypoint => needs to switch to left lane
                             // y < 0 = car is on the left side compared to the targetWaypoint => needs to switch to right lane
                             // y == 0 = car is exactly in front of targetWaypoint => needs no lane switch
-                            //ATTENTION: Our waypoints aren't properly alligned and probably will never be, because of different PreFabs
+                            //ATTENTION: Our waypoints aren't properly alligned and probably never will be, because of different PreFabs
                             // => Because of that we can't use exactly 0 as comparison
                             if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.08
-                                || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.1)
+                                || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.15)
                             {
                                 switchLane();
                             }
@@ -164,22 +164,25 @@ public class MoveCar : MonoBehaviour
     }
 
     //Switch lane for ShadowWaypoints
-    private void switchLane()
+    public void switchLane()
     {
-        for (int x = 0; x < nextLocalWaypoint.transform.parent.childCount; x++)
-        {
-            if (nextLocalWaypoint.transform.parent.GetChild(x) == nextLocalWaypoint.transform)
+        //Check if 4 lane street
+        if (nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")) {
+            for (int x = 0; x < nextLocalWaypoint.transform.parent.childCount; x++)
             {
-                //ShadowWaypoints have two children, the first [0] is the outside, the second [1] is the inside
-                if (nextLocalWaypoint.transform.GetSiblingIndex() == 0)
+                if (nextLocalWaypoint.transform.parent.GetChild(x) == nextLocalWaypoint.transform)
                 {
+                    //ShadowWaypoints have two children, the first [0] is the outside, the second [1] is the inside
+                    if (nextLocalWaypoint.transform.GetSiblingIndex() == 0)
+                    {
                         nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x + 1).gameObject;
                         break;
-                }
-                else
-                {
+                    }
+                    else
+                    {
                         nextLocalWaypoint = nextLocalWaypoint.transform.parent.GetChild(x - 1).gameObject;
                         break;
+                    }
                 }
             }
         }

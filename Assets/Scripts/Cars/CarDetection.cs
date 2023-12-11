@@ -19,6 +19,9 @@ public class CarDetection : MonoBehaviour
 
     //Variablen für das Bremsen
     private float myBrakeModifier;
+
+    //Variablen für das Überholen
+    private bool overtake;
     void Start()
     {
         myMoveCar = GetComponent<MoveCar>();
@@ -87,6 +90,22 @@ public class CarDetection : MonoBehaviour
                 Debug.DrawRay(transform.position + Vector3.forward,
                     (carInFront.position - transform.position) * targetDistanceToFrontCar,
                     Color.cyan); // Zeichne den Raycast in der Szene
+
+                //Überhole Auto wenn mehrere Bedinungen erfüllt sind:
+                //- Geschwindigkeit des vorherigen Autos ist langsamer als aktuelles Auto
+                //- bool overtake ist false (overtake ist trigger um mehrfaches Ausführen von switchLane() zu verhindern)
+                //- Es gibt einen nexBigWaypoint (wird für die folgende Bedingung gebraucht)
+                //- Abstand zum nexBigWaypoint ist größer als 25 => Kein Überholen nach dem Trigger zum Einordnen an den Kreuzungen, um Bugs zu unterbinden
+                //- Befindet sich auf einer 4 spurigen Straße (prüft "ShadowWaypoint", welches 4 spurige Straße signalisiert)
+                if (carInFront.GetComponent<MoveCar>().speed < myMoveCar.speed
+                    && overtake == false
+                    && myMoveCar.nexBigWaypoint != null
+                    && Vector3.Distance(this.transform.position, myMoveCar.nexBigWaypoint.transform.position) > 25
+                    && myMoveCar.nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")) {
+                    myMoveCar.switchLane();
+                    overtake = true;
+                }
+
                 //Halte Abstand zum gefundenem Auto
                 if (Vector3.Distance(objectPosition, carInFront.position) < targetDistanceToFrontCar)
                 {
@@ -98,12 +117,14 @@ public class CarDetection : MonoBehaviour
                 {
                     myBrakeModifier = 0;
                     carInFrontDetected = false;
+                    overtake = false;
                 }
             }
             else
             {
                 myBrakeModifier = 0;
                 carInFrontDetected = false;
+                overtake = false;
             }
 
             if (Physics.Raycast(ray, out hit, raycastDistance))
