@@ -69,6 +69,9 @@ public class MoveCar : MonoBehaviour
 
     //Variables for Types of Driver
     private int drivingType;
+
+    public int aggressivenessLevel;
+    
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -215,6 +218,7 @@ public class MoveCar : MonoBehaviour
         {
             //maxSpeedOffset = Random.Range(0, maxSpeed/4); //Schnell
             maxSpeedOffset = 0;
+            aggressivenessLevel++;
         }
         tmpIntSetupDrivingType  = (Random.value > 0.5f);
         if (!tmpIntSetupDrivingType)
@@ -224,11 +228,13 @@ public class MoveCar : MonoBehaviour
         }
         else
         {
+            aggressivenessLevel++;
             //baseAcceleration -= Random.Range(0, baseAcceleration/4); //Schnell
         }
         tmpIntSetupDrivingType  = (Random.value > 0.5f);
         if (!tmpIntSetupDrivingType)
         {
+            aggressivenessLevel++;
             //brakeDeceleration += Random.Range(brakeDeceleration/4, brakeDeceleration/3); //Harter Bremser
             brakeDeceleration += brakeDeceleration / 3;
         }
@@ -245,6 +251,7 @@ public class MoveCar : MonoBehaviour
         }
         else
         {
+            aggressivenessLevel++;
             //myCarDetector.minTargetDistance += Random.Range(0, myCarDetector.minTargetDistance/4); //kleiner Abstand
             
         }

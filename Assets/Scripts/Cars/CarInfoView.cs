@@ -52,7 +52,7 @@ public class CarInfoView : MonoBehaviour
             origin.text = car.origin.name;
             destination.text = car.destination.name;
             carId.text = "#"+car.carID;
-            drivingStyle.text = "Unter aller Sau";
+            drivingStyle.text = car.GetComponent<MoveCar>().aggressivenessLevel.ToString();
             carPhoto.sprite = carPhotos[car.prefabId - 1];
             
             _prevCar = car;
