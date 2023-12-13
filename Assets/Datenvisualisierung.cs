@@ -30,7 +30,7 @@ public class Datenvisualisierung : MonoBehaviour
         carCounter = cars.Count;
         if (carCounter != oldCarCounter)
         {
-            carCounterTextMesh.SetText("Cars on the Street: " + carCounter.ToString());
+            carCounterTextMesh.SetText(carCounter.ToString());
             oldCarCounter = carCounter;
         }
 
@@ -46,7 +46,7 @@ public class Datenvisualisierung : MonoBehaviour
         {
             oldAverageSpeed = Mathf.Lerp(oldAverageSpeed, tmpAverageSpeed, 0.5f);
             oldAverageSpeed = Mathf.Round(oldAverageSpeed * 100f) / 100f;
-            carsAverageSpeedTextMesh.SetText("Average Speed:   " + oldAverageSpeed);
+            carsAverageSpeedTextMesh.SetText(oldAverageSpeed.ToString());
         }
 
     }
