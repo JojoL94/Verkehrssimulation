@@ -7,7 +7,7 @@ public class SendIntersection : MonoBehaviour
 {
 
     // Die L�nge des Raycasts
-    float raycastDistance = 8.5f;
+    float raycastDistance = 4.5f;
 
     // F�hre den eigentlichen Raycast durch
     RaycastHit hitSend;
@@ -27,10 +27,10 @@ public class SendIntersection : MonoBehaviour
 
     private void Update()
     {
-        Vector3 localOffset = transform.parent.InverseTransformDirection(Vector3.right); // Lokaler Offset um 2 Einheiten auf der y-Achse im Parent-Objekt
+        Vector3 localOffset = transform.parent.InverseTransformDirection(Vector3.right *2f); // Lokaler Offset um 2 Einheiten auf der y-Achse im Parent-Objekt
         // Checks if someone is standing in the intersection
-        Debug.DrawRay(transform.position + localOffset, transform.TransformDirection(Vector3.back) * raycastDistance, Color.red); // Zeichne den Raycast in der Szene
-        if (Physics.Raycast(transform.position + localOffset, transform.TransformDirection(Vector3.back), out hitSend, raycastDistance, layerMask))
+        Debug.DrawRay(GetRaycastStartPosition(), transform.TransformDirection(Vector3.back) * raycastDistance, Color.red); // Zeichne den Raycast in der Szene
+        if (Physics.Raycast(GetRaycastStartPosition(), transform.TransformDirection(Vector3.back), out hitSend, raycastDistance, layerMask))
         {                                             
             // �berpr�fen, ob das getroffene Objekt ein Auto ist
             hasCollision = true;
@@ -54,7 +54,7 @@ public class SendIntersection : MonoBehaviour
     Vector3 GetRaycastStartPosition()
     {
         // Berechne den Startpunkt des Raycasts mit dem Offset
-        return transform.position + transform.TransformDirection(Vector3.back * -2);
+        return transform.position + transform.TransformDirection(Vector3.back * 3);
     }
 
     Vector3 GetRaycastDirection()

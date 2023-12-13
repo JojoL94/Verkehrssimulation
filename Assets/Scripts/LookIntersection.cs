@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class LookIntersection : MonoBehaviour
 {
-    // Die Richtung des Raycasts (in diesem Fall in die Vorwärtsrichtung des GameObjects)
+    // Die Richtung des Raycasts (in diesem Fall in die Vorwï¿½rtsrichtung des GameObjects)
     Vector3 raycastDirection;
 
-    // Die Länge des Raycasts
-    public float raycastDistance = 5f;
+    // Die Lï¿½nge des Raycasts
+    public float raycastDistance = 4f;
 
-    // Führe den eigentlichen Raycast durch
+    // Fï¿½hre den eigentlichen Raycast durch
     RaycastHit hitSend;
 
     public bool hasCollision = false;
@@ -23,7 +23,7 @@ public class LookIntersection : MonoBehaviour
 
     private void Start()
     {
-        // Die Richtung des Raycasts (in diesem Fall in die Vorwärtsrichtung des GameObjects)
+        // Die Richtung des Raycasts (in diesem Fall in die Vorwï¿½rtsrichtung des GameObjects)
         raycastDirection = -transform.forward;
         layerMask = LayerMask.GetMask("Car");
         StartCoroutine(checkRaycast());
@@ -36,7 +36,7 @@ public class LookIntersection : MonoBehaviour
             yield return new WaitForSeconds(.01f);
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.back) * raycastDistance, Color.red); // Zeichne den Raycast in der Szene
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hitSend, raycastDistance, layerMask))
-            {                                                                                         // Überprüfen, ob das getroffene Objekt ein Auto ist
+            {                                                                                         // ï¿½berprï¿½fen, ob das getroffene Objekt ein Auto ist
                 hasCollision = true;
                 hittingCar = hitSend.transform.gameObject;
             }

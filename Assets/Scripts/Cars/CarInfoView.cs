@@ -52,8 +52,27 @@ public class CarInfoView : MonoBehaviour
             origin.text = car.origin.name;
             destination.text = car.destination.name;
             carId.text = "#"+car.carID;
-            drivingStyle.text = car.GetComponent<MoveCar>().aggressivenessLevel.ToString();
             carPhoto.sprite = carPhotos[car.prefabId - 1];
+
+
+            switch (car.aggressivenessLevel)
+            {
+                case 0:
+                    drivingStyle.text = "Fährt wie Opa"; 
+                    break;
+                case 1: 
+                    drivingStyle.text = "Sonntagsfahrer"; 
+                    break;
+                case 2: 
+                    drivingStyle.text = "Normal"; 
+                    break;
+                case 3: 
+                    drivingStyle.text = "Rasant"; 
+                    break;
+                case 4: 
+                    drivingStyle.text = "Bekloppt"; 
+                    break;
+            }
             
             _prevCar = car;
         }

@@ -122,16 +122,9 @@ public class GameManager : MonoBehaviour
 
     public void ChangeFeierabendVerkehr()
     {
-        normal.SetActive(!normal.activeInHierarchy);
         feierabend.SetActive(!feierabend.activeInHierarchy);
 
-        if(normal.activeInHierarchy)
-            foreach(Transform child in normal.transform)
-            {
-                if (child.GetComponent<SpawnCar>() != null)
-                    child.GetComponent<SpawnCar>().startSpawnCar();
-            }
-        else
+        if(feierabend.activeInHierarchy)
             foreach (Transform child in feierabend.transform)
             {
                 if (child.GetComponent<SpawnCar>() != null)
@@ -153,11 +146,11 @@ public class GameManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SetTime(3);
+            SetTime(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SetTime(5);
+            SetTime(4);
         }
     }
 

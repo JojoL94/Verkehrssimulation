@@ -12,7 +12,7 @@ public class RightBeforeLeft : MonoBehaviour
     Vector3 raycastDirection;
 
     // Die Länge des Raycasts
-    float raycastDistance = 10f;
+    float raycastDistance = 8f;
 
     // Führe den eigentlichen Raycast durch
     RaycastHit hitSend;

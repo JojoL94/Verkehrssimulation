@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="" />
+    <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Highway Join Road.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Highway Join Road.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Road Join Road.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Road Join Road.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Road Join SIngleLane both ways.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Road Join SIngleLane both ways.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cars/CarInfoView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cars/CarInfoView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LookIntersection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LookIntersection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RightBeforeLeft.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RightBeforeLeft.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SendIntersection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SendIntersection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,15 +57,15 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\Johannes\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Johannes\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Johannes\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\phili\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Programme\Unity\Editor\2022.3.7f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\luetzj\Documents\GitHub\Verkehrssimulation -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\luetzj\Documents\GitHub\Verkehrssimulation" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -60,7 +73,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Programme\Unity\Editor\2022.3.7f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\phili\OneDrive\Dokumente\Studium - SEB\7. Semester - Bachelorarbeit\1_LaborGames\Tower Repo\Verkehrssimulation&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\phili\OneDrive\Dokumente\Studium - SEB\7. Semester - Bachelorarbeit\1_LaborGames\Tower Repo\Verkehrssimulation" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -126,6 +139,7 @@
       <workItem from="1701851345314" duration="6306000" />
       <workItem from="1702016897296" duration="3626000" />
       <workItem from="1702464736411" duration="691000" />
+      <workItem from="1702482327876" duration="2374000" />
     </task>
     <servers />
   </component>

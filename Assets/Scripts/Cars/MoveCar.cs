@@ -27,7 +27,7 @@ public class MoveCar : MonoBehaviour
     public float maxSpeedOffset;
     //Base acceleration speed of car in Unity units per second
     //It determines, along with Time.deltaTime, the increase of acceeration
-    private float baseAcceleration = 80f;
+    private float baseAcceleration = 100f;
     //Current speed of car
     public float speed = 0f;
     public GameObject lastLocalWaypoint, nextLocalWaypoint, next2LocalWaypoint;
@@ -426,7 +426,7 @@ public class MoveCar : MonoBehaviour
         {
             // Je näher das Auto an der Haltelinie ist, desto stärker wird gebremst
             float normalizedDistance = Mathf.Clamp01(distanceToHaltelinie / 10f);
-            float test = 20f * (1 - normalizedDistance);
+            float test = 17f * (1 - normalizedDistance);
             doBrake = true;
             // Breaking is harder, the closer to the Haltelinie, the harder breake.
             // speed -= (speed + (brakeDeceleration * Time.deltaTime)) * (left / (distanceToHaltelinie + right));
