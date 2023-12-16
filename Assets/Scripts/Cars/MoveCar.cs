@@ -49,6 +49,8 @@ public class MoveCar : MonoBehaviour
     private CarDetection myCarDetector;
     //Timer to check time needed to reach waypoint
     private float waypointTime;
+    //Timer to determine when to recheck pathfinding => to drive around traffic jams
+    private float pathfindingTimer;
     //Bool to toggle for- and foreach-loops in lane switching
     private bool laneLooping = true;
     //Temporarily saves parent of last laneSwitchTrigger to prevent switching into another trigger of same parent
@@ -263,6 +265,21 @@ public class MoveCar : MonoBehaviour
     {
         //Timer to check time needed to reach waypoint
         waypointTime += Time.deltaTime;
+
+        //Timer to re-check pathfinding
+        pathfindingTimer += Time.deltaTime;
+
+        //Timer for new pathfinding activates every 10 seconds
+        if (pathfindingTimer == 10f) {
+            //Look 4 Waypoints ahead, to detect traffic jams
+            if (travelRoute[3] != null) {
+                //If timecost bigger than 17.5 => traffic jam => new pathfinding
+                if (travelRoute[3].GetComponent<Waypoint>().timeCost > 17.5) {
+                    this.GetComponent<Pathfinding>().calculateRoute();
+                }
+            }
+            pathfindingTimer = 0f;
+        }
 
         //Current fix of "cars stuck in road"-bug:
         //change y value of affected cars (car4 and car5) in preFab and add preFab-y value on top of waypoint y-value

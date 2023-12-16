@@ -52,7 +52,7 @@ public class Pathfinding : MonoBehaviour
 
 
     //Calculate fastest route using A*Star Algorithm
-    private void calculateRoute()
+    public void calculateRoute()
     {
         //Store Skripts as variables for performance reasons
         MoveCar thisMoveCar = this.GetComponent<MoveCar>();
