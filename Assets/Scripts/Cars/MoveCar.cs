@@ -129,11 +129,13 @@ public class MoveCar : MonoBehaviour
     {
         //Bool to toggle looping
         laneLooping = true;
+        lokalTargetWaypoint = null;
 
         //Check if more than 2 big waypoints to prevent null pointer
         if (travelRoute.Count >= 2 && nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint"))
         {
             //Check which waypoint the car need to take to reach travelRoute[1] (basically, check if it needs to turn left or right)
+            //First, check if current lane doesn't need change
             for (int x = 0; x < nexBigWaypoint.transform.childCount; x++)
             {
                 if (laneLooping == true)
@@ -141,29 +143,55 @@ public class MoveCar : MonoBehaviour
                     foreach (GameObject waypoint in nexBigWaypoint.transform.GetChild(x).GetComponent<LocalWaypoint>()
                                  .connectedWaypoints)
                     {
-                        if (waypoint.transform.parent == travelRoute[1])
+                        Vector3 delta1 = (nexBigWaypoint.transform.GetChild(x).transform.position - this.gameObject.transform.position).normalized;
+                        if (Vector3.Cross(delta1, this.gameObject.transform.right).y < 0.08 &&
+                            Vector3.Cross(delta1, this.gameObject.transform.right).y > -0.15)
                         {
-                            //lokalTargetWaypoint is the lokalWaypoint the car needs to reach, so it can correctly turn at crossings
-                            lokalTargetWaypoint = nexBigWaypoint.transform.GetChild(x);
-
-                            //Check if current lane is the correct one to reach lokalTargetWaypoint, switch lane if not
-                            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position).normalized;
-                            //y > 0 = car is on the right side compared to the targetWaypoint => needs to switch to left lane
-                            // y < 0 = car is on the left side compared to the targetWaypoint => needs to switch to right lane
-                            // y == 0 = car is exactly in front of targetWaypoint => needs no lane switch
-                            //ATTENTION: Our waypoints aren't properly alligned and probably never will be, because of different PreFabs
-                            // => Because of that we can't use exactly 0 as comparison
-                            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.08
-                                || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.15)
+                            nexBigWaypoint.transform.GetChild(x);
+                            if (waypoint.transform.parent == travelRoute[1])
                             {
-                                switchLane();
+                                //lokalTargetWaypoint is the lokalWaypoint the car needs to reach, so it can correctly turn at crossings
+                                lokalTargetWaypoint = nexBigWaypoint.transform.GetChild(x);
+                                laneLooping = false;
+                                break;
                             }
+                        }
 
-                            laneLooping = false;
-                            break;
+                    }
+                }
+            }
+            //Check which waypoint the car need to take to reach travelRoute[1] (basically, check if it needs to turn left or right)
+            if (lokalTargetWaypoint == null) { 
+                for (int x = 0; x < nexBigWaypoint.transform.childCount; x++)
+                {
+                    if (laneLooping == true)
+                    {
+                        foreach (GameObject waypoint in nexBigWaypoint.transform.GetChild(x).GetComponent<LocalWaypoint>()
+                                        .connectedWaypoints)
+                        {
+                            if (waypoint.transform.parent == travelRoute[1])
+                            {
+                                //lokalTargetWaypoint is the lokalWaypoint the car needs to reach, so it can correctly turn at crossings
+                                lokalTargetWaypoint = nexBigWaypoint.transform.GetChild(x);
+                                laneLooping = false;
+                                break;
+                            }
                         }
                     }
                 }
+            }
+            //Check if current lane is the correct one to reach lokalTargetWaypoint, switch lane if not
+            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position).normalized;
+            //y > 0 = car is on the right side compared to the targetWaypoint => needs to switch to left lane
+            // y < 0 = car is on the left side compared to the targetWaypoint => needs to switch to right lane
+            // y == 0 = car is exactly in front of targetWaypoint => needs no lane switch
+            //ATTENTION: Our waypoints aren't properly alligned and probably never will be, because of different PreFabs
+            // => Because of that we can't use exactly 0 as comparison
+            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.08
+                || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.15)
+            {
+                switchLane();
+
             }
         }
     }
