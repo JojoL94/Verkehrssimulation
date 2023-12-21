@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3368792}
   - component: {fileID: 2392730}
   - component: {fileID: 6449406}
+  - component: {fileID: 8105562643755648146}
   m_Layer: 0
   m_Name: Freeway Join Freeway 1
   m_TagString: Untagged
@@ -110,6 +111,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 18532e9f65bee84488936fca5f9fe8c9, type: 3}
+--- !u!114 &8105562643755648146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 12.47
+  center: {x: 0, y: 0.75, z: -6.25}
+  rotationAngle: 0
 --- !u!1 &2954412386442221988
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +252,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  behaviour: 1
+  offset: 0
 --- !u!1 &4092788398518674308
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +376,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  behaviour: 1
+  offset: 0
 --- !u!1 &4259794184870091095
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +500,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  behaviour: 1
+  offset: 0
 --- !u!1 &6533212408373145719
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +624,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  behaviour: 1
+  offset: 0
 --- !u!1001 &1457027208638227357
 PrefabInstance:
   m_ObjectHideFlags: 0

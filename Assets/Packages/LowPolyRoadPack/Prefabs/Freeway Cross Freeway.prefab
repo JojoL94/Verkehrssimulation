@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3325676}
   - component: {fileID: 2361192}
   - component: {fileID: 6486480}
+  - component: {fileID: 3815404830524296296}
   m_Layer: 0
   m_Name: Freeway Cross Freeway
   m_TagString: Untagged
@@ -110,6 +111,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 72eb0d530cf26e74caefec9fd65ad0d0, type: 3}
+--- !u!114 &3815404830524296296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 12.47
+  center: {x: 0, y: 0.75, z: -6.25}
 --- !u!1 &1567995995184676699
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +251,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &2920037455631296901
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +375,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &3261970133115433448
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +499,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &4196556931583470677
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +623,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &6126336641438083421
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +747,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &7372434636366755852
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +871,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &7750289708392011252
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +995,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &8795396843328737915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1119,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1001 &1146980209065740945
 PrefabInstance:
   m_ObjectHideFlags: 0

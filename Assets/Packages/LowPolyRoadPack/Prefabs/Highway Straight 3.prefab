@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3391096}
   - component: {fileID: 2341294}
   - component: {fileID: 6495796}
+  - component: {fileID: 7041860566741237667}
   m_Layer: 0
   m_Name: Highway Straight 3
   m_TagString: Untagged
@@ -108,6 +109,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 236b6964c04aad0409d80ab50c92d8d3, type: 3}
+--- !u!114 &7041860566741237667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 12.47
+  center: {x: -12.52, y: 8.5, z: -2.43}
+  rotationAngle: 0
 --- !u!1001 &4874841391553039848
 PrefabInstance:
   m_ObjectHideFlags: 0

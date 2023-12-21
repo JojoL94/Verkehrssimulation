@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3306256}
   - component: {fileID: 2360210}
   - component: {fileID: 6476504}
+  - component: {fileID: 3650676069962563311}
   m_Layer: 0
   m_Name: Road Join SIngleLane entrance
   m_TagString: Untagged
@@ -110,6 +111,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: b85b6366741d14e4a96828e1afad90e0, type: 3}
+--- !u!114 &3650676069962563311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 7.3
+  center: {x: 0, y: 0.75, z: 2.43}
+  rotationAngle: 0
 --- !u!1 &169111818305751611
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +283,8 @@ MonoBehaviour:
   lookTrigger: {fileID: 5638693555876512128}
   sendCars: {fileID: 246654269052292162}
   behaviour: 0
+  lookCar: {fileID: 0}
+  sendCar: {fileID: 0}
   lookHasCollision: 0
   sendHasCollision: 0
   left: 0.3
@@ -637,6 +658,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &5395974517705756163
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +887,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &7545944656968036122
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +937,8 @@ MonoBehaviour:
   lookTrigger: {fileID: 7623219086142687873}
   sendCars: {fileID: 7095030012586834723}
   behaviour: 0
+  lookCar: {fileID: 0}
+  sendCar: {fileID: 0}
   lookHasCollision: 0
   sendHasCollision: 0
   left: 0.3
@@ -1044,6 +1069,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1001 &499477050293391445
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3343324}
   - component: {fileID: 2312506}
   - component: {fileID: 6450042}
+  - component: {fileID: 5029870872198543667}
   m_Layer: 0
   m_Name: Road Cross Road
   m_TagString: Untagged
@@ -111,6 +112,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8a74d4154e3078a498c1bf96dc3d1660, type: 3}
+--- !u!114 &5029870872198543667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 7.1
+  center: {x: 0, y: 0.75, z: 3.71}
+  rotationAngle: 0
 --- !u!1 &619927595787379091
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +179,8 @@ MonoBehaviour:
   lookTrigger: {fileID: 6635482617017447973}
   sendCars: {fileID: 8401954576766652382}
   behaviour: 0
+  lookCar: {fileID: 0}
+  sendCar: {fileID: 0}
   lookHasCollision: 0
   sendHasCollision: 0
   left: 0.3
@@ -500,6 +521,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &1937846317997597706
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +571,8 @@ MonoBehaviour:
   lookTrigger: {fileID: 6688725700370260765}
   sendCars: {fileID: 4577236410469507600}
   behaviour: 0
+  lookCar: {fileID: 0}
+  sendCar: {fileID: 0}
   lookHasCollision: 0
   sendHasCollision: 0
   left: 0.3
@@ -679,6 +703,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &3665884106740483043
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +827,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &3856777545715656965
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +982,8 @@ MonoBehaviour:
   lookTrigger: {fileID: 3278364371452686149}
   sendCars: {fileID: 6576138286833430419}
   behaviour: 0
+  lookCar: {fileID: 0}
+  sendCar: {fileID: 0}
   lookHasCollision: 0
   sendHasCollision: 0
   left: 0.3
@@ -1506,6 +1534,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &6459275393606235100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,6 +1724,8 @@ MonoBehaviour:
   lookTrigger: {fileID: 2022597986379145298}
   sendCars: {fileID: 3630316933915965172}
   behaviour: 0
+  lookCar: {fileID: 0}
+  sendCar: {fileID: 0}
   lookHasCollision: 0
   sendHasCollision: 0
   left: 0.3

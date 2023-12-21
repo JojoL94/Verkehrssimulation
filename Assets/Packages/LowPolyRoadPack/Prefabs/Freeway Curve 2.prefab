@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3396228}
   - component: {fileID: 2363772}
   - component: {fileID: 6404628}
+  - component: {fileID: 2186158805668721142}
   m_Layer: 0
   m_Name: Freeway Curve 2
   m_TagString: Untagged
@@ -112,6 +113,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d2b804c3ccb706e469c72128589fb32c, type: 3}
+--- !u!114 &2186158805668721142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 52.1
+  center: {x: -0.06, y: 1, z: -41.4}
+  rotationAngle: -39.4
 --- !u!1001 &547935333340944818
 PrefabInstance:
   m_ObjectHideFlags: 0

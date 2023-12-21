@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3384432}
   - component: {fileID: 2350480}
   - component: {fileID: 6485034}
+  - component: {fileID: 8297924726015547609}
   m_Layer: 0
   m_Name: Road S-Curve
   m_TagString: Untagged
@@ -111,6 +112,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1f10034eb2d822e47b73756fa15f8b69, type: 3}
+--- !u!114 &8297924726015547609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 28.5
+  center: {x: 1.5, y: 0.75, z: -24.36}
+  rotationAngle: -54.38
 --- !u!1001 &2765271031450915794
 PrefabInstance:
   m_ObjectHideFlags: 0

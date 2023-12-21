@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3353094}
   - component: {fileID: 2321332}
   - component: {fileID: 6459128}
+  - component: {fileID: 5088457582763767521}
   m_Layer: 0
   m_Name: Road Cross SIngleLane
   m_TagString: Untagged
@@ -110,6 +111,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 24e6433201fc69a44bf1c8f256d8b997, type: 3}
+--- !u!114 &5088457582763767521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 7.6
+  center: {x: 0, y: 0.75, z: 2.49}
+  rotationAngle: 0
 --- !u!1 &7468723733973891648
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +252,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &7493945293003167080
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +376,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &8634055790278230331
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +500,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &8640657770901731117
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +624,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1001 &1003435868821545677
 PrefabInstance:
   m_ObjectHideFlags: 0

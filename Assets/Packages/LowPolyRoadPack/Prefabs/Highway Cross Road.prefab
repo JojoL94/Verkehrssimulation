@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3381744}
   - component: {fileID: 2305472}
   - component: {fileID: 6459772}
+  - component: {fileID: 6414792045452082393}
   m_Layer: 0
   m_Name: Highway Cross Road
   m_TagString: Untagged
@@ -110,6 +111,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: cfcf77940ff021942bc50517e56d54cb, type: 3}
+--- !u!114 &6414792045452082393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  raycastLength: 12.47
+  center: {x: -12.54, y: 8.75, z: -3.79}
+  rotationAngle: 0
 --- !u!1 &137640579056749655
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +252,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &860811408653939226
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +376,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &4305249028377011806
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +500,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &4461682699494818425
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +624,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &6853273019231005354
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +748,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1 &8797784136524802481
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +872,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  offset: 0
 --- !u!1001 &6505538751059328648
 PrefabInstance:
   m_ObjectHideFlags: 0
