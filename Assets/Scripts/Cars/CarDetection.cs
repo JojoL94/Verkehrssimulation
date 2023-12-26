@@ -147,7 +147,6 @@ public class CarDetection : MonoBehaviour
                         {
                             myMoveCar.switchLane();
                             overtake = true;
-                            Debug.Log(this.name + "overtake");
                         }
                     }
                     else
@@ -159,7 +158,6 @@ public class CarDetection : MonoBehaviour
                         {
                             myMoveCar.switchLane();
                             overtake = true;
-                            Debug.Log(this.name + "overtake");
                         }
                     }      
                 }
