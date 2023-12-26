@@ -8,6 +8,7 @@ TagManager:
   - CarLook
   - MainWaypoint
   - LokalWaypoint
+  - Trigger
   layers:
   - Default
   - TransparentFX

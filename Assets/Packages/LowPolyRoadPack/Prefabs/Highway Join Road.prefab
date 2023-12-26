@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 5215477261548647225}
   m_Layer: 0
   m_Name: CheckLaneTrigger 4
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -990,7 +990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 746700611321908363}
+  m_Father: {fileID: 7139236245557077779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7589548681300399358
 MonoBehaviour:
@@ -1004,6 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c646f0f9dac1704fb08661cf3a13d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLaneQueue: 0
 --- !u!65 &8471538957559152647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1023,7 +1024,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2}
+  m_Size: {x: 0.1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5215477261548647225
 Rigidbody:
@@ -1066,7 +1067,7 @@ GameObject:
   - component: {fileID: 5113061770782183936}
   m_Layer: 0
   m_Name: CheckLaneTrigger 2
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1084,7 +1085,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 746700611321908363}
+  m_Father: {fileID: 8611484686866400403}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &4474685406640639862
 MonoBehaviour:
@@ -1098,6 +1099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c646f0f9dac1704fb08661cf3a13d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLaneQueue: 0
 --- !u!65 &8894643547327498855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1117,7 +1119,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2}
+  m_Size: {x: 0.1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5113061770782183936
 Rigidbody:
@@ -1175,11 +1177,42 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7299256056443944451}
-  - {fileID: 3703383660568069673}
+  - {fileID: 8611484686866400403}
+  - {fileID: 7139236245557077779}
+  m_Father: {fileID: 490264}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4504586752222557983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7139236245557077779}
+  m_Layer: 0
+  m_Name: LaneTriggerPair2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7139236245557077779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504586752222557983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
   - {fileID: 7791843090961708436}
   - {fileID: 3879932294918047929}
-  m_Father: {fileID: 490264}
+  m_Father: {fileID: 746700611321908363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5180159280091707136
 GameObject:
@@ -1253,7 +1286,7 @@ GameObject:
   - component: {fileID: 6642522590045669323}
   m_Layer: 0
   m_Name: CheckLaneTrigger 1
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1271,7 +1304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 746700611321908363}
+  m_Father: {fileID: 8611484686866400403}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &2884654404901167951
 MonoBehaviour:
@@ -1285,6 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c646f0f9dac1704fb08661cf3a13d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLaneQueue: 0
 --- !u!65 &5475217732112964446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1304,7 +1338,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2}
+  m_Size: {x: 0.1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6642522590045669323
 Rigidbody:
@@ -1347,7 +1381,7 @@ GameObject:
   - component: {fileID: 3883041093975051586}
   m_Layer: 0
   m_Name: CheckLaneTrigger 3
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1365,7 +1399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 746700611321908363}
+  m_Father: {fileID: 7139236245557077779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &12594619657072309
 MonoBehaviour:
@@ -1379,6 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c646f0f9dac1704fb08661cf3a13d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLaneQueue: 0
 --- !u!65 &2009203844367503549
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1398,7 +1433,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2}
+  m_Size: {x: 0.1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3883041093975051586
 Rigidbody:
@@ -1733,6 +1768,39 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   offset: 0
+--- !u!1 &8812507924283803448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8611484686866400403}
+  m_Layer: 0
+  m_Name: LaneTriggerPair1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8611484686866400403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8812507924283803448}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7299256056443944451}
+  - {fileID: 3703383660568069673}
+  m_Father: {fileID: 746700611321908363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &977195931014568785
 PrefabInstance:
   m_ObjectHideFlags: 0

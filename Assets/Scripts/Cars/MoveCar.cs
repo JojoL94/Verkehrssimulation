@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
 
@@ -51,12 +52,19 @@ public class MoveCar : MonoBehaviour
     private float waypointTime;
     //Timer to determine when to recheck pathfinding => to drive around traffic jams
     private float pathfindingTimer;
+
+    //Lane switch variables
     //Bool to toggle for- and foreach-loops in lane switching
     private bool laneLooping = true;
+    //Trigger to stop car if next lane is currently occupied
+    private bool laneQueue = true;
     //Temporarily saves parent of last laneSwitchTrigger to prevent switching into another trigger of same parent
     public GameObject laneStreetObject;
+    //Trigger object of last crossing
+    public GameObject trigger;
     //lokalTargetWaypoint saves the child of the next mainWaypoint => needs to be reached to turn left/right if necessary
     public Transform lokalTargetWaypoint;
+
     // Is the car turning right? If so don't give wait
     public bool turnsRight;
     //Containts the initial y value to offset different heights of preFab => Used to fix "some cars sink in road"-bug
@@ -144,8 +152,8 @@ public class MoveCar : MonoBehaviour
                                  .connectedWaypoints)
                     {
                         Vector3 delta1 = (nexBigWaypoint.transform.GetChild(x).transform.position - this.gameObject.transform.position).normalized;
-                        if (Vector3.Cross(delta1, this.gameObject.transform.right).y < 0.08 &&
-                            Vector3.Cross(delta1, this.gameObject.transform.right).y > -0.15)
+                        if (Vector3.Cross(delta1, this.transform.right).y < 0.1 &&
+                            Vector3.Cross(delta1, this.transform.right).y > -0.15)
                         {
                             nexBigWaypoint.transform.GetChild(x);
                             if (waypoint.transform.parent == travelRoute[1])
@@ -181,17 +189,75 @@ public class MoveCar : MonoBehaviour
                 }
             }
             //Check if current lane is the correct one to reach lokalTargetWaypoint, switch lane if not
-            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position).normalized;
             //y > 0 = car is on the right side compared to the targetWaypoint => needs to switch to left lane
             // y < 0 = car is on the left side compared to the targetWaypoint => needs to switch to right lane
             // y == 0 = car is exactly in front of targetWaypoint => needs no lane switch
             //ATTENTION: Our waypoints aren't properly alligned and probably never will be, because of different PreFabs
             // => Because of that we can't use exactly 0 as comparison
-            if (Vector3.Cross(delta, this.gameObject.transform.right).y > 0.08
-                || Vector3.Cross(delta, this.gameObject.transform.right).y < -0.15)
+            Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position).normalized;
+            if (Vector3.Cross(delta, this.transform.right).y > 0.1
+                || Vector3.Cross(delta, this.transform.right).y < -0.15)
             {
-                switchLane();
-
+                //Check if next lane is free on first lane
+                if (nextLocalWaypoint.transform.GetSiblingIndex() == 0)
+                {
+                    //If next lane is occupied
+                    if (nextLocalWaypoint.transform.parent.GetChild(1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane != 0
+                        && lastLocalWaypoint.transform.parent.GetChild(1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane != 0)
+                    {
+                        if (trigger.transform.GetSiblingIndex() == 0)
+                        {
+                            //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
+                            trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
+                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
+                            laneQueue = true;
+                            switchLane();
+                        }
+                        else 
+                        {
+                            //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
+                            trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
+                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
+                            laneQueue = true;
+                            switchLane();
+                        }
+                    }
+                    //If next lane is free
+                    else
+                    {
+                        switchLane();
+                    }
+                }
+                //Check if next lane is free on second lane
+                else
+                {
+                    //If next lane is occupied
+                    if (nextLocalWaypoint.transform.parent.GetChild(0).gameObject.GetComponent<ShadowWaypoint>().carsOnLane != 0
+                        && lastLocalWaypoint.transform.parent.GetChild(0).gameObject.GetComponent<ShadowWaypoint>().carsOnLane != 0)
+                    {
+                        if (trigger.transform.GetSiblingIndex() == 1)
+                        {
+                            //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
+                            trigger.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
+                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
+                            laneQueue = true;
+                            switchLane();
+                        }
+                        else 
+                        {
+                            //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
+                            trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
+                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
+                            laneQueue = true;
+                            switchLane();
+                        }
+                    }
+                    //If next lane is free
+                    else
+                    {
+                        switchLane();
+                    }
+                }
             }
         }
     }
@@ -330,7 +396,6 @@ public class MoveCar : MonoBehaviour
                     {
                         objectInIntersection = sendIntersection.hittingCar;
                         // If something is blocking the intersectiong, wait;
-                        //Debug.Log($"{name} gives wait --> Intersection is blocked by {objectInIntersection}");
                         giveWait(Vector3.Distance(transform.position, nextLocalWaypointPosition)/10,causingBrake:"intersectionBlocked");
                         return;
                     }
@@ -354,7 +419,6 @@ public class MoveCar : MonoBehaviour
             if (difference == 1 || difference == 2)
                 turnsRight = true;
             else turnsRight = false;
-            //Debug.Log($"Fährt von {lastWaypointIndex} über {nextWaypointIndex} zu {next2WaypointIndex} difference = {difference}");
 
             //...check if destination was reached and...
             if (travelRoute.Count == 0)
@@ -379,6 +443,55 @@ public class MoveCar : MonoBehaviour
 
         //transform.LookAt(nextLocalWaypoint.transform);
         //transform.Rotate(0, -90, 0);
+ 
+        if (nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")
+            && lastLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")) 
+        {
+            //If car on first lane wants to change lane...
+            if (laneQueue == true
+                && nextLocalWaypoint.transform.GetSiblingIndex() == 0)
+            {
+                //... and lane is occupied
+                if (nextLocalWaypoint.transform.parent.GetChild(1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane != 0
+                && lastLocalWaypoint.transform.parent.GetChild(1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane != 0)
+                {
+                    //The closer the car to other lane, the stronger the stopping => prevent car from entering occupied lane
+                    float normalizedDistance = Mathf.Clamp01(Vector3.Distance(this.transform.position, nextLocalWaypoint.transform.position) - 0.5f / 10f);
+                    float test = 17f * (1 - normalizedDistance);
+                    doBrake = true;
+
+                    speed -= test * Time.deltaTime;
+                    speed = Mathf.Max(speed, 0);
+                }
+                else
+                {
+                    laneQueue = false;
+                }
+            }
+
+            //If car on second lane wants to change lane...
+            if (laneQueue == true
+                && nextLocalWaypoint.transform.GetSiblingIndex() == 1)
+            {
+                //... and lane is occupied
+                if (nextLocalWaypoint.transform.parent.GetChild(0).gameObject.GetComponent<ShadowWaypoint>().carsOnLane != 0
+                    && lastLocalWaypoint.transform.parent.GetChild(0).gameObject.GetComponent<ShadowWaypoint>().carsOnLane != 0)
+                {
+                    //The closer the car to other lane, the stronger the stopping => prevent car from entering occupied lane
+                    float normalizedDistance = Mathf.Clamp01(Vector3.Distance(this.transform.position, nextLocalWaypoint.transform.position) - 0.5f / 10f);
+                    float test = 17f * (1 - normalizedDistance);
+                    doBrake = true;
+
+                    speed -= test * Time.deltaTime;
+                    speed = Mathf.Max(speed, 0);
+                }
+                else
+                {
+                    laneQueue = false;
+                }
+            }
+        }
+            
     }
 
     IEnumerator test()
@@ -420,7 +533,13 @@ public class MoveCar : MonoBehaviour
         //Check if next localWaypoint is connected to a main Waypoint
         if (lastWaypoint.connectedWaypoints[0].transform.parent.GetComponent<Waypoint>() == null)
         {
-            nextLocalWaypoint = lastWaypoint.connectedWaypoints[0];            
+            nextLocalWaypoint = lastWaypoint.connectedWaypoints[0];
+
+            //Reset checkLaneQueue, once lane was changed
+            if (lastLocalWaypoint == lokalTargetWaypoint
+                && trigger.GetComponent<checkLaneTrigger>().checkLaneQueue == true) {
+                trigger.GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+            }
         }
         else
         {

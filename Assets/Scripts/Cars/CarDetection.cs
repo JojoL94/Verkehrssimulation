@@ -78,6 +78,40 @@ public class CarDetection : MonoBehaviour
                         }
                     }
                 }
+
+                //Wenn lane switch trigger
+                if (hit.collider.CompareTag("Trigger"))
+                {
+                    if (hit.collider.gameObject.transform.GetSiblingIndex() == 0)
+                    {
+                        //Wenn anderes Auto Spur wechseln möchte
+                        if (hit.collider.gameObject.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue == true)
+                        {
+                            //The closer the car to other lane, the stronger the stopping => prevent car from entering occupied lane
+                            float normalizedDistance = Mathf.Clamp01(Vector3.Distance(this.transform.position, myMoveCar.nextLocalWaypoint.transform.position) - 0.5f / 10f);
+                            float test = 17f * (1 - normalizedDistance);
+                            myMoveCar.doBrake = true;
+
+                            myMoveCar.speed -= test * Time.deltaTime;
+                            myMoveCar.speed = Mathf.Max(myMoveCar.speed, 0);
+                        }
+                    }
+
+                    if (hit.collider.gameObject.transform.GetSiblingIndex() == 1)
+                    {
+                        //Wenn anderes Auto Spur wechseln möchte
+                        if (hit.collider.gameObject.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue == true)
+                        {
+                            //The closer the car to other lane, the stronger the stopping => prevent car from entering occupied lane
+                            float normalizedDistance = Mathf.Clamp01(Vector3.Distance(this.transform.position, myMoveCar.nextLocalWaypoint.transform.position) - 0.5f / 10f);
+                            float test = 17f * (1 - normalizedDistance);
+                            myMoveCar.doBrake = true;
+
+                            myMoveCar.speed -= test * Time.deltaTime;
+                            myMoveCar.speed = Mathf.Max(myMoveCar.speed, 0);
+                        }
+                    }
+                }
             }
 
             Debug.DrawRay(objectPosition + Vector3.back, raycastDirection * raycastDistance,
@@ -95,17 +129,41 @@ public class CarDetection : MonoBehaviour
                 //- Geschwindigkeit des vorherigen Autos ist langsamer als aktuelles Auto
                 //- bool overtake ist false (overtake ist trigger um mehrfaches Ausführen von switchLane() zu verhindern)
                 //- Es gibt einen nexBigWaypoint (wird für die folgende Bedingung gebraucht)
-                //- Abstand zum nexBigWaypoint ist größer als 25 => Kein Überholen nach dem Trigger zum Einordnen an den Kreuzungen, um Bugs zu unterbinden
-                //- Befindet sich auf einer 4 spurigen Straße (prüft "ShadowWaypoint", welches 4 spurige Straße signalisiert)
+                //- Abstand zum nexBigWaypoint ist größer als 20 => Kein Überholen nach dem Trigger zum Einordnen an den Kreuzungen, um Bugs zu unterbinden
+                //- Befindet sich auf einer 4 spurigen Straße (prüft "ShadowWaypoint", welches 4 spurige Straße signalisiert)               
                 if (carInFront.GetComponent<MoveCar>().speed < myMoveCar.speed
                     && overtake == false
                     && myMoveCar.nexBigWaypoint != null
-                    && Vector3.Distance(this.transform.position, myMoveCar.nexBigWaypoint.transform.position) > 25
-                    && myMoveCar.nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")) {
-                    myMoveCar.switchLane();
-                    overtake = true;
+                    && Vector3.Distance(this.transform.position, myMoveCar.nexBigWaypoint.transform.position) > 20
+                    && myMoveCar.nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint"))
+                    { 
+                    //Überprüfe ob nebenliegende Fahrbahn frei ist, überhole nur, wenn das der Fall ist
+                    if (myMoveCar.nextLocalWaypoint.transform.GetSiblingIndex() == 0)
+                    {
+                        //- Streckenabschnitt des nächsten Waypoints auf der anderen Fahrbahn ist leer (jener Waypoint, den das Auto durch Überholen erreichen möchte)
+                        //- Streckenabschnitt des vorherigen Waypoints auf der anderen Fahrbahn ist leer (damit das Autos niemanden beim Überholen schneidet)
+                        if (myMoveCar.nextLocalWaypoint.transform.parent.GetChild(1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0
+                            && myMoveCar.lastLocalWaypoint.transform.parent.GetChild(1).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0) 
+                        {
+                            myMoveCar.switchLane();
+                            overtake = true;
+                            Debug.Log(this.name + "overtake");
+                        }
+                    }
+                    else
+                    {
+                        //- Streckenabschnitt des nächsten Waypoints auf der anderen Fahrbahn ist leer (jener Waypoint, den das Auto durch Überholen erreichen möchte)
+                        //- Streckenabschnitt des vorherigen Waypoints auf der anderen Fahrbahn ist leer (damit das Autos niemanden beim Überholen schneidet)
+                        if (myMoveCar.nextLocalWaypoint.transform.parent.GetChild(0).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0
+                            && myMoveCar.lastLocalWaypoint.transform.parent.GetChild(0).gameObject.GetComponent<ShadowWaypoint>().carsOnLane == 0)
+                        {
+                            myMoveCar.switchLane();
+                            overtake = true;
+                            Debug.Log(this.name + "overtake");
+                        }
+                    }      
                 }
-
+                
                 //Halte Abstand zum gefundenem Auto
                 if (Vector3.Distance(objectPosition, carInFront.position) < targetDistanceToFrontCar)
                 {

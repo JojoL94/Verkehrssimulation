@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class checkLaneTrigger : MonoBehaviour
 {
+    //Bool to signal, that car wants to change lane to an already occupied lane
+    public bool checkLaneQueue;
     //Draw Gizmo
     void OnDrawGizmos()
     {
@@ -17,6 +19,8 @@ public class checkLaneTrigger : MonoBehaviour
         {
             //Save street Object of current trigger => prevents triggering neighbouring trigger in case of entering collider when switching
             moveCar.laneStreetObject = this.transform.parent.gameObject;
+            //Change trigge object of moveCar
+            moveCar.trigger = this.gameObject;
             //Check lane
             moveCar.checkLaneSwitch();
         }
