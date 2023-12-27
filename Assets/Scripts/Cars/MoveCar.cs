@@ -194,9 +194,14 @@ public class MoveCar : MonoBehaviour
             // y == 0 = car is exactly in front of targetWaypoint => needs no lane switch
             //ATTENTION: Our waypoints aren't properly alligned and probably never will be, because of different PreFabs
             // => Because of that we can't use exactly 0 as comparison
+
+            //Calculate custom direction between car and lokalTargetWaypoint (using transform.direction causes bugs)
+            var heading = lokalTargetWaypoint.position - this.gameObject.transform.position;
+            var distance = heading.magnitude;
+            var direction = heading / distance;
             Vector3 delta = (lokalTargetWaypoint.position - this.gameObject.transform.position).normalized;
-            if (Vector3.Cross(delta, this.transform.right).y > 0.1
-                || Vector3.Cross(delta, this.transform.right).y < -0.15)
+            if (Vector3.Cross(delta, new Vector3(direction.x, 0f, 0f)).y > 0.1
+                || Vector3.Cross(delta, new Vector3(direction.x, 0f, 0f)).y < -0.15)
             {
                 //Check if next lane is free on first lane
                 if (nextLocalWaypoint.transform.GetSiblingIndex() == 0)
