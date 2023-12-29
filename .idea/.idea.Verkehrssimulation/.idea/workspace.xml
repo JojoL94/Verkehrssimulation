@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Datenvisualisierung.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Datenvisualisierung.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Freeway Cross Freeway.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Freeway Cross Freeway.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Freeway Cross Road.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Freeway Cross Road.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Highway Straight 3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Highway Straight 3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-    </list>
+    <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,30 +30,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\phili\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Johannes\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Johannes\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Johannes\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Programme\Unity\Editor\2022.3.7f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\luetzj\Documents\GitHub\Verkehrssimulation -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\luetzj\Documents\GitHub\Verkehrssimulation" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -70,7 +61,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Programme\Unity\Editor\2022.3.7f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\phili\OneDrive\Dokumente\Studium - SEB\7. Semester - Bachelorarbeit\1_LaborGames\Tower Repo\Verkehrssimulation&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\phili\OneDrive\Dokumente\Studium - SEB\7. Semester - Bachelorarbeit\1_LaborGames\Tower Repo\Verkehrssimulation" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -138,6 +129,7 @@
       <workItem from="1702464736411" duration="691000" />
       <workItem from="1702482327876" duration="4034000" />
       <workItem from="1703153985626" duration="8721000" />
+      <workItem from="1703854314167" duration="1212000" />
     </task>
     <servers />
   </component>

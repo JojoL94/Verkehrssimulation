@@ -55,17 +55,6 @@ public class CarDetection : MonoBehaviour
                     {
                         if (hit.collider.GetComponent<Transform>() != transform)
                         {
-                            if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
-                            {
-                                myBrakeModifier = 100 - ((Vector3.Distance(hit.point, objectPosition) / targetDistanceToFrontCar) * 100);
-                                myMoveCar.brakeDecelerationModifier = myBrakeModifier;
-                                tmpDoBrake = true;
-                            }
-                            else
-                            {
-                                myBrakeModifier = 0;
-                            }
-
                             if (moveCarCollider.nextLocalWaypoint == myMoveCar.nextLocalWaypoint ||
                                 moveCarCollider.nextLocalWaypoint == myMoveCar.lastLocalWaypoint ||
                                 moveCarCollider.lastLocalWaypoint == myMoveCar.nextLocalWaypoint ||
@@ -74,6 +63,16 @@ public class CarDetection : MonoBehaviour
                                 // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
                                 carInFront = hit.collider.gameObject.transform;
                                 carInFrontDetected = true;
+                                if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
+                                {
+                                    myBrakeModifier = 100 - ((Vector3.Distance(hit.point, objectPosition) / targetDistanceToFrontCar) * 100);
+                                    myMoveCar.brakeDecelerationModifier = myBrakeModifier;
+                                    tmpDoBrake = true;
+                                }
+                                else
+                                {
+                                    myBrakeModifier = 0;
+                                }
                             }
                         }
                     }
