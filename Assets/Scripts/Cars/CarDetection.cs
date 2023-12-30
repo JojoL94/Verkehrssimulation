@@ -81,34 +81,16 @@ public class CarDetection : MonoBehaviour
                 //Wenn lane switch trigger
                 if (hit.collider.CompareTag("Trigger"))
                 {
-                    if (hit.collider.gameObject.transform.GetSiblingIndex() == 0)
+                    //Wenn anderes Auto Spur wechseln möchte
+                    if (hit.collider.gameObject.GetComponent<checkLaneTrigger>().checkLaneQueue == true)
                     {
-                        //Wenn anderes Auto Spur wechseln möchte
-                        if (hit.collider.gameObject.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue == true)
-                        {
-                            //The closer the car to other lane, the stronger the stopping => prevent car from entering occupied lane
-                            float normalizedDistance = Mathf.Clamp01(Vector3.Distance(this.transform.position, myMoveCar.nextLocalWaypoint.transform.position) - 0.5f / 10f);
-                            float test = 17f * (1 - normalizedDistance);
-                            myMoveCar.doBrake = true;
+                        //The closer the car to other lane, the stronger the stopping => prevent car from entering occupied lane
+                        float normalizedDistance = Mathf.Clamp01(Vector3.Distance(this.transform.position, myMoveCar.nextLocalWaypoint.transform.position) - 0.5f / 10f);
+                        float test = 17f * (1 - normalizedDistance);
+                        myMoveCar.doBrake = true;
 
-                            myMoveCar.speed -= test * Time.deltaTime;
-                            myMoveCar.speed = Mathf.Max(myMoveCar.speed, 0);
-                        }
-                    }
-
-                    if (hit.collider.gameObject.transform.GetSiblingIndex() == 1)
-                    {
-                        //Wenn anderes Auto Spur wechseln möchte
-                        if (hit.collider.gameObject.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue == true)
-                        {
-                            //The closer the car to other lane, the stronger the stopping => prevent car from entering occupied lane
-                            float normalizedDistance = Mathf.Clamp01(Vector3.Distance(this.transform.position, myMoveCar.nextLocalWaypoint.transform.position) - 0.5f / 10f);
-                            float test = 17f * (1 - normalizedDistance);
-                            myMoveCar.doBrake = true;
-
-                            myMoveCar.speed -= test * Time.deltaTime;
-                            myMoveCar.speed = Mathf.Max(myMoveCar.speed, 0);
-                        }
+                        myMoveCar.speed -= test * Time.deltaTime;
+                        myMoveCar.speed = Mathf.Max(myMoveCar.speed, 0);
                     }
                 }
             }

@@ -56,6 +56,8 @@ public class MoveCar : MonoBehaviour
     //Lane switch variables
     //Bool to toggle for- and foreach-loops in lane switching
     private bool laneLooping = true;
+    //Bool used to mark car, that is lane looping
+    public bool isLaneLooping;
     //Trigger to stop car if next lane is currently occupied
     private bool laneQueue = true;
     //Temporarily saves parent of last laneSwitchTrigger to prevent switching into another trigger of same parent
@@ -213,24 +215,38 @@ public class MoveCar : MonoBehaviour
                         if (trigger.transform.GetSiblingIndex() == 0)
                         {
                             //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
-                            trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
-                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
-                            laneQueue = true;
-                            switchLane();
+                            trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;;
                         }
-                        else 
+                        else
                         {
                             //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
-                            trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
-                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
-                            laneQueue = true;
-                            switchLane();
+                            trigger.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
                         }
+
+                        //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
+                        laneQueue = true;
+                        isLaneLooping = true;
+                        switchLane();
+
                     }
                     //If next lane is free
                     else
                     {
-                        switchLane();
+                        if (trigger.transform.GetSiblingIndex() == 0)
+                        {
+                            //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
+                            trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
+                        }
+                        else
+                        {
+                            //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
+                            trigger.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
+                        }
+
+                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
+                            laneQueue = true;
+                            isLaneLooping = true;
+                            switchLane();
                     }
                 }
                 //Check if next lane is free on second lane
@@ -244,22 +260,35 @@ public class MoveCar : MonoBehaviour
                         {
                             //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
                             trigger.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
-                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
-                            laneQueue = true;
-                            switchLane();
                         }
-                        else 
+                        else
                         {
                             //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
                             trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
-                            //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
-                            laneQueue = true;
-                            switchLane();
                         }
+
+                        //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
+                        laneQueue = true;
+                        isLaneLooping = true;
+                        switchLane();
                     }
                     //If next lane is free
                     else
                     {
+                        if (trigger.transform.GetSiblingIndex() == 0)
+                        {
+                            //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
+                            trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
+                        }
+                        else
+                        {
+                            //Set checkLaneQueue of neighbouring trigger to true => signal all other cars that this car wants to change lane
+                            trigger.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue = true;
+                        }
+
+                        //Set laneQueue of this car to true => car signals itself, that next lane is currently occupied and it has to wait
+                        laneQueue = true;
+                        isLaneLooping = true;
                         switchLane();
                     }
                 }
@@ -541,9 +570,20 @@ public class MoveCar : MonoBehaviour
             nextLocalWaypoint = lastWaypoint.connectedWaypoints[0];
 
             //Reset checkLaneQueue, once lane was changed
-            if (lastLocalWaypoint == lokalTargetWaypoint
-                && trigger.GetComponent<checkLaneTrigger>().checkLaneQueue == true) {
-                trigger.GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+            if (isLaneLooping == true) {
+
+                if (trigger.transform.GetSiblingIndex() == 0)
+                {
+                    trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+                    trigger.GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+                    isLaneLooping = false;
+                }
+                else
+                {
+                    trigger.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+                    trigger.GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+                    isLaneLooping = false;
+                }
             }
         }
         else
@@ -556,6 +596,25 @@ public class MoveCar : MonoBehaviour
                         if (waypoint.transform == nexBigWaypoint.transform.GetChild(i).transform && toggleLoop == true)
                         {
                             nextLocalWaypoint = waypoint;
+
+                            //Reset checkLaneQueue, once lane was changed
+                            if (isLaneLooping == true)
+                            {
+
+                                if (trigger.transform.GetSiblingIndex() == 0)
+                                {
+                                    trigger.transform.parent.GetChild(1).GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+                                    trigger.GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+                                    isLaneLooping = false;
+                                }
+                                else
+                                {
+                                    trigger.transform.parent.GetChild(0).GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+                                    trigger.GetComponent<checkLaneTrigger>().checkLaneQueue = false;
+                                    isLaneLooping = false;
+                                }
+                            }
+
                             toggleLoop = false;
                         }
                     }

@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  laneOccupied: 0
 --- !u!65 &7011451496702149623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2.5}
+  m_Size: {x: 1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3325583334731003354
 Rigidbody:
@@ -1070,6 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  laneOccupied: 0
 --- !u!65 &1409946590078455842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1089,7 +1091,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2.5}
+  m_Size: {x: 1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6060472523371088930
 Rigidbody:
@@ -1199,6 +1201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  laneOccupied: 0
 --- !u!65 &691190777559692205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1218,7 +1221,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2.5}
+  m_Size: {x: 1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5179013443929155784
 Rigidbody:
@@ -1294,6 +1297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  laneOccupied: 0
 --- !u!65 &6244547308890077105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1313,7 +1317,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2.5}
+  m_Size: {x: 1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1755567032809251886
 Rigidbody:
@@ -1742,6 +1746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  laneOccupied: 0
 --- !u!65 &5075644128840082757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1761,7 +1766,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2.5}
+  m_Size: {x: 1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3012301823230569622
 Rigidbody:
@@ -1994,6 +1999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  laneOccupied: 0
 --- !u!65 &8060873170697134310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2013,7 +2019,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 2.5}
+  m_Size: {x: 1, y: 1, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6396597246470849690
 Rigidbody:

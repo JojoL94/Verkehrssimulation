@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 
 public class checkLaneTrigger : MonoBehaviour
 {
     //Bool to signal, that car wants to change lane to an already occupied lane
     public bool checkLaneQueue;
+    //Bool used to signal car, that target lane is occupied and car needs to wait
+    public int numberCars;
     //Draw Gizmo
     void OnDrawGizmos()
     {
@@ -14,6 +17,8 @@ public class checkLaneTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         MoveCar moveCar = other.gameObject.GetComponent<MoveCar>();
+        numberCars++;
+
         //Check if colliding object is car
         if (other.CompareTag("Car") && (this.transform.parent.gameObject != moveCar.laneStreetObject))
         {
@@ -23,6 +28,16 @@ public class checkLaneTrigger : MonoBehaviour
             moveCar.trigger = this.gameObject;
             //Check lane
             moveCar.checkLaneSwitch();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        MoveCar moveCar = other.gameObject.GetComponent<MoveCar>();
+        //Check if colliding object is car
+        if (other.CompareTag("Car"))
+        {
+            numberCars--;
         }
     }
 }
