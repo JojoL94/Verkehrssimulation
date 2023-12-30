@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 //GameManager is responsible for everything that's effecting the entire map (like max number of cars on map, etc.)
 public class GameManager : MonoBehaviour
@@ -24,7 +26,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject feierabend, normal;
 
+    //Variables for "Feierabend" Feedback
+    public GameObject feierabendFeedbackImg;
 
+    private Color feierabendInactiveColor = new Color(0.13333f, 0.1568628f, 0.1647059f);
+    private Color feierabendActiveColor = new Color(0f, 0.8f, 0.4f);
     //In runtime connect all Waypoints before start
     private void Awake()
     {
@@ -118,6 +124,7 @@ public class GameManager : MonoBehaviour
         }
         normal.SetActive(true);
         feierabend.SetActive(false);
+        feierabendFeedbackImg.GetComponent<Image>().color = feierabendInactiveColor;
     }
 
     public void ChangeFeierabendVerkehr()
@@ -130,8 +137,17 @@ public class GameManager : MonoBehaviour
                 if (child.GetComponent<SpawnCar>() != null)
                     child.GetComponent<SpawnCar>().startSpawnCar();
             }
+
+        if (feierabendFeedbackImg.GetComponent<Image>().color == feierabendInactiveColor)
+        {
+            feierabendFeedbackImg.GetComponent<Image>().color = feierabendActiveColor;
+        }
+        else
+        {
+            feierabendFeedbackImg.GetComponent<Image>().color = feierabendInactiveColor;
+        }
     }
-    
+
 
     // Update is called once per frame
     void Update()
