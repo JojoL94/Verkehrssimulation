@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 4574061396399439635}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 3239076847534388953}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1005,6 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  numberCars: 0
 --- !u!65 &8471538957559152647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1100,6 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  numberCars: 0
 --- !u!65 &8894643547327498855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1262,6 +1264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 7645928271253295399}
   sendCars: {fileID: 512217467184181590}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -1319,6 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  numberCars: 0
 --- !u!65 &5475217732112964446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1414,6 +1418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
+  numberCars: 0
 --- !u!65 &2009203844367503549
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1634,6 +1639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 5991172812665319034}
   sendCars: {fileID: 4623697480470879469}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}

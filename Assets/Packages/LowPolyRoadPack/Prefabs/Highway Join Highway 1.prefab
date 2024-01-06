@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 5873592441143981745}
   sendCars: {fileID: 1411071395534984990}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
-  laneOccupied: 0
+  numberCars: 0
 --- !u!65 &7011451496702149623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -719,6 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 8837301007884361675}
   sendCars: {fileID: 7721616829814275320}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -809,7 +811,7 @@ GameObject:
   - component: {fileID: 5674850496737929899}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,7 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
-  laneOccupied: 0
+  numberCars: 0
 --- !u!65 &1409946590078455842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1201,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
-  laneOccupied: 0
+  numberCars: 0
 --- !u!65 &691190777559692205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1297,7 +1299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
-  laneOccupied: 0
+  numberCars: 0
 --- !u!65 &6244547308890077105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1746,7 +1748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
-  laneOccupied: 0
+  numberCars: 0
 --- !u!65 &5075644128840082757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1999,7 +2001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkLaneQueue: 0
-  laneOccupied: 0
+  numberCars: 0
 --- !u!65 &8060873170697134310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2062,7 +2064,7 @@ GameObject:
   - component: {fileID: 5381938869687562831}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

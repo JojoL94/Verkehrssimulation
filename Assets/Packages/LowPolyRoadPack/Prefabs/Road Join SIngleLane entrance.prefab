@@ -282,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 5638693555876512128}
   sendCars: {fileID: 246654269052292162}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -444,7 +445,7 @@ GameObject:
   - component: {fileID: 8856332812005300829}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -673,7 +674,7 @@ GameObject:
   - component: {fileID: 3862624060409887885}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,6 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 7623219086142687873}
   sendCars: {fileID: 7095030012586834723}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}

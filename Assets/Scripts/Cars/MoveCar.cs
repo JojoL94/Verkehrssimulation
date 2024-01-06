@@ -83,7 +83,11 @@ public class MoveCar : MonoBehaviour
     private int drivingType;
 
     public int aggressivenessLevel;
-    
+
+    //Variables for to check occupied intersection
+    public GameObject look;
+    public bool isInIntersection;
+
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {

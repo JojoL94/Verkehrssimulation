@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 6635482617017447973}
   sendCars: {fileID: 8401954576766652382}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -202,7 +203,7 @@ GameObject:
   - component: {fileID: 1748229070296098047}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,6 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 6688725700370260765}
   sendCars: {fileID: 4577236410469507600}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -981,6 +983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 3278364371452686149}
   sendCars: {fileID: 6576138286833430419}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -1005,7 +1008,7 @@ GameObject:
   - component: {fileID: 8553418008294533172}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1110,7 +1113,7 @@ GameObject:
   - component: {fileID: 6604381493090345691}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1215,7 +1218,7 @@ GameObject:
   - component: {fileID: 8631505224331904834}
   m_Layer: 0
   m_Name: Look
-  m_TagString: Untagged
+  m_TagString: Look
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1723,6 +1726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 2022597986379145298}
   sendCars: {fileID: 3630316933915965172}
+  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}

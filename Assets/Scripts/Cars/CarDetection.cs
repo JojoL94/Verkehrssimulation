@@ -93,6 +93,17 @@ public class CarDetection : MonoBehaviour
                         myMoveCar.speed = Mathf.Max(myMoveCar.speed, 0);
                     }
                 }
+
+                //Wenn look an Kreuzung (Rechts vor Links Regel)
+                if (hit.collider.CompareTag("Look"))
+                {
+                    //Reset isInIntersection and set gameObject look
+                    if (myMoveCar.look == null) 
+                    {
+                        myMoveCar.isInIntersection = false;
+                        myMoveCar.look = hit.collider.gameObject;
+                    }
+                }
             }
 
             Debug.DrawRay(objectPosition + Vector3.back, raycastDirection * raycastDistance,

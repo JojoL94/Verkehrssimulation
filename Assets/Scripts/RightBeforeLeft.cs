@@ -73,23 +73,27 @@ public class RightBeforeLeft : MonoBehaviour
             lookHasCollision = false;
             lookCar = null;
         }
+
+        //If look (Right before Left trigger)
+        if (lookCar.GetComponent<MoveCar>().look != null)
+        {
+            MoveCar lookMoveCar = lookCar.GetComponent<MoveCar>();
+            //Check Distance, if Distance small => car is in crossing, ignore right before left so it does not block the corssing
+            if (Vector3.Distance(lookMoveCar.transform.position, this.transform.position) < 1f)
+            {
+                lookMoveCar.isInIntersection = true;
+                lookMoveCar.look = null;
+            }
+        }
+
         if (sendHasCollision && lookHasCollision && (lookCar != sendCar && !lookCar.transform.IsChildOf(sendCar.transform) && !sendCar.transform.IsChildOf(lookCar.transform)))
             if(sendCar != null && lookCar != null)
             {
-                if (lookCar.GetComponent<MoveCar>() != null)
+                if (lookCar.GetComponent<MoveCar>() != null && lookCar.GetComponent<MoveCar>().isInIntersection == false)
                 {
                     lookCar.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, lookCar.transform.position)/2, left, right, causingBrake: "RechtsVorLinks");
-                    //Debug.Log($"{lookCar.name} gives wait because of {sendCar.name}");
                 }
             }
-            //Debug.Log($"Send: {sendCar} + Look: {lookCar}");
-
-
-
-            /*if (hitLook.collider.GetComponent<MoveCar>())
-                hitLook.collider.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, hitLook.collider.transform.position), left, right, causingBrake: "RechtsVorLinks");
-            else if (hitLook.collider.transform.parent.GetComponent<MoveCar>())
-                hitLook.collider.transform.parent.GetComponent<MoveCar>().giveWait(Vector3.Distance(transform.position, hitLook.collider.transform.position), left, right, causingBrake: "RechtsVorLinks");*/
     }
 
     void OnDrawGizmos()
