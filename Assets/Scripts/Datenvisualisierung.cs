@@ -38,7 +38,7 @@ public class Datenvisualisierung : MonoBehaviour
         
         foreach (var moveCar in cars)
         {
-            tmpAverageSpeed += moveCar.speed;
+            tmpAverageSpeed += moveCar.speed * 10f;
         }
 
         tmpAverageSpeed /= cars.Count;
@@ -46,7 +46,7 @@ public class Datenvisualisierung : MonoBehaviour
         {
             oldAverageSpeed = Mathf.Lerp(oldAverageSpeed, tmpAverageSpeed, 0.5f);
             oldAverageSpeed = Mathf.Round(oldAverageSpeed * 100f) / 100f;
-            carsAverageSpeedTextMesh.SetText(oldAverageSpeed.ToString());
+            carsAverageSpeedTextMesh.SetText(oldAverageSpeed.ToString()+" Km/h");
         }
 
     }
