@@ -9,6 +9,7 @@ TagManager:
   - MainWaypoint
   - LokalWaypoint
   - Trigger
+  - Look
   layers:
   - Default
   - TransparentFX
