@@ -80,7 +80,7 @@ public class RightBeforeLeft : MonoBehaviour
             {
                 MoveCar lookMoveCar = lookCar.GetComponent<MoveCar>();
                 //Check Distance, if Distance small => car is in crossing, ignore right before left so it does not block the corssing
-                if (Vector3.Distance(lookMoveCar.transform.position, this.transform.position) < 1f)
+                if (Vector3.Distance(lookMoveCar.transform.position, this.transform.position) < 1.5f)
                 {
                     lookMoveCar.isInIntersection = true;
                 }
