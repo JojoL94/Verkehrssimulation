@@ -98,7 +98,7 @@ public class CarDetection : MonoBehaviour
                 if (hit.collider.CompareTag("Look"))
                 {
                     //Reset isInIntersection and set gameObject look
-                    if (myMoveCar.look == null) 
+                    if (myMoveCar.look == null || myMoveCar.look != hit.collider.gameObject) 
                     {
                         myMoveCar.isInIntersection = false;
                         myMoveCar.look = hit.collider.gameObject;

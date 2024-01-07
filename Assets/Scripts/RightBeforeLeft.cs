@@ -75,14 +75,15 @@ public class RightBeforeLeft : MonoBehaviour
         }
 
         //If look (Right before Left trigger)
-        if (lookCar.GetComponent<MoveCar>().look != null)
-        {
-            MoveCar lookMoveCar = lookCar.GetComponent<MoveCar>();
-            //Check Distance, if Distance small => car is in crossing, ignore right before left so it does not block the corssing
-            if (Vector3.Distance(lookMoveCar.transform.position, this.transform.position) < 1f)
+        if (lookCar != null) {
+            if (lookCar.GetComponent<MoveCar>().look != null)
             {
-                lookMoveCar.isInIntersection = true;
-                lookMoveCar.look = null;
+                MoveCar lookMoveCar = lookCar.GetComponent<MoveCar>();
+                //Check Distance, if Distance small => car is in crossing, ignore right before left so it does not block the corssing
+                if (Vector3.Distance(lookMoveCar.transform.position, this.transform.position) < 1f)
+                {
+                    lookMoveCar.isInIntersection = true;
+                }
             }
         }
 
