@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
 
@@ -345,48 +342,48 @@ public class MoveCar : MonoBehaviour
         //int tmpIntSetupDrivingType = Random.Range(0, 1);
         if (!tmpIntSetupDrivingType)
         {
-            //maxSpeedOffset = Random.Range(maxSpeed/4, maxSpeed/3);  //Langsam
+            //Langsam
             maxSpeedOffset = maxSpeed / 3;
         }
         else
         {
-            //maxSpeedOffset = Random.Range(0, maxSpeed/4); //Schnell
+            //Schnell
             maxSpeedOffset = 0;
             aggressivenessLevel++;
         }
         tmpIntSetupDrivingType  = (Random.value > 0.5f);
         if (!tmpIntSetupDrivingType)
         {
-            //baseAcceleration -= Random.Range(baseAcceleration/4, baseAcceleration/3); //Langsam
+            //Langsam
             baseAcceleration -= baseAcceleration / 3;
         }
         else
         {
+            //Schnell
             aggressivenessLevel++;
-            //baseAcceleration -= Random.Range(0, baseAcceleration/4); //Schnell
         }
         tmpIntSetupDrivingType  = (Random.value > 0.5f);
         if (!tmpIntSetupDrivingType)
         {
             aggressivenessLevel++;
-            //brakeDeceleration += Random.Range(brakeDeceleration/4, brakeDeceleration/3); //Harter Bremser
+            //Harter Bremser
             brakeDeceleration += brakeDeceleration / 3;
         }
         else
         {
-            //brakeDeceleration += Random.Range(0, brakeDeceleration/4); //weicher Bremser
+            //weicher Bremser
             brakeDeceleration += 0;
         }
         tmpIntSetupDrivingType  = (Random.value > 0.5f);
         if (!tmpIntSetupDrivingType)
         {
-            //myCarDetector.minTargetDistance += Random.Range(myCarDetector.minTargetDistance/4, myCarDetector.minTargetDistance/3); //großer Abstand
+            //großer Abstand
             myCarDetector.minTargetDistance += myCarDetector.minTargetDistance / 3;
         }
         else
         {
+            //kleiner Abstand
             aggressivenessLevel++;
-            //myCarDetector.minTargetDistance += Random.Range(0, myCarDetector.minTargetDistance/4); //kleiner Abstand
             
         }
         //End Setup Driver Type
@@ -466,7 +463,6 @@ public class MoveCar : MonoBehaviour
                 transform.root.GetComponent<Datenvisualisierung>().RemoveCarInDatenVisualisierung(GetComponent<MoveCar>());
                 Destroy(this.gameObject);
             }
-            //myCarDetector.SwitchLane();
         }
         // Bestimme die Richtung zum Ziel-Waypoint
         Vector3 targetDirection = (nextLocalWaypointPosition - transform.position).normalized;
@@ -478,9 +474,6 @@ public class MoveCar : MonoBehaviour
         //Rotate Object towards driving direction
         // Führe eine lineare Interpolation zwischen der aktuellen Rotation und der Zielrotation durch
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offSetTargetRotation, Time.deltaTime * rotationSpeed);
-
-        //transform.LookAt(nextLocalWaypoint.transform);
-        //transform.Rotate(0, -90, 0);
  
         if (nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")
             && lastLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")) 
@@ -660,8 +653,6 @@ public class MoveCar : MonoBehaviour
             float normalizedDistance = Mathf.Clamp01(distanceToHaltelinie / 10f);
             float test = 17f * (1 - normalizedDistance);
             doBrake = true;
-            // Breaking is harder, the closer to the Haltelinie, the harder breake.
-            // speed -= (speed + (brakeDeceleration * Time.deltaTime)) * (left / (distanceToHaltelinie + right));
 
             speed -= test * Time.deltaTime;
             // Stellen Sie sicher, dass die Geschwindigkeit nicht unter 0 fällt.
@@ -670,7 +661,6 @@ public class MoveCar : MonoBehaviour
         else
         {
             doBrake = false;
-            //Debug.Log("Eigentliche warten, aber fährt nach rechts, deswegen egal");
         }
     }
 

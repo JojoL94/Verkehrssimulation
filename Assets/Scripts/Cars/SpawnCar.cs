@@ -98,34 +98,6 @@ public class SpawnCar : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Begin of timer
-        /*if (currentTime > 0)
-        {
-            //Timer runs down...
-            currentTime -= Time.deltaTime;
-        }
-        //...start of action after timer stopped
-        else
-        {
-            //spawn and reset timer if it is the first car or the last car spawned have a min distance to the spawner
-            if (lastCarSpawned == null || Vector3.Distance(lastCarSpawned.position, spawnPoint.position) > minDistanceToNextCar)
-            {
-                if (carCollection.childCount < maxCars)
-                {
-                    //Spawn random car
-                    spawnCar();
-                }
-
-                //Reset Timer
-                currentTime = spawnCountdown;
-            }
-        }*/
-    }
-
     
     IEnumerator spawnCarAfterTime()
     {
