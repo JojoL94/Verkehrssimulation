@@ -63,7 +63,7 @@ public class CarDetection : MonoBehaviour
                                 // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, speichere es als carInFront
                                 carInFront = hit.collider.gameObject.transform;
                                 carInFrontDetected = true;
-                                if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
+                                if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar && myMoveCar.isLaneLooping == false)
                                 {
                                     myBrakeModifier = 100 - ((Vector3.Distance(hit.point, objectPosition) / targetDistanceToFrontCar) * 100);
                                     myMoveCar.brakeDecelerationModifier = myBrakeModifier;
@@ -155,7 +155,7 @@ public class CarDetection : MonoBehaviour
                 }
                 
                 //Halte Abstand zum gefundenem Auto
-                if (Vector3.Distance(objectPosition, carInFront.position) < targetDistanceToFrontCar)
+                if (Vector3.Distance(objectPosition, carInFront.position) < targetDistanceToFrontCar && myMoveCar.isLaneLooping == false)
                 {
                     myBrakeModifier = 100 - ((Vector3.Distance(objectPosition, carInFront.position) / targetDistanceToFrontCar) * 100);
                     myMoveCar.brakeDecelerationModifier = myBrakeModifier;
@@ -186,7 +186,7 @@ public class CarDetection : MonoBehaviour
                     {
                         if (hit.collider.GetComponent<Transform>() != transform)
                         {
-                            if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar)
+                            if (Vector3.Distance(hit.point, objectPosition) < targetDistanceToFrontCar && myMoveCar.isLaneLooping == false)
                             {
                                 myBrakeModifier = 100 - ((Vector3.Distance(hit.point, objectPosition) / targetDistanceToFrontCar) * 100);
                                 myMoveCar.brakeDecelerationModifier = myBrakeModifier;
@@ -241,7 +241,7 @@ public class CarDetection : MonoBehaviour
                 {
                     if (hit.collider.GetComponent<MoveCar>().lastLocalWaypoint == myMoveCar.nextLocalWaypoint)
                     {
-                        if (hit.collider.GetComponent<Transform>() != transform)
+                        if (hit.collider.GetComponent<Transform>() != transform && myMoveCar.isLaneLooping == false)
                         {
                             // Wenn das getroffene Objekt den richtigen Tag hat und in die gleiche Richtung fährt, trigger brake
                             tmpDoBrake = true;
