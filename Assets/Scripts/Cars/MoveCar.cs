@@ -12,6 +12,12 @@ public class MoveCar : MonoBehaviour
     public int carID;
     //PrefabID
     public int prefabId;
+    //Mesh of Car
+    private Transform meshOfCar;
+    //Variables for animate the Car
+    private float maxRotationAngle = -5f;
+
+    private float rotationAnimationSpeed = 10f;
     //Spawn point of car
     public Transform origin;
     //End point of car
@@ -110,6 +116,7 @@ public class MoveCar : MonoBehaviour
 
         if (doBrake)
         {
+            //do brake
             timer += Time.deltaTime;
             if (timer >= brakeTimer)
             {
@@ -387,6 +394,8 @@ public class MoveCar : MonoBehaviour
             
         }
         //End Setup Driver Type
+        //Get Mesh of the Car
+        meshOfCar = transform.GetChild(1).transform;
     }
 
     // Update is called once per frame
@@ -474,6 +483,32 @@ public class MoveCar : MonoBehaviour
         //Rotate Object towards driving direction
         // Führe eine lineare Interpolation zwischen der aktuellen Rotation und der Zielrotation durch
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offSetTargetRotation, Time.deltaTime * rotationSpeed);
+
+        //Animiere Bremsen und Beschleunigen
+        if (speed < maxSpeed && !doBrake)
+        {
+            Quaternion offSetTargetAnimateRotation = Quaternion.Euler(0f, -90f, maxRotationAngle * -1);
+
+            //Rotate Object towards driving direction
+            // Führe eine lineare Interpolation zwischen der aktuellen Rotation und der Zielrotation durch
+            meshOfCar.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offSetTargetAnimateRotation, Time.deltaTime * rotationAnimationSpeed);
+        }
+        else
+        {
+            Quaternion offSetTargetAnimateRotation = Quaternion.Euler(0f, -90f, maxRotationAngle);
+            if (doBrake)
+            {
+                //Rotate Object towards driving direction
+                // Führe eine lineare Interpolation zwischen der aktuellen Rotation und der Zielrotation durch
+                meshOfCar.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offSetTargetAnimateRotation, Time.deltaTime * rotationAnimationSpeed);
+            }
+            else
+            {
+                offSetTargetAnimateRotation = Quaternion.Euler(0f, -90f, 0);
+                meshOfCar.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offSetTargetAnimateRotation, Time.deltaTime * rotationAnimationSpeed);
+            }
+        }
+        
  
         if (nextLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")
             && lastLocalWaypoint.transform.parent.name.Contains("ShadowWaypoint")) 
