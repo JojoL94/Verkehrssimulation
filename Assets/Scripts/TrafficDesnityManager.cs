@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrafficDesnityManager : MonoBehaviour
 {
@@ -26,8 +27,8 @@ public class TrafficDesnityManager : MonoBehaviour
     public Transform housesParent;
     private List<Material> _housesStandard = new List<Material>();
 
-    public Transform treeParent;
-    private List<Material> _treeStandard = new List<Material>();
+    public Image colorFeedbackImg;
+    public Button colorButton;
 
     public Transform ground;
 
@@ -48,7 +49,7 @@ public class TrafficDesnityManager : MonoBehaviour
     public void SwitchOnOff()
     {
         _showingDensity = !_showingDensity;
-
+        GameManager.instance.SwitchButtonState(_showingDensity, colorButton);
         if (_showingDensity)
         {
             // Change Houses
@@ -66,6 +67,7 @@ public class TrafficDesnityManager : MonoBehaviour
             Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
             materialsGround[0] = whiteMaterial;
             ground.GetComponent<MeshRenderer>().materials = materialsGround;
+            
         }
         else
         {
@@ -94,16 +96,10 @@ public class TrafficDesnityManager : MonoBehaviour
                 trafficDensity.changingColors = null;
             }
 
+            // Change Roads
             if (_showingDensity)
-            {
-                // Change Roads
                 trafficDensity.changingColors = StartCoroutine(trafficDensity.ChangeColors());
-            }
-            else
-            {
-                // Change Roads
-                trafficDensity.SetStandardMaterial();
-            }
+            else trafficDensity.SetStandardMaterial();
         }
     }
 }

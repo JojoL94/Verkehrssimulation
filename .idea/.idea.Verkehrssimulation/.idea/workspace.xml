@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrafficDensity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TrafficDensity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrafficDesnityManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TrafficDesnityManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +139,7 @@
       <workItem from="1703854314167" duration="1806000" />
       <workItem from="1703936128527" duration="5090000" />
       <workItem from="1704900873971" duration="3189000" />
-      <workItem from="1704952381180" duration="1212000" />
+      <workItem from="1704952381180" duration="2131000" />
     </task>
     <servers />
   </component>

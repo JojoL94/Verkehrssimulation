@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
 //GameManager is responsible for everything that's effecting the entire map (like max number of cars on map, etc.)
@@ -27,14 +28,16 @@ public class GameManager : MonoBehaviour
     public GameObject feierabend, normal;
 
     //Variables for "Feierabend" Feedback
-    public GameObject feierabendFeedbackImg;
+    public Button feierabendButton;
 
-    private Color feierabendInactiveColor = new Color(0.13333f, 0.1568628f, 0.1647059f);
-    private Color feierabendActiveColor = new Color(0f, 0.8f, 0.4f);
+    public Color yellow, black;
+
+    public static GameManager instance;
     //In runtime connect all Waypoints before start
     private void Awake()
     {
         carUID = 0;
+        instance = this;
         //Iterate through streetCollection
         for (int x = 0; x < streetCollection.childCount; x++)
         {
@@ -124,7 +127,7 @@ public class GameManager : MonoBehaviour
         }
         normal.SetActive(true);
         feierabend.SetActive(false);
-        feierabendFeedbackImg.GetComponent<Image>().color = feierabendInactiveColor;
+        SwitchButtonState(false, feierabendButton);
     }
 
     public void ChangeFeierabendVerkehr()
@@ -137,15 +140,8 @@ public class GameManager : MonoBehaviour
                 if (child.GetComponent<SpawnCar>() != null)
                     child.GetComponent<SpawnCar>().startSpawnCar();
             }
-
-        if (feierabendFeedbackImg.GetComponent<Image>().color == feierabendInactiveColor)
-        {
-            feierabendFeedbackImg.GetComponent<Image>().color = feierabendActiveColor;
-        }
-        else
-        {
-            feierabendFeedbackImg.GetComponent<Image>().color = feierabendInactiveColor;
-        }
+        
+        SwitchButtonState(feierabend.activeInHierarchy, feierabendButton);
     }
 
 
@@ -173,5 +169,25 @@ public class GameManager : MonoBehaviour
     void SetTime(int index)
     {
         Time.timeScale = index;
+    }
+
+    public void SwitchButtonState(bool state, Button button)
+    {
+        Image stroke= button.transform.Find("Background").transform.Find("Stroke").GetComponent<Image>();
+        Image outerStroke = button.transform.Find("Background").transform.Find("OuterStroke").GetComponent<Image>();
+        Image fill= button.transform.transform.Find("Background").Find("Fill").GetComponent<Image>();
+        
+        if (state)
+        {
+            stroke.color = black;
+            outerStroke.color = yellow;
+            fill.color = yellow;
+        }
+        else
+        {
+            stroke.color = yellow;
+            outerStroke.color = black;
+            fill.color = black;
+        }
     }
 }
