@@ -50,7 +50,7 @@ public class TrafficDensity : MonoBehaviour
         _trafficJamLimit = _trafficDesnityManager.trafficJamLimit;*/
 
         _renderer = GetComponent<MeshRenderer>();
-
+        _standardMaterial = _renderer.materials[0];
         _trafficDesnityManager.trafficDensities.Add(this);
     }
 
@@ -82,6 +82,7 @@ public class TrafficDensity : MonoBehaviour
         hits = Physics.RaycastAll(transform.TransformPoint(center),
             transform.TransformDirection(raycastDirection), raycastLength, layerMask);
 
+        averageSpeed = -1;
         foreach (RaycastHit hit in hits)
         {
             averageSpeed = hit.collider.gameObject.transform.parent.GetComponent<MoveCar>().speed;
@@ -94,7 +95,7 @@ public class TrafficDensity : MonoBehaviour
         while (true)
         {
             // IMPORTANT! Colors can't go from green immediately to red!! Only one step at a time
-            yield return new WaitForSeconds(4f);
+            
             if (averageSpeed/maxSpeed > .95f)
             {
                 _activeMaterial = _lightTrafficMat;
@@ -119,10 +120,13 @@ public class TrafficDensity : MonoBehaviour
             {
                 _activeMaterial = _trafficChaosMat;
             }
-
+            if(averageSpeed==-1)
+                _activeMaterial = _lightTrafficMat;
+            
             Material[] materials = _renderer.materials;
             materials[0] = _activeMaterial;
             _renderer.materials = materials;
+            yield return new WaitForSeconds(4f);
         }
     }
 

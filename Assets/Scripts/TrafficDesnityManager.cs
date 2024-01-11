@@ -11,6 +11,10 @@ public class TrafficDesnityManager : MonoBehaviour
     public List<TrafficDensity> trafficDensities = new List<TrafficDensity>();
 
     public Material whiteMaterial, groundMaterial;
+
+    public Texture whiteTree, normalTree;
+    public Material mainTree;
+
     public Material noTrafficMat, // azure
         lightTrafficMat, // green
         moderateTrafficMat, // yellow
@@ -18,21 +22,15 @@ public class TrafficDesnityManager : MonoBehaviour
         trafficJamMat, // red
         trafficChaosMat; // darkRed
 
-    public int noTrafficLimit, // azure
-        lightTrafficLimit, // green
-        moderateTrafficLimit, // yellow
-        heavyTrafficLimit, // orange
-        trafficJamLimit; // red
-    
 
     public Transform housesParent;
     private List<Material> _housesStandard = new List<Material>();
-    
+
     public Transform treeParent;
     private List<Material> _treeStandard = new List<Material>();
 
     public Transform ground;
-    
+
     private void Awake()
     {
         instance = this;
@@ -42,14 +40,51 @@ public class TrafficDesnityManager : MonoBehaviour
     {
         for (int i = 0; i < housesParent.childCount; i++)
             _housesStandard.Add(housesParent.GetChild(i).GetComponent<MeshRenderer>().materials[0]);
-        for (int i = 0; i < treeParent.childCount; i++)
-            _treeStandard.Add(treeParent.GetChild(i).GetComponent<MeshRenderer>().materials[0]);
-        
+        /*for (int i = 0; i < treeParent.childCount; i++)
+            _treeStandard.Add(treeParent.GetChild(i).GetComponent<MeshRenderer>().materials[0]);*/
+        mainTree.SetTexture("_MainTex", normalTree);
     }
 
     public void SwitchOnOff()
     {
         _showingDensity = !_showingDensity;
+
+        if (_showingDensity)
+        {
+            // Change Houses
+            for (int i = 0; i < housesParent.childCount; i++)
+            {
+                Material[] materials = housesParent.GetChild(i).GetComponent<MeshRenderer>().materials;
+                materials[0] = whiteMaterial;
+                housesParent.GetChild(i).GetComponent<MeshRenderer>().materials = materials;
+            }
+            
+            // Change Tree
+            mainTree.SetTexture("_MainTex", whiteTree);
+
+            // Change Ground
+            Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
+            materialsGround[0] = whiteMaterial;
+            ground.GetComponent<MeshRenderer>().materials = materialsGround;
+        }
+        else
+        {
+            // Change Houses
+            for (int i = 0; i < housesParent.childCount; i++)
+            {
+                Material[] materials = housesParent.GetChild(i).GetComponent<MeshRenderer>().materials;
+                materials[0] = _housesStandard[i];
+                housesParent.GetChild(i).GetComponent<MeshRenderer>().materials = materials;
+            }
+            
+            // Change Tree
+            mainTree.SetTexture("_MainTex", normalTree);
+            
+            // Change Ground
+            Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
+            materialsGround[0] = groundMaterial;
+            ground.GetComponent<MeshRenderer>().materials = materialsGround;
+        }
 
         foreach (TrafficDensity trafficDensity in trafficDensities)
         {
@@ -63,52 +98,11 @@ public class TrafficDesnityManager : MonoBehaviour
             {
                 // Change Roads
                 trafficDensity.changingColors = StartCoroutine(trafficDensity.ChangeColors());
-                
-                // Change Houses
-                for (int i = 0; i < housesParent.childCount; i++)
-                {
-                    Material[] materials = housesParent.GetChild(i).GetComponent<MeshRenderer>().materials;
-                    materials[0] = whiteMaterial;
-                    housesParent.GetChild(i).GetComponent<MeshRenderer>().materials = materials;
-                }
-                
-                // Change Trees
-                for (int i = 0; i < treeParent.childCount; i++)
-                {
-                    Material[] materials = treeParent.GetChild(i).GetComponent<MeshRenderer>().materials;
-                    materials[0] = whiteMaterial;
-                    treeParent.GetChild(i).GetComponent<MeshRenderer>().materials = materials;
-                }
-                // Change Ground
-                
-                Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
-                materialsGround[0] = whiteMaterial;
-                ground.GetComponent<MeshRenderer>().materials = materialsGround;
             }
             else
             {
                 // Change Roads
                 trafficDensity.SetStandardMaterial();
-                
-                // Change Houses
-                for (int i = 0; i < housesParent.childCount; i++)
-                {
-                    Material[] materials = housesParent.GetChild(i).GetComponent<MeshRenderer>().materials;
-                    materials[0] = _housesStandard[i];
-                    housesParent.GetChild(i).GetComponent<MeshRenderer>().materials = materials;
-                }
-
-                // Change Trees
-                for (int i = 0; i < treeParent.childCount; i++)
-                {
-                    Material[] materials = treeParent.GetChild(i).GetComponent<MeshRenderer>().materials;
-                    materials[0] = _treeStandard[i];
-                    treeParent.GetChild(i).GetComponent<MeshRenderer>().materials = materials;
-                }
-                // Change Ground
-                Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
-                materialsGround[0] = groundMaterial;
-                ground.GetComponent<MeshRenderer>().materials = materialsGround;
             }
         }
     }
