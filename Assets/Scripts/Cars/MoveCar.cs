@@ -410,9 +410,9 @@ public class MoveCar : MonoBehaviour
         //Timer for new pathfinding activates every 10 seconds
         if (pathfindingTimer == 10f) {
             //Look 4 Waypoints ahead, to detect traffic jams
-            if (travelRoute[3] != null) {
+            if (travelRoute[2] != null) {
                 //If timecost bigger than 17.5 => traffic jam => new pathfinding
-                if (travelRoute[3].GetComponent<Waypoint>().timeCost > 17.5) {
+                if (travelRoute[2].GetComponent<Waypoint>().timeCost > 12.5) {
                     this.GetComponent<Pathfinding>().calculateRoute();
                 }
             }

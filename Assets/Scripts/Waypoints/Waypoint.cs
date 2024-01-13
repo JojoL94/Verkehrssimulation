@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 //Single Waypoint linked to the Waypoints directly behind and in front of
@@ -24,6 +25,8 @@ public class Waypoint : MonoBehaviour
 
     //Total cost
     public float fCost;
+
+    public float timer;
 
 
 
@@ -57,6 +60,17 @@ public class Waypoint : MonoBehaviour
             //Else, calculate new gCosts (distance of current Waypoint to start point)
             neighbour.GetComponent<Waypoint>().gCost = Vector3.Distance(this.transform.localPosition, neighbour.localPosition);
                
+        }
+    }
+
+    public void Update()
+    {
+        //Every 10 seconds, reset timeCost
+        timer += Time.deltaTime;
+
+        if (timer >= 10f) {
+            timeCost = 0f;
+            timer = 0f;
         }
     }
 }
