@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
                             Transform mainWaypoint = streetCollection.GetChild(x).GetChild(y);
 
                             //Connect all Main Waypoints
-                            if (Physics.Raycast(mainWaypoint.transform.position, mainWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance, LayerMask.GetMask("MainWaypoint"))
+                            if (Physics.Raycast(mainWaypoint.transform.position, mainWaypoint.transform.TransformDirection(Vector3.right), out hit, RaycastDistance *2, LayerMask.GetMask("MainWaypoint"))
                             && mainWaypoint.transform.parent != hit.transform.parent)
                             {
                                 mainWaypoint.GetComponent<Waypoint>().neighbours.Add(hit.collider.transform);

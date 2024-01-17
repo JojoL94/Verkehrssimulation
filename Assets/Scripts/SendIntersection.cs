@@ -15,14 +15,15 @@ public class SendIntersection : MonoBehaviour
     public bool hasCollision = false;
     public GameObject hittingCar;
 
-    public LayerMask layerMask;
+    private LayerMask layerMask;
 
-    public float offset;
+    public float offset = 1f;
     
 
     private void Start()
     {
         layerMask = LayerMask.GetMask("Car");
+        offset = 1f;
     }
 
     private void Update()

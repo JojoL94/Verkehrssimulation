@@ -31,7 +31,7 @@ public class MoveCar : MonoBehaviour
     public float maxSpeedOffset;
     //Base acceleration speed of car in Unity units per second
     //It determines, along with Time.deltaTime, the increase of acceeration
-    private float baseAcceleration = 100f;
+    private float baseAcceleration = 70f;
     //Current speed of car
     public float speed = 0f;
     public GameObject lastLocalWaypoint, nextLocalWaypoint, next2LocalWaypoint;
@@ -126,7 +126,7 @@ public class MoveCar : MonoBehaviour
                 timer = 0f;
             }
 
-            float tmpBrakeDeceleration = brakeDeceleration + (brakeDeceleration * brakeDecelerationModifier/100);
+            float tmpBrakeDeceleration = brakeDeceleration + (brakeDeceleration * brakeDecelerationModifier/10f);
             // Verringere die Geschwindigkeit basierend auf der Bremsdeceleration
             speed -= (speed +(tmpBrakeDeceleration * Time.deltaTime)) * Time.deltaTime;
 
