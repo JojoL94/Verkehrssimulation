@@ -83,7 +83,7 @@ public class SpawnCar : MonoBehaviour
     {
         //Initialize currentTime as spawnCountdown
         currentTime = spawnCountdown;
-        maxCars = gameManager.GetComponent<GameManager>().maxCars;
+        //maxCars = gameManager.GetComponent<GameManager>().maxCars;
         startSpawnCar();
     }
 
@@ -106,7 +106,7 @@ public class SpawnCar : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(spawnCountdown, spawnCountdown * 4));
             if (lastCarSpawned == null || Vector3.Distance(lastCarSpawned.position, spawnPoint.position) > minDistanceToNextCar)
             {
-                if (carCollection.childCount < maxCars)
+                if (carCollection.childCount < GameManager.instance.maxCars)
                 {
                     //Spawn random car
                     spawnCar();

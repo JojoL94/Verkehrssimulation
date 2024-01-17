@@ -30,7 +30,7 @@ public class TrafficDesnityManager : MonoBehaviour
     public Image colorFeedbackImg;
     public Button colorButton;
 
-    public Transform ground;
+    public Transform[] grounds;
 
     private void Awake()
     {
@@ -63,10 +63,14 @@ public class TrafficDesnityManager : MonoBehaviour
             // Change Tree
             mainTree.SetTexture("_MainTex", whiteTree);
 
-            // Change Ground
-            Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
-            materialsGround[0] = whiteMaterial;
-            ground.GetComponent<MeshRenderer>().materials = materialsGround;
+            foreach(Transform ground in grounds)
+            {
+                // Change Ground
+                Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
+                materialsGround[0] = whiteMaterial;
+                ground.GetComponent<MeshRenderer>().materials = materialsGround;
+            }
+            
             
         }
         else
@@ -81,11 +85,14 @@ public class TrafficDesnityManager : MonoBehaviour
             
             // Change Tree
             mainTree.SetTexture("_MainTex", normalTree);
-            
-            // Change Ground
-            Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
-            materialsGround[0] = groundMaterial;
-            ground.GetComponent<MeshRenderer>().materials = materialsGround;
+
+            foreach (Transform ground in grounds)
+            {
+                // Change Ground
+                Material[] materialsGround = ground.GetComponent<MeshRenderer>().materials;
+                materialsGround[0] = groundMaterial;
+                ground.GetComponent<MeshRenderer>().materials = materialsGround;
+            }
         }
 
         foreach (TrafficDensity trafficDensity in trafficDensities)
