@@ -491,16 +491,21 @@ public class MoveCar : MonoBehaviour
 
             //Rotate Object towards driving direction
             // Führe eine lineare Interpolation zwischen der aktuellen Rotation und der Zielrotation durch
-            meshOfCar.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offSetTargetAnimateRotation, Time.deltaTime * rotationAnimationSpeed);
+            meshOfCar.transform.rotation = Quaternion.Lerp(meshOfCar.transform.rotation, targetRotation * offSetTargetAnimateRotation, Time.deltaTime * rotationAnimationSpeed);
         }
         else
         {
             Quaternion offSetTargetAnimateRotation = Quaternion.Euler(0f, -90f, maxRotationAngle);
             if (doBrake)
             {
+                /*
+                if (meshOfCar.transform.rotation.z < )
+                {
+                    
+                }*/
                 //Rotate Object towards driving direction
                 // Führe eine lineare Interpolation zwischen der aktuellen Rotation und der Zielrotation durch
-                meshOfCar.transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation * offSetTargetAnimateRotation, Time.deltaTime * rotationAnimationSpeed);
+                meshOfCar.transform.rotation = Quaternion.Lerp(meshOfCar.transform.rotation, targetRotation * offSetTargetAnimateRotation, Time.deltaTime * rotationAnimationSpeed);
             }
             else
             {

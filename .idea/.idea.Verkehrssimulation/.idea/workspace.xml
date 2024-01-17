@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrafficDesnityManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TrafficDesnityManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +14,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e97d84204f8d4aef92b538c5bab948f1172800/e1/d7350aa2/Material.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cars/CarDetection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TrafficDensity.cs" root0="FORCE_HIGHLIGHTING" />
@@ -52,15 +45,15 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\phili\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\luetzj\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\luetzj\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\luetzj\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Programme\Unity\Editor\2022.3.7f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.7f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\luetzj\Documents\GitHub\Verkehrssimulation -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\luetzj\Documents\GitHub\Verkehrssimulation" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -140,6 +133,7 @@
       <workItem from="1703936128527" duration="5090000" />
       <workItem from="1704900873971" duration="3189000" />
       <workItem from="1704952381180" duration="2131000" />
+      <workItem from="1704973339561" duration="2720000" />
     </task>
     <servers />
   </component>
