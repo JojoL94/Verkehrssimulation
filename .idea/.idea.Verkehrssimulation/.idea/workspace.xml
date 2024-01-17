@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="" />
+    <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrafficDensity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TrafficDensity.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

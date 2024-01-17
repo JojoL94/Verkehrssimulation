@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
     public Color yellow, black;
 
     public static GameManager instance;
+
+    // Displays maxCars
+    public TextMeshProUGUI maxCarsText;
+    
     //In runtime connect all Waypoints before start
     private void Awake()
     {
@@ -167,6 +171,8 @@ public class GameManager : MonoBehaviour
         {
             SetTime(4);
         }
+
+        maxCarsText.text = maxCars.ToString();
     }
 
     void SetTime(int index)

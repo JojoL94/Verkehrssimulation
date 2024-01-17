@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6423240}
   - component: {fileID: 5584662324739909435}
   - component: {fileID: 7127828551194660265}
+  - component: {fileID: 1984956923529668483}
   m_Layer: 0
   m_Name: SingleLane Join SingleLane right
   m_TagString: Untagged
@@ -159,6 +160,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1984956923529668483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b40f20daf26974dbf1d2c2863814d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  raycastLength: 0
+  center: {x: 0, y: 0, z: 0}
+  averageSpeed: 0
+  rotationAngle: 0
+  hits: []
 --- !u!1 &152531411968447559
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,9 +301,6 @@ MonoBehaviour:
   raycastDistance: 4.5
   hasCollision: 0
   hittingCar: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
   offset: 0
 --- !u!1 &202474634108743696
 GameObject:
@@ -405,9 +423,6 @@ MonoBehaviour:
   raycastDistance: 4.5
   hasCollision: 0
   hittingCar: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
   offset: 0
 --- !u!1 &4610955034011705887
 GameObject:
@@ -530,9 +545,6 @@ MonoBehaviour:
   raycastDistance: 4.5
   hasCollision: 0
   hittingCar: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
   offset: 0
 --- !u!1001 &136154254583141250
 PrefabInstance:

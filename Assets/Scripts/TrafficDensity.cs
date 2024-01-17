@@ -30,7 +30,7 @@ public class TrafficDensity : MonoBehaviour
 
     public Coroutine changingColors;
 
-    private float averageSpeed;
+    public float averageSpeed;
     private float maxSpeed;
     public float rotationAngle = 0f;
     
@@ -55,6 +55,8 @@ public class TrafficDensity : MonoBehaviour
         _trafficDesnityManager.trafficDensities.Add(this);
 
         averageSpeed = -1;
+
+        StartCoroutine(UpdateOneSecond());
     }
 
     //private RaycastHit[] hits;
@@ -70,22 +72,7 @@ public class TrafficDensity : MonoBehaviour
                 hits.Add(other.gameObject);
             }
 
-            averageSpeed = -1;
-            if (hits.Count > 0)
-            {
-                for (int y = 0; y < hits.Count; y++)
-                {
-                    if (hits[y] == null)
-                    {
-                        hits.Remove(hits[y]);
-                    }
-                    else
-                    {
-                        averageSpeed = hits[y].GetComponent<MoveCar>().speed;
-                        maxSpeed = hits[y].GetComponent<MoveCar>().maxSpeed;
-                    }
-                }
-            }
+            
         }
     }
 
@@ -134,9 +121,34 @@ public class TrafficDensity : MonoBehaviour
             averageSpeed = hit.collider.gameObject.transform.parent.GetComponent<MoveCar>().speed;
             maxSpeed = hit.collider.gameObject.transform.parent.GetComponent<MoveCar>().maxSpeed;
         }*/
-
-               
     }
+
+    IEnumerator UpdateOneSecond()
+    {
+        yield return new WaitForSeconds(Random.Range(0f, 2f));
+        while (true)
+        {
+            averageSpeed = -1;
+            if (hits.Count > 0)
+            {
+                for (int y = 0; y < hits.Count; y++)
+                {
+                    if (hits[y] == null)
+                    {
+                        hits.Remove(hits[y]);
+                    }
+                    else
+                    {
+                        averageSpeed = hits[y].GetComponent<MoveCar>().speed;
+                        maxSpeed = hits[y].GetComponent<MoveCar>().maxSpeed;
+                    }
+                }
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+    }
+    
 
     public IEnumerator ChangeColors()
     {

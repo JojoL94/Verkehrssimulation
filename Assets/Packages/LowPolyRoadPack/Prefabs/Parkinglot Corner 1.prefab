@@ -127,6 +127,7 @@ MonoBehaviour:
     m_Bits: 8
   raycastLength: 7
   center: {x: -7.42, y: 0.75, z: -2.53}
+  averageSpeed: 0
   rotationAngle: 0
   hits: []
 --- !u!65 &6504716027078875383
