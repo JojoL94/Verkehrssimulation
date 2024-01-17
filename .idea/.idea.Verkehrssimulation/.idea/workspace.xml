@@ -6,10 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2e2c547e-4476-4062-8ac5-f865bc8bde97" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Verkehrssimulation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Parkinglot Corner 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/LowPolyRoadPack/Prefabs/Parkinglot Corner 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Polybrush Data/Prefab Palette/PrefabPalette-Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polybrush Data/Prefab Palette/PrefabPalette-Default.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototyping.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cars/MoveCar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cars/SpawnCar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cars/SpawnCar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SendIntersection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SendIntersection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TrafficDesnityManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TrafficDesnityManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,27 +41,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\phili\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\phili\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\phili\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Programme\Unity\Editor\2022.3.7f1\Editor\Unity.exe" />
@@ -139,7 +143,8 @@
       <workItem from="1703854314167" duration="1806000" />
       <workItem from="1703936128527" duration="5090000" />
       <workItem from="1704900873971" duration="3189000" />
-      <workItem from="1704952381180" duration="2131000" />
+      <workItem from="1704952381180" duration="2728000" />
+      <workItem from="1705472018939" duration="1497000" />
     </task>
     <servers />
   </component>

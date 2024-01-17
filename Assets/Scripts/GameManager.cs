@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     //Max number of cars driving at the same time
     public float maxCars = 30;
     public float currentCars = 0;
+
+    public TMP_InputField newMaxCars;
 
     public int carUID = 0;
 
@@ -189,5 +192,10 @@ public class GameManager : MonoBehaviour
             outerStroke.color = black;
             fill.color = black;
         }
+    }
+
+    public void ChangeMaxCars()
+    {
+        maxCars = int.Parse(newMaxCars.text);
     }
 }
