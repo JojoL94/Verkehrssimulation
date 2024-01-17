@@ -448,7 +448,7 @@ public class MoveCar : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(transform.position, nextLocalWaypointPosition) < 0.5)
+        if (Vector3.Distance(transform.position, nextLocalWaypointPosition) < 1)
         {
             int lastWaypointIndex = int.Parse(Regex.Replace(lastLocalWaypoint.name, "[^0-9]", ""));
 
