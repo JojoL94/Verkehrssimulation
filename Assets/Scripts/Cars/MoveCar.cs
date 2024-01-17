@@ -15,9 +15,9 @@ public class MoveCar : MonoBehaviour
     //Mesh of Car
     private Transform meshOfCar;
     //Variables for animate the Car
-    private float maxRotationAngle = -5f;
+    private float maxRotationAngle = -4f;
 
-    private float rotationAnimationSpeed = 10f;
+    private float rotationAnimationSpeed = 5f;
     //Spawn point of car
     public Transform origin;
     //End point of car
