@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2365158}
   - component: {fileID: 6476978}
   - component: {fileID: 3290625978065026938}
+  - component: {fileID: 6095147786395169469}
+  - component: {fileID: 488422683419245925}
   m_Layer: 0
   m_Name: SingleLane S-Curve
   m_TagString: Untagged
@@ -128,6 +130,55 @@ MonoBehaviour:
   raycastLength: 12
   center: {x: 1.55, y: 0.75, z: -9.9}
   rotationAngle: -55.3
+  hits: []
+--- !u!65 &6095147786395169469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9, y: 2.6250005, z: 9}
+  m_Center: {x: 5, y: 0.75, z: -4.999999}
+--- !u!54 &488422683419245925
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149268}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &620729095160300270
 PrefabInstance:
   m_ObjectHideFlags: 0

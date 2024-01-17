@@ -91,6 +91,8 @@ public class MoveCar : MonoBehaviour
     public GameObject look;
     public bool isInIntersection;
 
+    public TrafficDensity trafficDensity;
+
     //Fixed Update is used for physics calculations that aren't linear
     private void FixedUpdate()
     {
@@ -470,6 +472,7 @@ public class MoveCar : MonoBehaviour
                 //...Despawn car
                 gameManager.GetComponent<GameManager>().currentCars--;
                 transform.root.GetComponent<Datenvisualisierung>().RemoveCarInDatenVisualisierung(GetComponent<MoveCar>());
+                trafficDensity.hits.Remove(this.gameObject);
                 Destroy(this.gameObject);
             }
         }

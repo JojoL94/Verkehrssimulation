@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -52,12 +53,56 @@ public class TrafficDensity : MonoBehaviour
         _renderer = GetComponent<MeshRenderer>();
         _standardMaterial = _renderer.materials[0];
         _trafficDesnityManager.trafficDensities.Add(this);
+
+        averageSpeed = -1;
     }
 
-    private RaycastHit[] hits;
-    void OnDrawGizmos()
+    //private RaycastHit[] hits;
+    public List<GameObject> hits = new List<GameObject>();
+
+    private void OnTriggerEnter(Collider other)
     {
-        Vector3 raycastDirection = Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.right;
+        if (other.CompareTag("Car")) 
+        {
+            //Check if car is already inside hist to prevent duplicates
+            if (!hits.Contains(other.gameObject)) {
+                other.gameObject.GetComponent<MoveCar>().trafficDensity = this.GetComponent<TrafficDensity>();
+                hits.Add(other.gameObject);
+            }
+
+            averageSpeed = -1;
+            if (hits.Count > 0)
+            {
+                for (int y = 0; y < hits.Count; y++)
+                {
+                    if (hits[y] == null)
+                    {
+                        hits.Remove(hits[y]);
+                    }
+                    else
+                    {
+                        averageSpeed = hits[y].GetComponent<MoveCar>().speed;
+                        maxSpeed = hits[y].GetComponent<MoveCar>().maxSpeed;
+                    }
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Car"))
+        {
+            if (other.gameObject != null) 
+            {
+                hits.Remove(other.gameObject);
+            }             
+        }
+    }
+
+        void OnDrawGizmos()
+    {
+        /**Vector3 raycastDirection = Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.right;
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.TransformPoint(center), transform.TransformDirection(raycastDirection) * raycastLength);
@@ -69,25 +114,28 @@ public class TrafficDensity : MonoBehaviour
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawSphere(hit.point, 0.2f);
-        }
+        }*/
     }
 
     void Update()
     {
-        Vector3 raycastDirection = Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.right;
+        /**Vector3 raycastDirection = Quaternion.Euler(0f, rotationAngle, 0f) * Vector3.right;
 
         Debug.DrawRay(transform.TransformPoint(center), transform.TransformDirection(raycastDirection) * raycastLength,
             color);
 
         hits = Physics.RaycastAll(transform.TransformPoint(center),
             transform.TransformDirection(raycastDirection), raycastLength, layerMask);
+        */
 
-        averageSpeed = -1;
-        foreach (RaycastHit hit in hits)
+        /**averageSpeed = -1;
+        /**foreach (RaycastHit hit in hits) 
         {
             averageSpeed = hit.collider.gameObject.transform.parent.GetComponent<MoveCar>().speed;
             maxSpeed = hit.collider.gameObject.transform.parent.GetComponent<MoveCar>().maxSpeed;
-        }
+        }*/
+
+               
     }
 
     public IEnumerator ChangeColors()

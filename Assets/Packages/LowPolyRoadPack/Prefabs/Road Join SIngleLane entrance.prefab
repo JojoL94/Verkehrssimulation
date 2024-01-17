@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2360210}
   - component: {fileID: 6476504}
   - component: {fileID: 3650676069962563311}
+  - component: {fileID: 4204138068299534400}
+  - component: {fileID: 5402882930044243257}
   m_Layer: 0
   m_Name: Road Join SIngleLane entrance
   m_TagString: Untagged
@@ -129,6 +131,55 @@ MonoBehaviour:
   raycastLength: 7.3
   center: {x: 0, y: 0.75, z: 2.43}
   rotationAngle: 0
+  hits: []
+--- !u!65 &4204138068299534400
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7, y: 1, z: 4}
+  m_Center: {x: 3.7499979, y: 0.75, z: 2.5}
+--- !u!54 &5402882930044243257
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128486}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &169111818305751611
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +333,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 5638693555876512128}
   sendCars: {fileID: 246654269052292162}
-  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -654,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c06db965f940bd4795a4ef896d33cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastDistance: 4.5
   hasCollision: 0
   hittingCar: {fileID: 0}
   layerMask:
@@ -883,6 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c06db965f940bd4795a4ef896d33cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastDistance: 4.5
   hasCollision: 0
   hittingCar: {fileID: 0}
   layerMask:
@@ -937,7 +989,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookTrigger: {fileID: 7623219086142687873}
   sendCars: {fileID: 7095030012586834723}
-  rightOfWay: {fileID: 0}
   behaviour: 0
   lookCar: {fileID: 0}
   sendCar: {fileID: 0}
@@ -1066,6 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c06db965f940bd4795a4ef896d33cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastDistance: 4.5
   hasCollision: 0
   hittingCar: {fileID: 0}
   layerMask:
