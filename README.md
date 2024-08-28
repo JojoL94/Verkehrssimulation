@@ -9,7 +9,7 @@ Verwendung
 - Um maximale Anzahl an Autos zu ändern, Eingabe der Zahl Textfeld unterhalb "max Cars", dann Enter drücken
 - Kamerasteuerung mit WASD, Rechtsklick zum Umschauen und Mausrad zum rein-/rauszoomen
 
-Verwendete Assets, Codefragmente, Inspiration:
+
 Inspiration: 
 - Cities Skyline
 
