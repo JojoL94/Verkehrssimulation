@@ -1,4 +1,6 @@
-Besonderheiten des Projekts (z.B. wie es gestartet und bedient werden muss):
+Vorschau: https://youtu.be/H76r12-7WFI
+
+Verwendung
 - Projekt in Github herunterladen, in Unity öffnen, dann im Unity Editor über "Play" starten
 - Linksklick auf "Color" für Anzeige der Verkehrsdichte
 => Weiterer Linksklick zum Deaktivieren
@@ -21,3 +23,4 @@ Assets:
 - Rounded Corners - Coco Code package https://www.patreon.com/posts/rounded-corners-54505463
 - Road sign - Big pack https://assetstore.unity.com/packages/3d/props/industrial/road-sign-big-pack-139858
 - City Traffic Lights Pack [FREE] - Low Poly 3D Art https://assetstore.unity.com/packages/3d/environments/urban/city-traffic-lights-pack-free-low-poly-3d-art-154053
+
